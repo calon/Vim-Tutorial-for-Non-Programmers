@@ -781,6 +781,15 @@ Buffer（缓冲区）、Window（窗口）和 Tab-page（标签页）。
 如果在配置文件中设置了 `hidden` 参数，则退出窗口时，缓冲区还保留在内存中。
 也就是说，如果退出 file1 的展示窗口，file1 的缓冲区仍在缓冲区列表中。
 
+`:only` 命令可以只保留当前窗口，关闭其他所有窗口。
+
+光标在多窗口之间跳转可以在普通模式下使用 `Ctrl-W` `h/j/k/l` 指令。
+移动窗口的相对位置，左下上右的指令改为大写：`Ctrl-W` `H/J/K/L
+换成 `Ctrl-W` `+/-/</>` 则可以调整当前窗口的高度和宽度。
+以 `Ctrl-W` 开头表示这个组合快捷键与 Window 窗口有关。
+
+如果更习惯使用鼠标操作，你也可以直接用鼠标点击窗口移动光标，或者将鼠标移动到窗口边缘拖动来改变窗口大小。
+
 #### 标签页
 
 一般情况下 Vim 的标签页长相普通：
@@ -804,7 +813,6 @@ Buffer（缓冲区）、Window（窗口）和 Tab-page（标签页）。
 两个命令可以分别简写为 `:sp` 和 `:vs`，也可以分别使用快捷键实现：
 水平分屏：`Ctrl-W` `s` 或者 `Ctrl-W` `Ctrl-S`
 垂直分屏：`Ctrl-W` `v` 或者 `Ctrl-W` `Ctrl-V`
-`Ctrl-W` 表示这个组合快捷键与 Window 窗口有关。
 
 使用 `:q` 命令退出当前窗口来结束分屏。
 
@@ -857,11 +865,42 @@ Buffer（缓冲区）、Window（窗口）和 Tab-page（标签页）。
 `za` 指令可以不断切换打开还是关闭光标当前位置的折叠。
 为方便起见，建议与普通模式下的空格 `Space` 快捷键绑定。
 
-基于折叠还有一些高级功能，例如在折叠间移动，针对打开或关闭的折叠执行命令等等。
+基于折叠还有一些高级功能，例如在折叠间移动，关闭或打开某一级别以上的折叠，针对打开或关闭的折叠执行命令等等。具体可参考 *folding* 部分的帮助文档。
 
 ### 语法高亮
 
-### 自动补全
+Vim 根据文件后缀名自动识别不同语法类型的文件并应用语法高亮规则，例如文件类型为 Markdown 时，自动应用 Markdown 的语法高亮：
+
+![](images/syntax_highlight.png)
+
+并且已经内置大部分常见的语法高亮规则。
+[官方网站高亮语法区](http://www.vim.org/scripts/script_search_results.php?keywords=&script_type=syntax&order_by=rating&direction=descending&search=search)也会发布其他用户贡献的语法高亮脚本。
+
+如果觉得当前的文件类型识别不正确，可以用 `:set filetype` 命令手工指定文件类型：
+`:set filetype=markdown`
+这个时候输入 `:set syntax?` 命令（注意最后的问号），会显示当前的语法高亮规则就是匹配的 markdown 类型：
+
+![](images/syntax_highlight_2.png)
+
+如果不想更改文件类型而只更改语法高亮规则，比如对 html 后缀的文件应用 Markdown 语法高亮规则，可以直接设置语法类型：
+`:set syntax=markdown`
+
+有时候应用语法规则会影响 Vim 效率，有的 Vim 并不会默认打开语法高亮功能，这就需要用户自己来操作。
+关闭和打开语法高亮的命令分别是： `:syntax off` 和 `:syntax on`
+
+### 关键字补全
+
+最简单的补全功能，是基于当前文件中已经输入的词语，对当前字符串进行补全（*compl-generic*）。
+在插入模式下输入 `Ctrl-P` 或 `Ctrl-N` 会向前或向后搜寻起始字符串匹配的关键字。
+
+例如，之前已经输入过“相呴以湿”、“相濡以沫”，再次输入“相”字时，按下 `Ctrl-P` 就会出现关键字补全的可选项。
+因为按向前搜索的顺序，“相濡以沫”更接近，因此默认选中的是这个词：
+
+![](images/auto_complete.png)
+
+如果默认选中的结果不正确，再多按几次 `Ctrl-P` 可以循环选择。
+
+
 
 ### 差异比对
 gvim -d file1 file2
@@ -936,6 +975,8 @@ vimer.cn
 Ctrl-A / Ctrl-X
 对齐 Tabularize
 自动缩进和重排版
+缩进调整 <> Ctrl-T Ctrl-D
+删除光标前文字 Ctrl-U
 大小写切换
 前后跳转
 自定义折叠
@@ -945,5 +986,6 @@ Unite 菜单
 按下 `o` 和 `O` 可以在列块选择的范围四角跳转
 Gundo 多分支撤销
 拼接两行
+重复上一行 Ctrl-Y Ctrl-X Ctrl-L
 
 http://vim.wikia.com/wiki/Vim_Tips_Wiki
