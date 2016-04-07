@@ -189,13 +189,15 @@ a: around，围绕在外部
 p: paragraph，段落
 delete around paragraph.
 
-注意，Vim 并不能按照中文文本对象规则识别中文字符和标点，比如在处理如下示例文字时：
+注意，Vim 原生环境不能按照中文文本对象规则识别中文字符和标点，比如在处理如下示例文字时：
 
 ![](images/text_objects_example_2.png)
 
 粉红色部分会识别为一个单词，理想情况下应该按中文含义分词再选择，显然目前还没有编辑器能够做到这点。
 淡紫色部分会识别为整个句子，这就错得更加离谱了，原因是 Vim 对逗号、分号、句号一视同仁。
 淡蓝色部分还是会识别为段落，因为段落是根据换行判断的，中英文没有区别。
+
+借助[插件](https://github.com/kana/vim-textobj-user)能扩展 Vim 对文本对象的支持。
 
 ### 做好一件事
 Vim 只专注做一件事情——纯文本编辑器，不考虑编辑富文本，不插入图片，更没有成为“操作系统”的野心。
@@ -613,7 +615,7 @@ In the whole range of document, substitute text string that matches pattern A wi
 
 用于替换的模式和目标字符串方面，有几点要注意：
 一是要使用正则表达式，如使用 `\t` 表示制表符；
-二是因为每行结束跳到新行时，Windows 下的回车（`\r`）+换行（`\n`）、Unix 系统下的换行以及 Mac 系统下的回车的表示方法各不相同，所以可能出现 `^M` 类的奇怪字符。
+二是因为每行结束跳到新行时，Windows 下的回车（`\r`）+换行（`\n`）、Unix 系统下的换行以及 Mac 系统下的回车的表示方法各不相同，所以可能出现 `^M` 之类的奇怪字符。
 这时如果要匹配这个字符替换为正常的回车换行，可以在替换时用 `Ctrl-Q` `Ctrl-M` 或 `Ctrl-Q` `<Enter>` 打出来（还记得吗？gVim 中 `Ctrl-Q` 默认替代了 `Ctrl-V` 快捷键，所以在其他平台应该用 `Ctrl-V`）。
 三是匹配回车换行时使用 `\n`，但是替换成回车换行请用 `\r`  或 `Ctrl-Q` `<Enter>`。
 
@@ -672,6 +674,7 @@ Vim 写文件时，会同时将撤销历史写入撤销文件。
 
 `:set wrap` 和 `:set nowrap` 命令可以切换是否自动换行。
 `:set number` 和 `:set nonumber` 命令可以切换可以是否现实行号。
+建议在配置文件中为此类常用命令配置快捷键映射，不用总是手工敲命令。
 
 ### 屏幕字体渲染
 
@@ -910,6 +913,9 @@ Vim 根据文件后缀名自动识别不同语法类型的文件并应用语法�
 
 如果默认选中的结果不正确，再多按几次 `Ctrl-P` 可以循环选择。
 
+倘若经常使用关键字补全功能，`Ctrl-P` 和 `Ctrl-N` 快捷键并不方便，可以用 SuperTab、VimCompletesMe 等插件改为按 `Tab` 和 `Shift-Tab` 选择补全选项。
+
+结合 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)、[Neocomplete](https://github.com/Shougo/neocomplete.vim)等插件， 能体验更高级的补全功能和自定义配置，如：模糊匹配、跨文档补全、语法补全、路径补全、触发条件设置、补全关键字来源设置等等，只是对非程序员来说，系统自带的补全已经基本够用了。
 
 
 ### 差异比对
