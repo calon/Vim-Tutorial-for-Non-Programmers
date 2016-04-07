@@ -920,7 +920,22 @@ Vim 根据文件后缀名自动识别不同语法类型的文件并应用语法�
 
 ### 差异比对
 gvim -d file1 file2
-]c [c
+vim -d -g file1 file2
+gvimdiff file1 file2
+
+vertical diffsplit
+vertical diffthis
+
+*scrollbind*
+
+[c ]c
+
+diffget
+diffput
+
+### 版本控制
+
+插件 [vim-gitgutter](https://github.com/airblade/vim-gitgutter) 和 [vim-signify](https://github.com/mhinz/vim-signify)
 
 ## 配置文件详解
 
