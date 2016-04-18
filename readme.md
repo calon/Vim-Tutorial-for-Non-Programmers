@@ -796,10 +796,11 @@ Buffer（缓冲区）、Window（窗口）和 Tab-page（标签页）。
 
 `:only` 命令可以只保留当前窗口，关闭其他所有窗口。
 
-光标在多窗口之间跳转可以在普通模式下使用 `Ctrl-W` `h/j/k/l` 指令。
-移动窗口的相对位置，左下上右的指令改为大写：`Ctrl-W` `H/J/K/L
-换成 `Ctrl-W` `+/-/</>` 则可以调整当前窗口的高度和宽度。
 以 `Ctrl-W` 开头表示这个组合快捷键与 Window 窗口有关。
+光标在多窗口之间跳转可以在普通模式下使用 `Ctrl-W` `h/j/k/l` 指令。
+移动窗口的相对位置，左下上右的指令改为大写：`Ctrl-W` `H/J/K/L`
+交换对调上下、左右窗口的位置，使用 `Ctrl-W` `r` 指令。
+换成 `Ctrl-W` `+/-/</>` 则可以调整当前窗口的高度和宽度。
 
 如果更习惯使用鼠标操作，你也可以直接用鼠标点击窗口移动光标，或者将鼠标移动到窗口边缘拖动来改变窗口大小。
 
@@ -915,35 +916,111 @@ Vim 根据文件后缀名自动识别不同语法类型的文件并应用语法�
 
 倘若经常使用关键字补全功能，`Ctrl-P` 和 `Ctrl-N` 快捷键并不方便，可以用 SuperTab、VimCompletesMe 等插件改为按 `Tab` 和 `Shift-Tab` 选择补全选项。
 
-结合 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)、[Neocomplete](https://github.com/Shougo/neocomplete.vim)等插件， 能体验更高级的补全功能和自定义配置，如：模糊匹配、跨文档补全、语法补全、路径补全、触发条件设置、补全关键字来源设置等等，只是对非程序员来说，系统自带的补全已经基本够用了。
+结合 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)、[Neocomplete](https://github.com/Shougo/neocomplete.vim)等插件， 能体验更高级的补全功能和自定义配置，如：模糊匹配、跨文档补全、语法补全、路径补全、触发条件设置、补全关键字来源设置等等。
+对非程序员来说，系统自带的补全已经基本够用了。
 
 
 ### 差异比对
-gvim -d file1 file2
-vim -d -g file1 file2
-gvimdiff file1 file2
 
-vertical diffsplit
-vertical diffthis
+有时候一份文档多处编写，保留了多个版本，如果没有使用专门的版本管理工具，如何比较它们的差异并快速调整呢？
+Vim 自带了差异比对的功能，使用 `gvim.exe -d file1 file2` / `vim.exe -d -g file1 file2` / `gvimdiff.exe file1 file2` 等多种方式启动 gVim，就进入差异比对模式：
 
-*scrollbind*
+[](./images/diff.png)
 
-[c ]c
+小屏幕窗口垂直分隔不方便看，启动时加 `-o` 参数可以使用水平分隔：
 
-diffget
-diffput
+[](./images/diff_2.png)
+
+有差异的部分以不同颜色标记。
+
+如果要比对已经打开的文件，可以使用 `:vertical diffsplit` 或者 `:vertical diffthis` 命令，并在分隔窗口中切换不同的文件。其中 `vertical` 表示垂直分隔窗口。
+
+比对模式下，Vim 默认开启同步滚动（*scrollbind*），这样在一个窗口中移动光标，另一个窗口中也会同步移动，省去了来回跳转的操作。
+
+使用 `[c` 和 `]c` 指令可以向前和向后跳到最近的差异点。
+
+如果确认同步修改有差异的地方，使用 `:diffget` 命令修改当前文件，使用 `:diffput` 以当前文件为准修改比对的文件。
+要是更改后自动刷新不对劲，用 `:diffupdate` 强制重新刷新试试。
 
 ### 版本控制
 
-插件 [vim-gitgutter](https://github.com/airblade/vim-gitgutter) 和 [vim-signify](https://github.com/mhinz/vim-signify)
+Vim 本身不提供版本控制功能，需要借助 Git 等版本控制工具，各种相关的插件可以实现在 Vim 中完成基本的版本控制操作，以及直接查看版本状态。
+
+插件 [fugitive](https://github.com/tpope/vim-fugitive) 和 [vim-gitgutter](https://github.com/airblade/vim-gitgutter) 专精于 Git，[vim-signify](https://github.com/mhinz/vim-signify) 则可以配合所有常见的版本控制工具使用。
 
 ## 配置文件详解
 
+之前我们有介绍过 Vim 配置文件的基本用法，为了更加顺手地使用 Vim，还需要更进一步的优化配置文件。
+以下配置的条目可以直接复制到 vimrc 文件中保存。
+
+更加个性的配置则可以在网上寻找其他人共享的配置文件、配置项目，不过强烈建议入门者不要在配置上花费太多时间，你会发现这是个时间的无底洞，会严重影响你的生产力——除非你知道自己在干什么，而且现有的配置实在难用。
+
 ### 常用配置
+
+#### 基础配置
+
+如果一时无法适应纯键盘操作，可以允许所有模式下使用鼠标：
+
+    if has('mouse')
+      set mouse=a
+    endif  
+
+#### 补全
+
+命令行补全功能挺重要，建议打开：
+`set wildmenu`
 
 #### 编码
 
-set clipboard=unnamed "与系统共剪贴板
+处理中文总是不免要和编码问题打交道，以下的配置经过长期验证，另外再加上 [fencview 插件](http://www.vim.org/scripts/script.php?script_id=1708)，日常使用甚少出现乱码情况（除非使用的中文字体有缺失）。
+
+首先作为活跃在21世纪的文本编辑器，写入文件时，文件编码请尽量默认统一使用 UTF-8：
+`set encoding=utf-8`
+
+读取和展示已有文件时，Vim 会按字符编码列表顺序尝试解码，默认从 UTF-8 编码开始，最后落到 cp936：
+`set fileencodings=utf-8,chinese,ucs-bom,gb18030,gbk,gb2312,cp936`
+
+菜单、弹出信息的语音同步改为中文（菜单配置在修改后加载），否则也可能会有乱码：
+
+    set langmenu=zh_CN.UTF-8
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+    language messages zh_CN.utf-8
+
+在 encoding 设为某种 Unicode 编码时，Unicode 字符集中某些同时在东西方语言中使用的字符，如省略号、破折号、书名号和全角引号，可以设置为与中文字符宽度一致，即 ASCII 字符的两倍宽度：
+`set ambiwidth=double`
+
+如果转换文件编码遇到问题，请输入 `:version` 命令，查看当前的 Vim 是否带 +iconv/dyn 特性编译，并寻找、下载 iconv.dll 文件放到 vim.exe 所在的目录。
+
+#### 搜索
+
+判断在 gVim 下自动开启语法高亮和搜索结果高亮：
+
+    if &t_Co > 2 || has("gui_running")
+       syntax on
+       set hlsearch
+    endif
+
+输入搜索的字符串时，可以逐字即输即查，不用等到全部输入后回车就能跳到最近的匹配处：
+`set incsearch`
+
+如果搜索的字符串全部是小写字母，就忽略大小写：
+
+    set ignorecase
+    set smartcase
+
+#### 剪贴板
+
+Vim 默认使用内置的剪贴板（寄存器）存放复制粘贴的内容，如果要与 Windows 系统共用剪贴板，需要在配置文件中加上以下内容：
+`set clipboard=unnamed`
+
+#### 缓冲区
+
+退出缓冲区时，建议选择隐藏而不是将其从内存中卸载，否则来回编辑多个缓冲区，又不想马上保存，会比较烦人，而且如果缓冲区没有操作导致有的操作失败，一定要弹出对话框提示。
+
+    set hidden
+    set confirm
+
 
 ## 插件系统
 
@@ -1020,5 +1097,18 @@ Unite 菜单
 Gundo 多分支撤销
 拼接两行
 重复上一行 Ctrl-Y Ctrl-X Ctrl-L
+
+" 进入后最大化窗口 {{{2
+if has("autocmd")
+  "autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd GUIEnter * simalt ~x
+endif
+
+" 打开文件时回到上次光标所在的位置
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \ exe "normal! g`\"" |
+     \ endif
+
 
 http://vim.wikia.com/wiki/Vim_Tips_Wiki
