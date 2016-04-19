@@ -1001,13 +1001,15 @@ Vim 本身不提供版本控制功能，需要借助 Git 等版本控制工具�
        set hlsearch
     endif
 
-输入搜索的字符串时，可以逐字即输即查，不用等到全部输入后回车就能跳到最近的匹配处：
+输入搜索的字符串时，可以逐字即输即查，不用等到全部输入后回车才跳到最近的匹配处：
 `set incsearch`
 
 如果搜索的字符串全部是小写字母，就忽略大小写：
 
     set ignorecase
     set smartcase
+
+比如搜索 `/vim` 会匹配到 vim/Vim/VIM 等等，而搜索 `Vim` 就只会匹配 Vim。
 
 #### 剪贴板
 
@@ -1021,10 +1023,14 @@ Vim 默认使用内置的剪贴板（寄存器）存放复制粘贴的内容，�
     set hidden
     set confirm
 
+更多的配置请参考其他人共享的文档，或者我的[配置文件](https://github.com/calon/vim/blob/master/_vimrc)。
+切记不要一把全部复制到自己的配置中，一定要先弄明白再取用。
 
 ## 插件系统
 
 ### 安装插件
+
+尽管 Vim 本身已经非常强大，有的人甚至不装任何插件也能如鱼得水，但有个好插件确实能事半功倍，
 
 ### Pathogen
 
@@ -1088,7 +1094,8 @@ Ctrl-A / Ctrl-X
 缩进调整 <> Ctrl-T Ctrl-D
 删除光标前文字 Ctrl-U
 大小写切换
-前后跳转
+前后跳转 Ctrl-I/O
+Ctrl-^
 自定义折叠
 模式行 modeline
 重新选择上次选择的文本
@@ -1097,6 +1104,7 @@ Unite 菜单
 Gundo 多分支撤销
 拼接两行
 重复上一行 Ctrl-Y Ctrl-X Ctrl-L
+K keyword 查看关键字释义
 
 " 进入后最大化窗口 {{{2
 if has("autocmd")
@@ -1110,5 +1118,8 @@ autocmd BufReadPost *
      \ exe "normal! g`\"" |
      \ endif
 
+:![cmd] 直接执行终端命令，选择后执行结果替换选择的部分
 
 http://vim.wikia.com/wiki/Vim_Tips_Wiki
+
+
