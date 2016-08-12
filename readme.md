@@ -741,9 +741,24 @@ Vim 的默认配色方案还是原始时代的感觉，如果你更喜欢现代�
 
 语法高亮也是和配色方案类似的配置文件，不过需要放在 `vimfiles/syntax` 目录下。
 
-Vim 已经自带了大部分常用的语法高亮文件，并且会根据文件后缀名自动启用。
-官方网站和网络上也会有大量的语法高亮文件，基本上不用担心找不到合适的。
+Vim 根据文件后缀名自动识别不同语法类型的文件并应用语法高亮规则，例如文件类型为 Markdown 时，自动应用 Markdown 的语法高亮：
 
+![](images/syntax_highlight.png)
+
+并且已经内置大部分常见的语法高亮规则。
+[官方网站高亮语法区](http://www.vim.org/scripts/script_search_results.php?keywords=&script_type=syntax&order_by=rating&direction=descending&search=search)也会发布其他用户贡献的语法高亮脚本。
+
+如果觉得当前的文件类型识别不正确，可以用 `:set filetype` 命令手工指定文件类型：
+`:set filetype=markdown`
+这个时候输入 `:set syntax?` 命令（注意最后的问号），会显示当前的语法高亮规则就是匹配的 markdown 类型：
+
+![](images/syntax_highlight_2.png)
+
+如果不想更改文件类型而只更改语法高亮规则，比如对 html 后缀的文件应用 Markdown 语法高亮规则，可以直接设置语法类型：
+`:set syntax=markdown`
+
+有时候应用语法规则会影响 Vim 效率，有的 Vim 并不会默认打开语法高亮功能，这就需要用户自己来操作。
+关闭和打开语法高亮的命令分别是： `:syntax off` 和 `:syntax on`
 
 ## 较现代的文本编辑功能
 
@@ -881,27 +896,6 @@ Buffer（缓冲区）、Window（窗口）和 Tab-page（标签页）。
 
 基于折叠还有一些高级功能，例如在折叠间移动，关闭或打开某一级别以上的折叠，针对打开或关闭的折叠执行命令等等。具体可参考 *folding* 部分的帮助文档。
 
-### 语法高亮
-
-Vim 根据文件后缀名自动识别不同语法类型的文件并应用语法高亮规则，例如文件类型为 Markdown 时，自动应用 Markdown 的语法高亮：
-
-![](images/syntax_highlight.png)
-
-并且已经内置大部分常见的语法高亮规则。
-[官方网站高亮语法区](http://www.vim.org/scripts/script_search_results.php?keywords=&script_type=syntax&order_by=rating&direction=descending&search=search)也会发布其他用户贡献的语法高亮脚本。
-
-如果觉得当前的文件类型识别不正确，可以用 `:set filetype` 命令手工指定文件类型：
-`:set filetype=markdown`
-这个时候输入 `:set syntax?` 命令（注意最后的问号），会显示当前的语法高亮规则就是匹配的 markdown 类型：
-
-![](images/syntax_highlight_2.png)
-
-如果不想更改文件类型而只更改语法高亮规则，比如对 html 后缀的文件应用 Markdown 语法高亮规则，可以直接设置语法类型：
-`:set syntax=markdown`
-
-有时候应用语法规则会影响 Vim 效率，有的 Vim 并不会默认打开语法高亮功能，这就需要用户自己来操作。
-关闭和打开语法高亮的命令分别是： `:syntax off` 和 `:syntax on`
-
 ### 关键字补全
 
 最简单的补全功能，是基于当前文件中已经输入的词语，对当前字符串进行补全（*compl-generic*）。
@@ -977,7 +971,7 @@ Vim 本身不提供版本控制功能，需要借助 Git 等版本控制工具�
 
 处理中文总是不免要和编码问题打交道，以下的配置经过长期验证，另外再加上 [fencview 插件](http://www.vim.org/scripts/script.php?script_id=1708)，日常使用甚少出现乱码情况（除非使用的中文字体有缺失）。
 
-首先作为活跃在21世纪的文本编辑器，写入文件时，文件编码请尽量默认统一使用 UTF-8：
+首先作为活跃在21世纪的文本编辑器，文件编码请尽量默认统一使用 UTF-8：
 `set encoding=utf-8`
 
 读取和展示已有文件时，Vim 会按字符编码列表顺序尝试解码，默认从 UTF-8 编码开始，最后落到 cp936：
@@ -1033,26 +1027,58 @@ Vim 默认使用内置的剪贴板（寄存器）存放复制粘贴的内容，�
 
 ### 安装插件
 
-尽管 Vim 本身已经非常强大，有的人甚至不装任何插件也能如鱼得水，但有个好插件确实能事半功倍，
+尽管 Vim 本身已经非常强大，有的人甚至不装任何插件也能如鱼得水，但有个好插件确实能事半功倍。
 
-### Pathogen
+### 手动插件管理 Pathogen
 
-Vim 插件大神 Tim Pope 编写的简单易用的插件管理系统，只实现最基本、最简单的分目录管理插件功能，不用考虑自动下载、版本管理、插件清单维护等高级功能。
-Pathogen 插件本身（pathogen.vim）放置在 `vimfiles\autoload` 目录中，然后在配置文件 vimrc 中加上一句：`call pathogen#infect()`，其他要安装的插件目录复制到 `vimfiles\bundle` 目录下，再重启 Vim 就可以了。
+Vim 的插件最开始都是没有管理功能的，下载下来的插件压缩包中，通常会有 plugin、doc、syntax、autoload 等目录，需要用户自己复制到 Vim 安装目录下对应的同名目录中。
+
+这样就存在几个问题：
+
+1. 多个插件的文件混杂在一起，可能会有冲突和混淆，移除插件时，都不知道哪些文件是属于哪些插件了；
+2. 启用和停止插件非常麻烦；
+3. 升级都要自己动手，帮助文档的安装和更新也全是手动完成。
+
+于是用于管理插件的插件也就应运而生：
+
+[Pathogen](https://github.com/tpope/vim-pathogen) 插件是 Vim 插件大神 Tim Pope 编写的简单易用的插件管理系统，只实现最基本、最简单的分目录管理插件功能，需要手工下载插件并放在指定的目录，而不考虑自动下载、版本管理、插件清单维护等高级功能，好处是简单、灵活、容易理解。
+Pathogen 插件本身（pathogen.vim）放置在 `vimfiles\autoload` 目录中，然后在配置文件 vimrc 中加上一句：`call pathogen#infect()`，其他要安装的插件目录则复制到 `vimfiles\bundle` 目录下，再重启 Vim 就可以了。
 
 如果其他插件自带了帮助文档，则使用 `:Helptags` 命令可以让 Vim 读取、更新这些帮助文档。
 
-### Vim-plug
+### 高级插件管理 Vim-plug
 
+[Vim-Plug 插件](https://github.com/junegunn/vim-plug) 能够通过修改配置文件来自动下载、安装、更新和移除在 Github 上有仓库的插件（官网的插件在 Github 都有[镜像仓库](https://github.com/vim-scripts)，所以基本不用愁没有仓库来源），适合更懒的用户。
+详细用法请阅读插件自己的帮助文档。
 
+类似的插件还有 Vundle、Neo Bundle、Vim Addon Manager 等等，用户可以根据使用习惯和插件兼容情况挑选一款最适合自己的。
 
 ## 其他技巧和常见问题
 
 ### 转换为 HTML
 
+输入 `:TOhtml` 命令（注意大小写！）可以将当前编辑的纯文本文档转换为 HTML 文档，并尽量保持在 Vim 看到的样式。
+也就是说，Vim 中的主题配色、语法高亮、折叠效果等都可以在输出的 HTML 文档中保留下来。
+
 ### 重新选择
 
+Vim 有个神奇的功能：重新选择上一次选择的文字。
+比如说，选中过一段文字，因为种种原因做了其他非选择类的操作，清除了选择范围，之后如果在普通模式下输入 `gv` 指令，就会重新选择最后一次选择的文字。
+
+![](images/reselect.gif)
+
 ### 文件编码转换
+
+尽管现在许多文档都默认使用 UTF-8 编码，但中文文档仍有许多是 GB2312 的编码，有时候我们也会需要在多种编码（*fileencoding*）之间转换。
+Vim 没有提供现成的编码转换菜单，可以用命令搞定：
+
+转换为 GB2312 编码：
+`set fileencoding=cp936`
+
+转换为 UTF-8 编码：
+`set fileencoding=utf-8`
+
+该命令改变的是文件写入磁盘时的编码。
 
 ### 缩进控制
 
