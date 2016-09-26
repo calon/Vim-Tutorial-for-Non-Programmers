@@ -614,7 +614,7 @@ In the whole range of document, substitute text string that matches pattern A wi
 ![](./images/sublimetext.png)
 
 用于替换的模式和目标字符串方面，有几点要注意：
-一是要使用正则表达式，如使用 `\t` 表示制表符；
+一是要使用正则表达式表示特殊控制符，如使用 `\t` 表示制表符；
 二是因为每行结束跳到新行时，Windows 下的回车（`\r`）+换行（`\n`）、Unix 系统下的换行以及 Mac 系统下的回车的表示方法各不相同，所以可能出现 `^M` 之类的奇怪字符。
 这时如果要匹配这个字符替换为正常的回车换行，可以在替换时用 `Ctrl-Q` `Ctrl-M` 或 `Ctrl-Q` `<Enter>` 打出来（还记得吗？gVim 中 `Ctrl-Q` 默认替代了 `Ctrl-V` 快捷键，所以在其他平台应该用 `Ctrl-V`）。
 三是匹配回车换行时使用 `\n`，但是替换成回车换行请用 `\r`  或 `Ctrl-Q` `<Enter>`。
@@ -1059,6 +1059,8 @@ Pathogen 插件本身（pathogen.vim）放置在 `vimfiles\autoload` 目录中�
 
 输入 `:TOhtml` 命令（注意大小写！）可以将当前编辑的纯文本文档转换为 HTML 文档，并尽量保持在 Vim 看到的样式。
 也就是说，Vim 中的主题配色、语法高亮、折叠效果等都可以在输出的 HTML 文档中保留下来。
+其中保留折叠效果需要在配置文件中加上这么一句：
+`let g:html_dynamic_folds = 1`
 
 ### 重新选择
 
@@ -1081,6 +1083,10 @@ Vim 没有提供现成的编码转换菜单，可以用命令搞定：
 该命令改变的是文件写入磁盘时的编码。
 
 ### 缩进控制
+
+<
+>
+=
 
 ### 寄存器和宏
 
