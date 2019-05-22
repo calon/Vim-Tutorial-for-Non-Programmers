@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>写给非程序员的 Vim 新手教程 - 写给非程序员的 Vim 新手教程</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5199\u7ed9\u975e\u7a0b\u5e8f\u5458\u7684 Vim \u65b0\u624b\u6559\u7a0b";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> 写给非程序员的 Vim 新手教程</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">写给非程序员的 Vim 新手教程</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#vim">写给非程序员的 Vim 新手教程</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#vim_1">为什么选择 Vim</a></li>
+        
+            <li><a class="toctree-l3" href="#vim_2">Vim 的入门之道</a></li>
+        
+            <li><a class="toctree-l3" href="#vi">Vi 的设计哲学和操作逻辑</a></li>
+        
+            <li><a class="toctree-l3" href="#_6">安装</a></li>
+        
+            <li><a class="toctree-l3" href="#vim_3">作为基本编辑器的 Vim</a></li>
+        
+            <li><a class="toctree-l3" href="#_22">美化与个性化配置</a></li>
+        
+            <li><a class="toctree-l3" href="#_29">常用指令</a></li>
+        
+            <li><a class="toctree-l3" href="#_30">常用命令</a></li>
+        
+            <li><a class="toctree-l3" href="#_31">较现代的文本编辑功能</a></li>
+        
+            <li><a class="toctree-l3" href="#_37">配置文件详解</a></li>
+        
+            <li><a class="toctree-l3" href="#_39">插件系统</a></li>
+        
+            <li><a class="toctree-l3" href="#_41">其他技巧和常见问题</a></li>
+        
+            <li><a class="toctree-l3" href="#_46">其他资源</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">写给非程序员的 Vim 新手教程</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>写给非程序员的 Vim 新手教程</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="vim">写给非程序员的 Vim 新手教程</h1>
+<p>想为非程序员写一篇 Vim 新手入门教程有很久了。<br />
+很多人说 Vim 入门学习曲线陡峭，又只适合程序员、系统管理员使用，纷纷敬而远之。<br />
+网络上各种入门教程要么千篇一律，要么极为简单。<br />
+对新人确实不够友好，一定程度上也阻止了更多的人学习、喜爱上 Vim。</p>
+<p>而以我自学的经历来说，Vim 的上手远没想象的那么恐怖。<br />
+非程序员写写中文文章、脚本、配置文件等也能从 Vim 中获益良多。<br />
+也许我自学的方法和心得对新人有用，希望这篇新手教程能够帮到愿意尝试 Vim 的朋友。</p>
+<p>既然是面向非程序员，教程基于 Windows 下的 gVim（GUI 图形界面版本），这样可以覆盖尽可能多的新手，降低入门难度。<br />
+我自己使用 gVim 8.x 版本，示例截图统一采用 Github 配色方案。</p>
+<h2 id="vim_1">为什么选择 Vim</h2>
+<p>我曾经在 Windows 平台下寻找了很久，希望找到一个功能强大、稳定、高效、占用资源少、自定义能力强，最好是免费、开源、跨平台（只是日常使用也会接触到各种操作系统）的编辑器。<br />
+其他要求容易评价，功能强大、高效和自定义需求方面，很难说哪个编辑器是适合所有人的。<br />
+就我自己而言，反正在主力编辑器换用 Vim 之前，经常会为了增加或完善某个功能尝试不同的编辑器。<br />
+而在那之后，基本上只需要找相应的操作快捷键、命令、配置或插件，因为99%的情况下，Vim 已经做到了，只等着你去发掘。</p>
+<p>因此，只要度过最初的入门阶段，知道到哪里去发现增强功能的手段，今后的文本编辑和处理就可以一直在 Vim 的平台上完成，越来越熟练，从而节省了寻找和适应新编辑器的时间。</p>
+<p>而且，Vim 的设计哲学与其他文本编辑器截然不同，在这种设计哲学下，文本操作效率高，入门后复杂的快捷键和命令其实也并不难记忆，习惯了之后有举重若轻、事半功倍的快感。<br />
+即使许多编辑器有模仿 Vim 操作指令的模式，但只能模仿一部分，永远也无法完全复制原生 Vim 的体验。</p>
+<h2 id="vim_2">Vim 的入门之道</h2>
+<p>传说中 Vim 的学习曲线是陡峭的悬崖，但我更倾向于认为这是因为入门方法不正确。<br />
+我希望新人们先接受 Vim 的设计哲学，了解到 Vim 的操作为什么如此与众不同，明白如此设计的优势何在，看上去纷繁无比的命令、指令和配置才不会显得那么可怕，反而可以在不断的学习中融会贯通。</p>
+<p>从心态上说，我希望初学者从基本的编辑功能开始，逐步替换基本的编辑器，不要试图一下子掌握太多技能。<br />
+然后也不用纠结一上来就完全抛弃鼠标和方向键，练习的过程中觉得怎么方便怎么来就行，不要给自己太多压力。</p>
+<h3 id="_1">其他教程</h3>
+<p>为避免本教程水平有限误人子弟，欢迎不得其法的入门者尝试以下的其他教程，不要因为入门艰难而放弃探索这个有意思的编辑器。<br />
+也可相互参考，同步学习，不必拘泥于本教程的章节顺序设置。</p>
+<ul>
+<li>
+<p>自带教程 Vim Tutor<br />
+Vim 自带了详细的教程，进入方式就是打开 Vim 之后输入 <code>:help tutor</code>。<br />
+如果你安装的 Vim 没有自带中文教程，可以下载<a href="http://sourceforge.net/projects/vimcdoc/">中文教程</a>并安装，再输入以上的命令。<br />
+自带教程其实已经非常完善，按顺序阅读下来就能入门。但不足之处是有时候比较啰嗦，有时候又一笔带过，而且并未详述 Vim 的设计理念。</p>
+</li>
+<li>
+<p><a href="http://www.study-area.org/tips/vim/">大家來學VIM（一個歷久彌新的編輯器）</a><br />
+我开始入门时就有的经典教程。</p>
+</li>
+<li>
+<p><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/">Learn Vim Progressively</a><br />
+中文翻译：<a href="http://coolshell.cn/articles/5426.html">简明 Vim 练级攻略</a></p>
+</li>
+<li>
+<p><a href="http://blog.sina.com.cn/s/blog_46dac66f010005kw.html">普通人的编辑利器——Vim</a></p>
+</li>
+<li>
+<p><a href="http://xbeta.info/vim-tutorials.htm">善用佳软整理的教程与学习资料汇总</a></p>
+</li>
+<li>
+<p><a href="https://blog.interlinked.org/tutorials/vim_tutorial.html">Vim Introduction and Tutorial</a></p>
+</li>
+<li>
+<p><a href="http://yyq123.blogspot.com/search/label/Vim">Vim 学习笔记</a></p>
+</li>
+</ul>
+<h3 id="_2">其他编辑器推荐</h3>
+<p>Vim 肯定不可能适合所有人，只要你找到最适合自己的工具，完成好自己的工作，不用纠结这个工具在别人看来如何。<br />
+如果最终还是没法适应 Vim，我推荐在 Windows 下其他几款文本编辑器：</p>
+<ul>
+<li>
+<p><a href="https://code.visualstudio.com/">Visual Studio Code</a><br />
+微软出品的跨平台编辑器，功能强大，界面美观，插件丰富，社区活跃。<br />
+如果你不打算学习 Vim 或 Emacs 这类入门学习曲线很高的编辑器，那么我强烈推荐 VS Code。</p>
+</li>
+<li>
+<p><a href="https://notepad-plus-plus.org/">Notepad ++</a><br />
+基于 <a href="http://www.scintilla.org/">Scintilla</a> 的开源、免费文本编辑器，遵循 GPL 协议。</p>
+</li>
+<li>
+<p><a href="http://cn.everedit.net/">EverEdit</a><br />
+国人开发的共享软件，支持多种新颖的功能，如文档地图、颜文字等，还有专为中文用户开发的功能，如纵向书写模式、中文括号自动匹配等。<br />
+有30天试用期，详情可参考善用佳软的<a href="http://xbeta.info/everedit.htm">介绍文章</a>。</p>
+</li>
+<li>
+<p><a href="https://www.emeditor.com/">EmEditor</a><br />
+日本公司开发的共享软件，速度快，大文件支持好，有多种贴心功能。<br />
+有可免费使用的老版本。</p>
+</li>
+<li>
+<p><a href="http://www.sublimetext.com/2">Sublime Text 2</a> 和 <a href="http://www.sublimetext.com/3">3</a><br />
+很受程序员欢迎的文本编辑器，界面美观，功能强大。</p>
+</li>
+<li>
+<p><a href="http://www.ultraedit.cn/">UltraEdit</a><br />
+很经典的编辑器，至今还有大量程序员在使用。</p>
+</li>
+<li>
+<p><a href="https://www.editplus.com/">EditPlus</a><br />
+另一款非常经典的编辑器，韩国人出品，同样也有大量用户。</p>
+</li>
+</ul>
+<h2 id="vi">Vi 的设计哲学和操作逻辑</h2>
+<p>学习 Vim 最关键的不是死记硬背，而是先知其所以然。</p>
+<p>Pascal Precht 在《<a href="https://pascalprecht.github.io/2014/03/18/why-i-use-vim/">为何使用 Vim</a>》中说，用好 Vim 要理解：</p>
+<ul>
+<li>模式概念</li>
+<li>文本对象</li>
+</ul>
+<p>Vim 特有的操作逻辑都基于这两个概念。<br />
+然后你会发现，<a href="https://pascalprecht.github.io/2014/03/18/why-i-use-vim/#figure-1">Vim 的学习曲线</a>更像翻墙而过，而不是一直爬陡坡。</p>
+<p>以下的概念介绍很重要，但不必记住具体的操作，后面的基础操作讲解中都会提到，到那个时候再动手练习也不迟。</p>
+<h3 id="_3">模式</h3>
+<p>Vim 的模式有许多种，作为入门者最常接触的也有四种（近似的模式做了合并）：</p>
+<ol>
+<li>
+<p>普通模式 normal mode<br />
+用于输入编辑文本的指令，和移动光标。<br />
+例如在普通模式下输入 <code>x</code>，会立即删除光标所在的字符（你可以将 <code>x</code> 理解为画一把叉表示删除，方便记忆）。<br />
+输入 <code>h</code>/<code>j</code>/<code>k</code>/<code>l</code> 分别是向左/下/上/右横向一个字符或纵向移动一行。</p>
+</li>
+<li>
+<p>插入模式 insert mode<br />
+用于输入文本字符。与一般的文本编辑器并无二致。</p>
+</li>
+<li>
+<p>命令模式 command/ex mode<br />
+用于输入命令，执行函数，变更配置。<br />
+例如在普通模式下，输入 <code>:</code> 进入命令模式，然后输入 <code>sort</code> 回车，给所有行排序。</p>
+</li>
+<li>
+<p>可视/选择模式 visual/select mode<br />
+用于选择文本对象，以便对其执行下一步操作。<br />
+例如在普通模式下，输入 <code>V</code> 会选中光标所在的那一整行，接下来输入的操作命令都是针对这一整行文字的。</p>
+</li>
+</ol>
+<p>新手学习 Vim 遇到的第一堵墙一般是，一开始进入 Vim 并不能直接输入文字，因为默认是处于普通模式中。</p>
+<p>那为什么 Vim 要设计多模式呢？<br />
+我的理解是，文本编辑器在<strong>输入文字</strong>之外，还有<strong>调整文字</strong>的任务，因此必然需要输入一套命令信息，并能区分于输入的文字信息。</p>
+<p>输入的命令信息可以分为三类：</p>
+<ol>
+<li>
+<p>非键盘操作<br />
+比如鼠标或手指的选择、点击、拖拽等等，或借助菜单触发指令。<br />
+一般的文本编辑器都支持这种方式，直观易上手是最大的优点。<br />
+弊端是，随着操作越来越多，此类命令就越难以记忆，或者界面上的菜单、按钮等等越来越复杂。<br />
+在 Vi/Vim 诞生的年代，还没有普及这么高级的输入方式，虽然现在也支持，但许多人入门后会隐藏菜单、禁用鼠标。</p>
+</li>
+<li>
+<p>增加指令键，引入按键组合<br />
+<code>Ctrl</code>、<code>Shift</code>、<code>Alt</code>/<code>Meta</code>/<code>Options</code>、<code>Windows</code>/<code>Command</code>，<code>Fn</code>、<code>F1</code>-<code>F12</code>等功能键，<code>Insert</code>、<code>Delete</code> 等编辑键，这些按键和字母、数字、符号键的组合，以及这些组合之间的组合，都能与输入的文字信息区分开来，让计算机可以识别。<br />
+一般的文本编辑器也采用这种方法，与第一种方案结合，可以满足大部分人的需求。<br />
+Vim 中的许多指令也会用到这些按键组合。<br />
+弊端是，有的辅助按键本身并无含义，又住在键盘的偏远角落里，有的复杂命令可能需要多个按键同时按下，还可能反复多次组合，长期使用下来，手指很遭罪，记忆难度也迅速上升。</p>
+</li>
+<li>
+<p>增加模式<br />
+增加模式的结果是，在插入模式下用于输入文字的按键，在普通模式下按下就变成修改文本或移动跳转的命令，在选择模式下就变成改变选择范围的命令。<br />
+相当于<strong>在输入按键基本不变的前提下，输入的命令信息因为模式的增加而翻倍</strong>。<br />
+这样，数字、字母、符号键也就能够充分利用起来，这些按键的意义也比辅助按键易于记忆。<br />
+正是这种不同一般的思路使 Vi/Vim 选择多模式方案，与一般的文本编辑器分道扬镳。</p>
+</li>
+</ol>
+<h3 id="_4">文本对象</h3>
+<p>Vim 可以识别文本中的英文单词、句子、段落、块，并有对应的文本对象选择命令。<br />
+与编辑、移动、选择的命令结合起来，可以快速的操作整个文本对象。</p>
+<p>以如下这段文字为例：</p>
+<p><img alt="文本对象示例1" src="images/text_objects_example.png" /></p>
+<p>普通模式下，光标在浅蓝色范围内任意一处时，按下 <code>viw</code> 就会选中整个浅蓝色部分的单词。<br />
+而这个命令组合翻译过来就是：<br />
+v: visual，进入可视模式，开始选择文本<br />
+i: inside/inner，内部，表示如果单词后面有空格等其他字符，选择的范围不包括空格<br />
+w: word，单词</p>
+<p><strong>学习和记忆 Vim 的指令时，建议尽量找到其对应的英文单词</strong>，只要能方便记忆就行，不必纠结于单词是否正确。<br />
+这样很多指令组合就像用英语说话，可以大大降低记忆难度。</p>
+<p>如果光标在绿色范围内时，按下 <code>yis</code> 就会复制整个绿色部分的句子。<br />
+这组命令的含义是：<br />
+y: yank，复制<br />
+i: inside/inner，内部<br />
+s: sentence，句子<br />
+非常接近于自然语言：yank inside sentence.</p>
+<p>如果光标在黄色范围内时，按下 <code>dap</code> 就会清除整个黄色部分段落的内容，光标停留在下一段的起始处。<br />
+这组命令的含义是：<br />
+d: delete，删除<br />
+a: around，围绕在外部<br />
+p: paragraph，段落<br />
+delete around paragraph.</p>
+<p>注意，Vim 并不能按照中文文本对象规则识别中文字符和标点，比如在处理如下示例文字时：</p>
+<p><img alt="" src="images/text_objects_example_2.png" /></p>
+<p>粉红色部分会识别为一个单词，理想情况下应该按中文含义分词再选择，显然目前还没有编辑器能够做到这点。<br />
+淡紫色部分会识别为整个句子，这就错得更加离谱了，原因是 Vim 对逗号、分号、句号一视同仁。<br />
+淡蓝色部分还是会识别为段落，因为段落是根据换行判断的，中英文没有区别。</p>
+<h3 id="_5">做好一件事</h3>
+<p>Vim 只专注做一件事情——纯文本编辑器，不考虑富文本编辑，不插入图片，更没有成为“操作系统”的野心。</p>
+<h2 id="_6">安装</h2>
+<h3 id="_7">下载</h3>
+<p>到 <a href="http://www.vim.org/download.php">Vim 官方网站下载页</a>下载，Windows 平台用户选择安装包文件即可。</p>
+<p><img alt="" src="images/download.png" /></p>
+<p>安装的过程就不做演示了，但请务必记住 Vim 的安装目录，其下有名为 vimrc 的文件，是 Vim 的关键配置文件，后面会详细说明。</p>
+<p>如果今后报错说缺少 iconv.dll 文件，可以从 <a href="http://sourceforge.net/projects/gettext/">gettext for Win32</a> 下载的文件中提取，放在 gvim.exe 所在的目录中，如 <code>vim74</code> 目录。</p>
+<p>有其他人自己编译了支持 Perl、Ruby、Lua 等的 Vim 版本，这样可以用上更加强大的插件。<br />
+你可以下载 Vim 源码自己编译，也可以下载其他人编译的版本，比如<a href="https://tuxproject.de/projects/vim/">这里</a>和<a href="http://www.kaoriya.net/software/vim/">这里</a>。</p>
+<h3 id="_8">启动参数</h3>
+<p>Windows 下使用 Vim 打开文本文件会自动新建窗口，启动一个新的 gVim 实例。<br />
+你也可以更改启动命令的参数，使用 <code>gvim.exe --remote-silent</code>，在同一个窗口的新缓冲区中打开，或使用 <code>gvim.exe --remote-tab-silent</code> 在新的标签页中打开。</p>
+<p>我自己是使用 Totoal Commander + candy，在任何文件上按下 <code>F4</code>，会跳出 candy 的菜单：</p>
+<p><img alt="" src="images/candy.png" /></p>
+<p>然后可以自由选择是在新的 gVim 进程实例还是新的缓冲区打开文件。</p>
+<p>关于缓冲区、标签页的说明，后面会提到。如果不熟悉，可以暂时不更改启动参数，保持原样。</p>
+<h3 id="_9">救命！</h3>
+<p>不要恐慌！<br />
+如果你在使用 Vim 时晕头转向，手足无措，一般有两个救命锦囊（并不总是有效）：<br />
+1. 按键盘左上角的 <code>Esc</code> 键，返回刚进入 Vim 时的普通模式，然后再重新出发。<br />
+<code>Esc</code> 表示 Escape，记忆为“逃脱”就行。<br />
+2. 在普通模式下输入 <code>:help 关键字</code>，根据关键字查找 Vim 帮助文档中相应的主题。</p>
+<p><img alt="" src="images/help.png" /></p>
+<p>学习到相关的知识后再尝试操作。<br />
+其后我会在知识点中加上对应的帮助主题关键字，以<em>斜体</em>表示。如有更多疑问，可在 Vim 中自己查找帮助文档。<br />
+更高级的用法是 <code>:helpgrep 关键字</code>，像 grep 命令一样查找帮助文档中包含关键字的所有行，但只会在新窗口中展示第一个匹配的结果，更多的用法可以自己输入 <code>:help helpgrep</code> 探索。</p>
+<h2 id="vim_3">作为基本编辑器的 Vim</h2>
+<p>掌握 Vim 的强大功能之前，建议先将其作为基本的编辑器使用一段时间，在日常使用过程中一步步发掘不同于一般编辑器的功能点，渐进式地学习。<br />
+所以，我会先讲解如何将 Vim 当作最简单的编辑器使用，然后再逐步引入更高级、更复杂的功能。</p>
+<h3 id="_10">初次进入的界面</h3>
+<p>在默认配置下，首次进入 gVim 会看到如下界面：</p>
+<p><img alt="" src="images/default_startup.png" /></p>
+<p>菜单栏和按钮工具栏与一般的文本编辑器大同小异，菜单中部分命令有相应的命令提示。</p>
+<p><img alt="" src="images/menu.png" /></p>
+<p>如果不熟悉常用功能的命令，可以暂时保留菜单栏和工具栏，等到熟悉了再隐藏。</p>
+<p>目前我自己配置的界面是这个样子：</p>
+<p><img alt="" src="images/custom_interface.png" /></p>
+<p>原来菜单栏和工具栏的位置被缓冲区标签页代替。<br />
+底部则是状态栏，显示当前的模式、文件名、文件修改时间、文件格式（dos、unix 或 mac 格式）、字符编码、文件类型和光标位置信息。</p>
+<p><img alt="" src="images/custom_interface_2.png" /></p>
+<p>如果按 <code>:</code> 进入命令模式，则在状态栏下方输入命令：</p>
+<p><img alt="" src="images/command_input.png" /></p>
+<h3 id="_11">进入插入模式开始编辑</h3>
+<p>因为默认模式是普通模式，所以要输入文字需要进入插入模式。<br />
+进入插入模式最常用的指令是 <code>i</code>，是 <em>insert</em> 的缩写，含义是在当前字符之前插入，也就是移动光标至当前字符之前再进入插入模式。<br />
+例如，现在要在光标所在位置之前开始编辑文字：</p>
+<p><img alt="插入之前" src="images/insert.png" /></p>
+<p>左下角的模式显示为 NORMAL，表示处于普通模式。</p>
+<p>按下 <code>i</code> 键后，光标变为表示可以输入的竖线：</p>
+<p><img alt="进入插入模式" src="images/insert_2.png" /></p>
+<p>如果无法正常进入插入模式，界面上出现未上屏的 i 字符，多半是因为开启的中文输入法抢先拦截了。<br />
+可以切换到英文输入状态，然后在普通模式下输入指令。<br />
+如果觉得总是英文输入状态很麻烦，可以试试谷歌输入法、手心输入法等。</p>
+<p>如果要在当前字符之后插入呢？<br />
+按下 <code>a</code> 就行，含义是追加，对应的英文为 append。</p>
+<p>也许你会觉得，在字符前还是后进入插入模式还要弄两个命令，太小题大做。<br />
+那插入新行的指令 <code>o</code> 和 <code>O</code> 就显得实用多了。<br />
+在普通模式中输入 <code>o</code>，表示在当前行下插入新行，并停留在插入模式。<br />
+相比之下，一般编辑器需要按 <code>End</code> 移动光标到行尾，再按 <code>Enter</code> 换行。<br />
+大写字母 <code>O</code> 指令则正好相反，在当前行上面插入新行，并停留在插入模式。<br />
+相比之下，一般编辑器要按 <code>Home</code> 移动光标到行首，按 <code>Enter</code> 换行，再按 <code>Up</code> 移动到新行。</p>
+<p>更加厉害的是，上述指令可以与数字配合。<br />
+遵循 [count]command 的格式，如 <code>10O</code>，进入插入模式输入文字后再按 <code>Esc</code> 退回普通模式，刚才输入的文字就会变成10行。</p>
+<h3 id="_12">打开文件</h3>
+<p>和一般编辑器一样的操作，是点击图标栏上的 <code>打开文件</code> 的图标，选择要打开的文件。<br />
+如果隐藏了图标栏，使用 <code>:browse open</code> 命令效果一样。</p>
+<p>也可以使用 <code>:edit 文件名</code> 这样的命令直接打开包含路径的指定文件，如果文件不存在，就会根据文件名打开一个空白的新文件。</p>
+<h3 id="_13">保存</h3>
+<p>和一般编辑器一样的操作，是点击图标栏上的 <code>保存文件</code> 的图标。<br />
+如果隐藏了图标栏，使用 <code>:browse saveas</code> 命令效果一样。</p>
+<p>也可以使用 <code>:write 文件名</code> 这样的命令直接保存，如果是编辑已经存在的文件，使用简写的 <code>:w</code> 命令最快。</p>
+<p>同时，Windows 下也支持用 <code>Ctrl+S</code> 的通用快捷键。</p>
+<p>如果保存和退出一并操作，还有 <code>:wq</code>、<code>:x</code> 和 <code>:ZZ</code> 等命令。</p>
+<h3 id="_14">光标移动</h3>
+<p>一般的入门者最先接触到和最常见到的关于 Vim 的神话，估计就是花样繁多的光标移动魔法了，有的人觉得太难学，有的人觉得没有必要。<br />
+要我说，基本的光标移动指令很容易记忆，学到够用的程度就可以，而且用习惯了真会希望大部分软件都能够用上 Vim 的这套规则。</p>
+<p>由于是面向初学者的教程，在此我只会提到最常用的光标移动指令，其他的部分可以自行查阅帮助文档中的光标移动部分（motion.txt）。</p>
+<p>输入 <code>h</code>/<code>j</code>/<code>k</code>/<code>l</code> 分别是向左/下/上/右横向一个字符或纵向移动一行，这个在之前已经介绍了。<br />
+如此设置指令按键的理由，是因为这是 QWERT 标准键盘右手自然状态时最舒服的按键——Bill Joy 编写 Vim 的前身 Vi 时，他所用的 ADM-3A 终端机上干脆就将方向键画在了 HJKL 这四个字母按键上。</p>
+<p>其他移动指令还有：</p>
+<p><code>0</code> 或 <code>^</code>：移动到行首，其中 <code>0</code> 可以看作表示列数最小的位置，而 <code>^</code> 是正则表达式中行首的标识，如果最前面有空白字符，这个指令并不会像 <code>0</code> 一样跳到最前方；<br />
+<code>$</code>：移动到行尾，也与正则表达式保持一致；<br />
+<code>[count]gg</code>：移动到第[count]行，不带[count]数字则默认移动到第1行（与它相似的命令是 <code>:[count]</code>，如跳到第2行，就是输入 <code>:2</code> 回车）；<br />
+<code>G</code>：移动到最后一行<br />
+<code>Ctrl+O</code>：跳转到上一次编辑的地方或跳转之前的位置，同样支持带上[count]数字，向前跳多次。</p>
+<p>以单词、文本对象为单位的光标移动指令，对非程序员而言不是那么重要，这里就略过不提，仅列举几个指令的助记方法和用法：</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>助记方法</th>
+<th>跳转的方向</th>
+<th>跳转的单位</th>
+<th>停留的位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b</td>
+<td>back</td>
+<td>向左</td>
+<td>单词</td>
+<td>头部</td>
+</tr>
+<tr>
+<td>B</td>
+<td>back</td>
+<td>向左</td>
+<td>字串</td>
+<td>头部</td>
+</tr>
+<tr>
+<td>e</td>
+<td>end</td>
+<td>向右</td>
+<td>单词</td>
+<td>尾部</td>
+</tr>
+<tr>
+<td>E</td>
+<td>end</td>
+<td>向右</td>
+<td>字串</td>
+<td>尾部</td>
+</tr>
+<tr>
+<td>w</td>
+<td>word</td>
+<td>向右</td>
+<td>单词</td>
+<td>头部</td>
+</tr>
+<tr>
+<td>W</td>
+<td>word</td>
+<td>向右</td>
+<td>字串</td>
+<td>头部</td>
+</tr>
+</tbody>
+</table>
+<p><code>f</code>、<code>F</code>：from<br />
+<code>t</code>、<code>T</code>：till</p>
+<h3 id="_15">行</h3>
+<p>在一般的编辑器中，“行”的定义是视觉意义上的。<br />
+启用窗口边缘自动折行后，一行文字会在窗口的边缘中断，剩余部分显示在下一行。光标移动到屏幕边缘后，就不能继续移动。按下 <code>End</code> 移动到的行末，也是在屏幕边缘的文字折行处。</p>
+<p>而在 Vim 中，“行”的定义不同，只有遇到换行符才算另起一行。<br />
+即使启用自动折行，因为折行而折返的部分，仍然与第一“行”视为同一行。按下 <code>End</code>/<code>$</code> 等跳转到行末的指令，光标会跳转到换行符的位置，而不是屏幕边缘。<br />
+同样的道理，按下 <code>j</code>/<code>k</code> 时，向下移动到的是换行符之后真正的下一行，而不是在窗口边缘折返产生的新“行”。</p>
+<p>这一特性的好处是，进行大量光标上下移动操作时，不会因为窗口变化导致跨行移动的计数发生变化——本来只要移动2行的，窗口缩小后，说不定折行就多出来3行。<br />
+但这又容易迷惑初学者，需要一段时间适应。</p>
+<p>一个比较好的处理方法是，在配置文件中加上以下两行：</p>
+<p><code>nnoremap j gj</code><br />
+<code>nnoremap k gk</code></p>
+<p>即，在普通模式下，按下 <code>j</code>/<code>k</code> 等于按下 <code>gj</code>/<code>gk</code>，使用习惯与一般的编辑器保持一致。</p>
+<p>这里涉及到配置按键映射（key-mapping）的知识。</p>
+<h3 id="_16">选择</h3>
+<p>用鼠标左键也可以对付着完成选择操作，但我强烈建议起码先初步了解光标移动的知识。</p>
+<p>之前有提到过，Vim 专门有用于选择的选择/可视模式。<br />
+从默认的普通模式，用键盘操作进入的常见方法是 <code>v</code> 指令（<code>V</code> 用于整行选择）。</p>
+<p>其操作逻辑是这样的：</p>
+<ol>
+<li>移动光标到 A 处</li>
+<li>进入选择/可视模式，指定单个字符或整行选择</li>
+<li>移动光标到 B 处</li>
+</ol>
+<p>A、B 之间的文本就处于已选择状态。</p>
+<p>例如常见的 <code>ggVG</code> 指令，<code>gg</code> 是跳转到文件的最开头，<code>V</code> 是整行选择，<code>G</code> 是跳转到文章最末尾，结合在一起就相当于全选所有内容。</p>
+<p>也许你会说，直接用 Windows 下的通用快捷键 <code>Ctrl+A</code> 岂不是更快更方便，为什么还要用 <code>ggVG</code> 这样繁琐的组合呢？<br />
+一个原因是 <code>Ctrl+A</code> 已经有其他的功能：给光标所在的数字加1——不过在 Windows 版本的配置文件中，这个快捷键与 <code>ggVG</code> 等价；<br />
+第二个也是更重要的原因是，这只是上述操作逻辑的一个应用，其他更加复杂和灵活的选择操作都遵从同一个逻辑，只要你学会了如何快速移动光标，也就能够迅速学会所有选择的操作，而不用每种复杂操作都记忆对应的快捷键。</p>
+<p>例如：<br />
+选择从当前位置到行尾：<code>v$</code>；<br />
+选择当前和下面的1000行：<code>V1000j</code>；<br />
+选择 HTML 标签内部的内容：<code>vit</code>；<br />
+选择从当前位置到最近一次搜索对象上一次出现的位置：<code>vN</code>；<br />
+如果当前位置之上有多个搜索对象，想指定往回搜索第3次出现的位置：<code>v3N</code>。</p>
+<p>选择之后，再输入复制、删除等文本操作指令。</p>
+<p>有一个指令非常实用，就是 <code>gv</code>，它的作用是重新选择上一次选择的范围。<br />
+当你选择了大段文字，还没来得及操作就因为其他操作打断，想要重新选择时，这个指令可以救命！</p>
+<h3 id="_17">复制、删除/剪切和粘贴</h3>
+<p>Vim 内部的寄存器与系统的剪贴板是两套，默认没有共用，要保证与一般的编辑器同样的体验，需要在配置文件中加上一行，让 Vim 与系统共剪贴板：<br />
+<code>set clipboard=unnamed</code></p>
+<p>复制的操作方式是先选中，然后输入 <code>y</code> 指令，此处 <code>y</code> 表示 yank；<br />
+删除指令是 <code>x</code> 或 <code>d</code>（delete）；<br />
+删贴指令是 <code>p</code>（paste）。</p>
+<p>由于 Vim 中删除是将文本移入寄存器中，可以再次粘贴，所以删除和剪切通常而言是一样的操作；<br />
+如果要深入了解，可以自己探索 Vim 寄存器（register）相关的知识。</p>
+<h3 id="_18">查找和替换</h3>
+<p>查找与替换是能体现 Vim 强大之处的重要功能，虽然对非程序员用户而言有些难以上手，但掌握了诀窍后，也不是那么恐怖，而且可以受益无穷。</p>
+<p>一般的图形界面编辑器的查找与替换功能是由用户在文本输入框内分别输入“要查找/替换的字符串”和“替换之后的字符串”，较高级的编辑器会提供通配符或正则表达式等功能。<br />
+而在 Vim 中，则是在命令行中输入一串命令，如查找 <code>foo</code>：<br />
+<code>/foo</code><br />
+或将 <code>foo</code> 替换为 <code>bar</code>：<br />
+<code>:%s/foo/bar/g</code></p>
+<p>第一次看到这种命令的用户肯定一头雾水，我就是要简单地查找和替换，这个 <code>/</code> 和 <code>%</code> 是什么鬼符号啊？为什么有 <code>s</code> 和 <code>g</code> 这种不明所以的字符出现？</p>
+<p>其实只要将 <code>/</code> 看作召唤出查询界面的命令就好了，这样是不是比用通用的 <code>Ctrl-F</code> 组合快捷键更加省事呢？</p>
+<p>更加方便的是，按下回车执行查找命令后，继续按普通模式下的 <code>n</code> 指令，就会向下查找下一个结果，按 <code>N</code> 则向上反向查找。</p>
+<p>还有，曾经搜索过的内容都保留在操作历史中（保留的数量可以在配置中自定义），按 <code>/</code> 之后用上下方向键可以浏览，输入起始字符可以缩小范围。<br />
+例如，输入 <code>/fo</code> 再按 <code>↑</code>，可以逐个查看以 <code>fo</code> 开头的搜索历史。</p>
+<p>想了解更加花样繁多的搜索参数和指令，请查阅 <code>:h /</code> 的帮助文档。</p>
+<p>替换功能的典型用法是：<code>:%s/foo/bar/g</code><br />
+其含义是：在全文范围内，将 <code>foo</code> 替换为 <code>bar</code>。</p>
+<p>其中 <code>%</code> 表示是替换范围为当前的整个文档，省略的话就只会替换当前行的搜索结果。<br />
+<code>s</code> 是替换命令的本体，对应的英文命令为 substitute。<br />
+<code>/</code> 是分隔符，分隔要替换的搜索目标 <code>foo</code>、替换后的字符串 <code>bar</code> 和替换命令的参数 <code>g</code>。<br />
+<code>g</code> 是 global 参数的简写，加上了就会替换每行的每一个匹配结果，不加的话就只会替换每行的第一个结果。<br />
+因此，如果去掉 <code>%</code> 和 <code>g</code> 写为 <code>:s/foo/bar</code>，就变成了将当前行第一个找到的 <code>foo</code> 替换为 <code>bar</code>，保留其他地方出现的 <code>foo</code> 不变。</p>
+<p>另一个比较实用的参数是 <code>c</code>，每一次替换生效前都会询问用户。</p>
+<p>如果省略掉要替换的匹配目标，写为 <code>:%s//bar/g</code>，则会将最近一直搜索的目标字符串作为要替换的对象，这一招可以省很多事。</p>
+<h4 id="_19">正则表达式简介</h4>
+<h3 id="_20">最近打开的文件</h3>
+<p>Vim 要查看最近打开的文件可以用 <code>:bro[wse] ol[dfiles]</code> 命令，列出最近的文件清单后，按 <code>q</code> 再输入对应的序号并回车就可以打开指定文件。<br />
+但这种方式无法通过查询方式定位历史文件，操作也不太方便，需要借助像 <a href="">NeoMRU</a>、<a href="https://github.com/mhinz/vim-startify/">Startify</a> 这样的插件来增强体验。</p>
+<h3 id="_21">撤销</h3>
+<h2 id="_22">美化与个性化配置</h2>
+<h3 id="_23">配置文件简介</h3>
+<p>Vim 是可以高度自定义的文本编辑器，它的各种自定义配置绝大多数都写在配置文件中，在启动时读取生效。</p>
+<p>与只能通过图形界面自定义有限配置项的编辑器不同，自己写配置文件能够掌控的选项多多了，而且方便迁移和备份个性化的配置。<br />
+代价则是需要额外学习如何自定义配置文件，以及忍不住花费许多时间调教出最适合自己的配置方案。<br />
+所以，如无必要，不要随意动修改配置（和插件）的心思，你会投入比入门多得多的时间，沉迷其中无法自拔，这是一个老用户的人生经验。</p>
+<p>如果你使用的 Vim 不是自己编译，而是从官方网站或他人处下载安装的，其配置文件的位置可能会有不同。<br />
+请先输入 <code>:version</code> 命令查看配置文件的位置，如：</p>
+<p><img alt="查看配置文件位置" src="images/check_vimrc.png" /></p>
+<p>其中，<code>$VIM</code> 一般是 Vim 的安装目录，<code>$HOME</code> 一般是系统分配的当前登录用户的目录。<br />
+如果想确认准确路径的话，可以使用 <code>:echo $VIM</code> 或 <code>:echo $HOME</code> 命令获取到完整路径。</p>
+<p>Vim 会按照顺序在以上目录中寻找对应的配置文件。<br />
+官方推荐在 Windows 环境中使用 <code>$HOME/vimfiles/vimrc</code> 作为配置文件。</p>
+<p>配置文件的内容以 Vimscripts 脚本语言书写，虽然在程序员眼里它不够强大和高效，但基础语法符合自然习惯，胜在容易理解。</p>
+<p>比如设置显示行号，就增加一行 <code>set number</code>；<br />
+设置搜索时忽略大小写：<code>set ignorecase</code>；<br />
+设置总是显示底部状态栏：<code>set laststatus=2</code>。</p>
+<p>还可以用 <code>map</code> 命令自定义各种快捷键，如：<br />
+<code>nnoremap &lt;C-F1&gt; &lt;Esc&gt;:browse saveas&lt;CR&gt;</code>：普通模式下按 <code>Ctrl-F1</code> 打开“另存为”对话窗口；<br />
+<code>nnoremap &lt;F4&gt; a&lt;C-R&gt;=strftime("%Y-%m-%d %H:%M:%S")&lt;CR&gt;&lt;Esc&gt;</code>：按下 <code>F4</code> 插入指定格式的当前时间戳；<br />
+<code>nnoremap &lt;C-c&gt; :let @* = expand('%:p')&lt;CR&gt;</code>：按下 <code>Ctrl-C</code> 复制当前正在编辑的文件的完整路径；<br />
+<code>nnoremap &lt;leader&gt;ev :e $HOME/vimfiles/vimrc&lt;CR&gt;</code>：按下 <code>&lt;leader&gt;ev</code> 打开配置文件。</p>
+<p>一些特殊的按键这样表示：<br />
+<code>C</code>=<code>Ctrl</code>，<code>A</code>=<code>Alt</code>，<code>S</code>=<code>Shift</code>，<code>CR</code>=<code>Enter</code>，<code>&lt;leader&gt;</code>=<code>\</code>（可自己重新定义）</p>
+<p>更多关于 Vimscripts 的知识请自己查阅帮助文档，<code>:h vimscripts</code>。</p>
+<p>写入并保存配置文件不会立即生效，默认需要用 <code>:source $HOME/vimfiles/vimrc</code> 命令强制重新读取，或者重新启动 Vim。</p>
+<p>重要的事情再说一遍，刚上手建议先不要随便修改配置文件，等到发现问题或觉得使用上不方便时，再有目的地复制其他用户的配置文件片段，并尽量找有详细注释的配置文件，以免修改后出现预料之外的状况。</p>
+<h3 id="_24">自动换行</h3>
+<p>因为 Vim 主要面向编写代码的程序员，默认是不换行的，也就是说，一行的文字超出窗口宽度，不会自动折回，在下一行显示，需要左右移动光标才能看到窗口之外的部分。</p>
+<p><code>:set wrap</code> 和 <code>:set nowrap</code> 命令可以切换是否自动换行。<br />
+建议在配置文件中加上 <code>set wrap</code>，默认自动换行。</p>
+<h3 id="_25">编码</h3>
+<p>由于历史原因，Windows 环境下的编码问题相对而言比较多。<br />
+在这里为了简单，就不详细介绍各种编码问题和设置的具体内容了，按照以下的方式配置 Vim 与语言编码相关的设置，应该可以应对大部分的编码问题：</p>
+<p><code>set encoding=utf-8</code>，内部使用的字符默认编码为 UTF-8<br />
+<code>set fileencodings=utf-8,chinese,ucs-bom,gb18030,gbk,gb2312,cp936</code>，打开文件时，参考此字符编码列表<br />
+<code>set helplang=cn</code>，设置帮助文件语言为中文<br />
+<code>set langmenu=zh_CN.utf-8</code>，设置菜单语言选项为中文，编码为 UTF-8<br />
+<code>language messages zh_CN.utf-8</code>，设置弹出信息语言选项为中文，编码为 UTF-8<br />
+<code>set ambiwidth=double</code>，所有在 Unicode 字符集中在东西方语言中共用的字符，如省略号、破折号、书名号和全角引号，设置为与中文字符一致的双倍西文字符宽度</p>
+<h3 id="_26">字体</h3>
+<p>使用 <code>:set guifont=*</code> 命令可以调出字体选择菜单，但选择的结果仅对当次打开的窗口生效。关闭窗口再打开新进程，字体又会恢复到默认设置。</p>
+<p>需要在配置文件中配置固定的字体，如：</p>
+<p><code>set guifont=等距更纱黑体_T_SC:h12</code><br />
+<code>set guifontwide=等距更纱黑体_T_SC:h12</code></p>
+<p>有的时候，可能不知道如何指定字体名称，如字体名称显示为“等距更纱黑体 T SC”，在配置中实际应该写为<code>等距更纱黑体_T_SC</code>。<br />
+可以先用 <code>:set guifont=*</code> 命令选择字体，再用 <code>:set guifont</code> 查看当前所用的字体配置名称。</p>
+<h3 id="_27">配色</h3>
+<p>用 <code>colorscheme</code> 命令指定配色主题，如 <code>:colorscheme ir_black</code>，就是切换为 ir_black 配色（这个不是自带的配色方案，可以在 <a href="https://github.com/calon/ir_black">这里</a> 下载我基于 <a href="http://toddwerth.com/2008/01/25/a-black-os-x-leopard-terminal-theme-that-is-actually-readable/">Todd Werth 的 IR_Black</a> 修改的版本）。<br />
+不过这只对当次启动的 Vim 生效，如果希望每次启动都使用指定的配色，应在配置文件中加上 <code>colorscheme 配色方案名称</code>。</p>
+<p>Vim 继承自终端界面时代默认的配色方案大多扎眼，可以<a href="https://www.vim.org/scripts/script_search_results.php?keywords=&amp;script_type=color+scheme&amp;order_by=rating&amp;direction=descending&amp;search=search">在官方网站找配色方案</a>，或在 <a href="https://vimcolors.com/">Vim Colors</a> 浏览下载。</p>
+<h3 id="_28">语法高亮</h3>
+<p>非程序员虽然不用编写程序，但日常还是可能处理文本文档、配置、脚本和日志文件，有时也会临时改改 HTML，依然需要借助语法高亮（syntax highlight）提升阅读体验。</p>
+<p>Vim 可以根据文件后缀名判断文件类型（filetype），再根据文件类型自动匹配相应的语法高亮方案。<br />
+如果没有如愿匹配上，也可以用 <code>syntax</code> 命令指定语法高亮方案。<br />
+例如，假设已经有和 <code>.txt</code> 文本文件关联的语法高亮方案，但当前的文件名后缀不是 <code>.txt</code>，用 <code>set syntax=txt</code> 命令就能启用该方案。</p>
+<p>如果你打算和我一样拿 Vim 当中文编辑器，可以尝试使用 <a href="https://github.com/calon/txt">txt</a> 这款语法高亮方案，支持高亮常见序号和不太复杂的配对标点符号。</p>
+<h2 id="_29">常用指令</h2>
+<h2 id="_30">常用命令</h2>
+<h2 id="_31">较现代的文本编辑功能</h2>
+<h3 id="_32">多标签/多缓冲区</h3>
+<p>Buffer（缓冲区）、Window（窗口）和Tab-page（标签页）。</p>
+<p>Buffer: 用Vim打开文件后，Vim打开的文件都会被加载到内存中，在内存中我们使用 Buffer 来描述正在编辑的文件，一个 Buffer 对应一个被编辑的文件副本。当我们在完成了一个 Buffer 的编辑后就可以保存该文件。Buffer 不仅包含了文件的内容， 也记录了该文件的编辑状态等配置信息，比如激活、隐藏、上次编辑行数等。用 Vim 可以打开多个文件同时编辑，也可以把不需要的文件关掉，但这时文件副本依然保存在缓冲区中，我们可以通过 :ls 或者 :buffers 查看这些 Buffer，还可以通过 类似:buffer n 的方式重新打开文件（Buffer的序号）。</p>
+<p>Window：是对应 Buffer 的一个展示窗口。一个 Buffer 可以对应多个窗口，比如 我们可以通过:split filename 或者 :vsplit filename 命令在多个窗口打开一个文 件，当修改某一个窗口的文件时，其他窗口都会同步更新。当然我们也可以在多个窗口打开 多个文件，编辑后用 :wq 保存退出，但是记住，只要没有最终退出 Vim 进程，那么这些 打开的文件 Buffer 依然保存在缓存区中，可以随时再次打开。</p>
+<p>Tab-page：Tab-page 就比较容易理解，对应一组窗口，我们可以通过:tabedit filename 在另一个标签页中打开一个文件，在这个标签页中又可以打开多个窗口。</p>
+<h3 id="_33">分屏</h3>
+<h3 id="_34">折叠</h3>
+<h3 id="_35">语法高亮</h3>
+<h3 id="_36">差异比对</h3>
+<p>gvim -d file1 file2<br />
+]c [c</p>
+<h2 id="_37">配置文件详解</h2>
+<h3 id="_38">常用配置</h3>
+<h2 id="_39">插件系统</h2>
+<h3 id="_40">安装插件</h3>
+<h3 id="pathogen">Pathogen</h3>
+<h3 id="vim-plug">Vim-plug</h3>
+<h2 id="_41">其他技巧和常见问题</h2>
+<h3 id="html">转换为 HTML</h3>
+<h3 id="_42">重新选择</h3>
+<h3 id="_43">文件编码转换</h3>
+<h3 id="_44">缩进控制</h3>
+<h3 id="_45">寄存器和宏</h3>
+<h2 id="_46">其他资源</h2>
+<p>vim.org<br />
+Vimawesome<br />
+Vimcast<br />
+vimer.cn</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-05-22 08:45:36
+-->
