@@ -8,7 +8,7 @@
   <meta name="description" content="None">
   
   <link rel="shortcut icon" href="img/favicon.ico">
-  <title>写给非程序员的 Vim 新手教程 - 写给非程序员的 Vim 新手教程</title>
+  <title>Home - 写给非程序员的 Vim 新手教程</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u5199\u7ed9\u975e\u7a0b\u5e8f\u5458\u7684 Vim \u65b0\u624b\u6559\u7a0b";
+    var mkdocs_page_name = "Home";
     var mkdocs_page_input_path = "index.md";
     var mkdocs_page_url = null;
   </script>
@@ -50,40 +50,160 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href=".">写给非程序员的 Vim 新手教程</a>
+    <a class="current" href=".">Home</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#vim">写给非程序员的 Vim 新手教程</a></li>
+    <li class="toctree-l2"><a href="#vim">为什么选择 Vim</a></li>
+    
+
+    <li class="toctree-l2"><a href="#vim_1">Vim 的入门之道</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#vim_1">为什么选择 Vim</a></li>
+            <li><a class="toctree-l3" href="#_1">其他教程</a></li>
         
-            <li><a class="toctree-l3" href="#vim_2">Vim 的入门之道</a></li>
-        
-            <li><a class="toctree-l3" href="#vi">Vi 的设计哲学和操作逻辑</a></li>
-        
-            <li><a class="toctree-l3" href="#_6">安装</a></li>
-        
-            <li><a class="toctree-l3" href="#vim_3">作为基本编辑器的 Vim</a></li>
-        
-            <li><a class="toctree-l3" href="#_22">美化与个性化配置</a></li>
-        
-            <li><a class="toctree-l3" href="#_29">常用指令</a></li>
-        
-            <li><a class="toctree-l3" href="#_30">常用命令</a></li>
-        
-            <li><a class="toctree-l3" href="#_31">较现代的文本编辑功能</a></li>
-        
-            <li><a class="toctree-l3" href="#_37">配置文件详解</a></li>
-        
-            <li><a class="toctree-l3" href="#_39">插件系统</a></li>
-        
-            <li><a class="toctree-l3" href="#_41">其他技巧和常见问题</a></li>
-        
-            <li><a class="toctree-l3" href="#_46">其他资源</a></li>
+            <li><a class="toctree-l3" href="#_2">其他编辑器推荐</a></li>
         
         </ul>
+    
+
+    <li class="toctree-l2"><a href="#vi">Vi 的设计哲学和操作逻辑</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#_3">模式</a></li>
+        
+            <li><a class="toctree-l3" href="#_4">文本对象</a></li>
+        
+            <li><a class="toctree-l3" href="#_5">做好一件事</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#_6">安装</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#_7">下载</a></li>
+        
+            <li><a class="toctree-l3" href="#_8">启动参数</a></li>
+        
+            <li><a class="toctree-l3" href="#_9">救命！</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#vim_2">作为基本编辑器的 Vim</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#_10">初次进入的界面</a></li>
+        
+            <li><a class="toctree-l3" href="#_11">进入插入模式开始编辑</a></li>
+        
+            <li><a class="toctree-l3" href="#_12">打开文件</a></li>
+        
+            <li><a class="toctree-l3" href="#_13">保存</a></li>
+        
+            <li><a class="toctree-l3" href="#_14">光标移动</a></li>
+        
+            <li><a class="toctree-l3" href="#_15">行</a></li>
+        
+            <li><a class="toctree-l3" href="#_16">选择</a></li>
+        
+            <li><a class="toctree-l3" href="#_17">复制、删除/剪切和粘贴</a></li>
+        
+            <li><a class="toctree-l3" href="#_18">查找和替换</a></li>
+        
+            <li><a class="toctree-l3" href="#_20">最近打开的文件</a></li>
+        
+            <li><a class="toctree-l3" href="#_21">撤销</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#_22">美化与个性化配置</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#_23">配置文件简介</a></li>
+        
+            <li><a class="toctree-l3" href="#_24">自动换行</a></li>
+        
+            <li><a class="toctree-l3" href="#_25">编码</a></li>
+        
+            <li><a class="toctree-l3" href="#_26">字体</a></li>
+        
+            <li><a class="toctree-l3" href="#_27">配色</a></li>
+        
+            <li><a class="toctree-l3" href="#_28">语法高亮</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#_29">常用指令</a></li>
+    
+
+    <li class="toctree-l2"><a href="#_30">常用命令</a></li>
+    
+
+    <li class="toctree-l2"><a href="#_31">较现代的文本编辑功能</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#_32">多标签/多缓冲区</a></li>
+        
+            <li><a class="toctree-l3" href="#_33">分屏</a></li>
+        
+            <li><a class="toctree-l3" href="#_34">折叠</a></li>
+        
+            <li><a class="toctree-l3" href="#_35">语法高亮</a></li>
+        
+            <li><a class="toctree-l3" href="#_36">差异比对</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#_37">配置文件详解</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#_38">常用配置</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#_39">插件系统</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#_40">安装插件</a></li>
+        
+            <li><a class="toctree-l3" href="#pathogen">Pathogen</a></li>
+        
+            <li><a class="toctree-l3" href="#vim-plug">Vim-plug</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#_41">其他技巧和常见问题</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#html">转换为 HTML</a></li>
+        
+            <li><a class="toctree-l3" href="#_42">重新选择</a></li>
+        
+            <li><a class="toctree-l3" href="#_43">文件编码转换</a></li>
+        
+            <li><a class="toctree-l3" href="#_44">缩进控制</a></li>
+        
+            <li><a class="toctree-l3" href="#_45">寄存器和宏</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#_46">其他资源</a></li>
     
 
     </ul>
@@ -111,7 +231,7 @@
     
       
     
-    <li>写给非程序员的 Vim 新手教程</li>
+    <li>Home</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -121,7 +241,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="vim">写给非程序员的 Vim 新手教程</h1>
+                <ul>
+<li>写给非程序员的 Vim 新手教程</li>
+</ul>
 <p>想为非程序员写一篇 Vim 新手入门教程有很久了。<br />
 很多人说 Vim 入门学习曲线陡峭，又只适合程序员、系统管理员使用，纷纷敬而远之。<br />
 网络上各种入门教程要么千篇一律，要么极为简单。<br />
@@ -129,17 +251,16 @@
 <p>而以我自学的经历来说，Vim 的上手远没想象的那么恐怖。<br />
 非程序员写写中文文章、脚本、配置文件等也能从 Vim 中获益良多。<br />
 也许我自学的方法和心得对新人有用，希望这篇新手教程能够帮到愿意尝试 Vim 的朋友。</p>
-<p>既然是面向非程序员，教程基于 Windows 下的 gVim（GUI 图形界面版本），这样可以覆盖尽可能多的新手，降低入门难度。<br />
-我自己使用 gVim 8.x 版本，示例截图统一采用 Github 配色方案。</p>
-<h2 id="vim_1">为什么选择 Vim</h2>
+<p>既然是面向非程序员，教程基于 Windows 下的 gVim（GUI 图形界面版本）8.x 版本，这样可以覆盖尽可能多的新手，降低入门难度。</p>
+<h2 id="vim">为什么选择 Vim</h2>
 <p>我曾经在 Windows 平台下寻找了很久，希望找到一个功能强大、稳定、高效、占用资源少、自定义能力强，最好是免费、开源、跨平台（只是日常使用也会接触到各种操作系统）的编辑器。<br />
 其他要求容易评价，功能强大、高效和自定义需求方面，很难说哪个编辑器是适合所有人的。<br />
 就我自己而言，反正在主力编辑器换用 Vim 之前，经常会为了增加或完善某个功能尝试不同的编辑器。<br />
 而在那之后，基本上只需要找相应的操作快捷键、命令、配置或插件，因为99%的情况下，Vim 已经做到了，只等着你去发掘。</p>
 <p>因此，只要度过最初的入门阶段，知道到哪里去发现增强功能的手段，今后的文本编辑和处理就可以一直在 Vim 的平台上完成，越来越熟练，从而节省了寻找和适应新编辑器的时间。</p>
-<p>而且，Vim 的设计哲学与其他文本编辑器截然不同，在这种设计哲学下，文本操作效率高，入门后复杂的快捷键和命令其实也并不难记忆，习惯了之后有举重若轻、事半功倍的快感。<br />
-即使许多编辑器有模仿 Vim 操作指令的模式，但只能模仿一部分，永远也无法完全复制原生 Vim 的体验。</p>
-<h2 id="vim_2">Vim 的入门之道</h2>
+<p>而且，Vim 的设计哲学与其他文本编辑器截然不同，在这种设计哲学下，文本操作效率高，入门后复杂的快捷键和命令其实也并不难记忆，习惯了之后有举重若轻、事半功倍的快感。</p>
+<p>就算离开 Vim 使用其他编辑器，也可以使用 Vim 模式，受益于 Vim 的设计哲学——如今大部分高级编辑器都有 Vim 模式，正说明了 Vim 哲学的魅力。</p>
+<h2 id="vim_1">Vim 的入门之道</h2>
 <p>传说中 Vim 的学习曲线是陡峭的悬崖，但我更倾向于认为这是因为入门方法不正确。<br />
 我希望新人们先接受 Vim 的设计哲学，了解到 Vim 的操作为什么如此与众不同，明白如此设计的优势何在，看上去纷繁无比的命令、指令和配置才不会显得那么可怕，反而可以在不断的学习中融会贯通。</p>
 <p>从心态上说，我希望初学者从基本的编辑功能开始，逐步替换基本的编辑器，不要试图一下子掌握太多技能。<br />
@@ -328,7 +449,7 @@ delete around paragraph.</p>
 <p>学习到相关的知识后再尝试操作。<br />
 其后我会在知识点中加上对应的帮助主题关键字，以<em>斜体</em>表示。如有更多疑问，可在 Vim 中自己查找帮助文档。<br />
 更高级的用法是 <code>:helpgrep 关键字</code>，像 grep 命令一样查找帮助文档中包含关键字的所有行，但只会在新窗口中展示第一个匹配的结果，更多的用法可以自己输入 <code>:help helpgrep</code> 探索。</p>
-<h2 id="vim_3">作为基本编辑器的 Vim</h2>
+<h2 id="vim_2">作为基本编辑器的 Vim</h2>
 <p>掌握 Vim 的强大功能之前，建议先将其作为基本的编辑器使用一段时间，在日常使用过程中一步步发掘不同于一般编辑器的功能点，渐进式地学习。<br />
 所以，我会先讲解如何将 Vim 当作最简单的编辑器使用，然后再逐步引入更高级、更复杂的功能。</p>
 <h3 id="_10">初次进入的界面</h3>
@@ -517,6 +638,39 @@ delete around paragraph.</p>
 <p>Vim 要查看最近打开的文件可以用 <code>:bro[wse] ol[dfiles]</code> 命令，列出最近的文件清单后，按 <code>q</code> 再输入对应的序号并回车就可以打开指定文件。<br />
 但这种方式无法通过查询方式定位历史文件，操作也不太方便，需要借助像 <a href="">NeoMRU</a>、<a href="https://github.com/mhinz/vim-startify/">Startify</a> 这样的插件来增强体验。</p>
 <h3 id="_21">撤销</h3>
+<p>Vim 自带的撤销（Undo）功能在普通模式下使用 <code>u</code> 指令触发。<br />
+Windows 环境下，<code>Ctrl-Z</code> 在普通模式和插入模式中也具备撤销功能。</p>
+<p>不过要当心的是，Vim 的撤销不是以单个字符为单位，如普通模式下的一次指令修改、插入模式下一连串动作，都视为一个可撤销的操作单位（action）。<br />
+也就是说，如果你进入插入模式输入、编辑了一大段文字，然后退出到普通模式，输入 <code>u</code> 指令，刚才输入的这所有文字都会清除掉，回到上一次进入插入模式之前的状态。</p>
+<p>如果你以中文输入为主，可以在配置文件中加入以下内容，每次修改文本都会打断撤销序列，保证可以灵活地撤销。<br />
+<code>autocmd TextChangedI * call feedkeys("\&lt;C-G&gt;u")</code></p>
+<p>如果以英文输入为主，则可以在配置文件中定义插入模式的按键映射，每次按下空格键后打断撤销序列，实现以单词为单位撤销。<br />
+<code>:inoremap &lt;Space&gt; &lt;Space&gt;&lt;C-g&gt;u</code></p>
+<p>另外，Vim 撤销功能的强大之处在于，它将所有输入操作像树的分支一样全部记录下来，输入、撤销、再输入不同的内容后，第一次输入的内容仍然可以通过撤销分支（undo-branches）找回来。撤销分支的详细用法可自行查阅帮助文档。<br />
+更加高级和方便的用法是安装 <a href="https://github.com/mbbill/undotree/">UndoTree</a> 插件。</p>
+<p>如果撤销之后又要重做（redo），该怎么办呢？<br />
+在普通模式下输入 <code>Ctrl-R</code> 指令。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>助记方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u</td>
+<td>undo</td>
+<td>撤销</td>
+</tr>
+<tr>
+<td>Ctrl-R</td>
+<td>redo</td>
+<td>重做</td>
+</tr>
+</tbody>
+</table>
 <h2 id="_22">美化与个性化配置</h2>
 <h3 id="_23">配置文件简介</h3>
 <p>Vim 是可以高度自定义的文本编辑器，它的各种自定义配置绝大多数都写在配置文件中，在启动时读取生效。</p>
@@ -644,5 +798,5 @@ vimer.cn</p>
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-05-22 08:45:36
+Build Date UTC : 2019-05-24 04:38:36
 -->
