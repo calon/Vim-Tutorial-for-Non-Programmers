@@ -691,7 +691,7 @@ Vim 支持多种折叠方法，但基于语法和表达式等方式的折叠，�
 
 如果你习惯使用 Markdown 等轻量标记语言，也可以使用诸如 [Vim Markdown Folding](https://github.com/masukomi/vim-markdown-folding) 这样的插件，根据层级标记自动实现折叠功能。
 
-### 语法高亮
+
 
 ### 差异比对
 gvim -d file1 file2
@@ -699,7 +699,40 @@ gvim -d file1 file2
 
 ## 配置文件详解
 
-### 常用配置
+前文简单介绍了 Vim 的配置文件，下面尝试在我自己的配置文件基础上详细讲解一些配置项。
+
+`set nocompatible`
+不使用兼容模式。兼容模式会启用一些与 Vi 兼容的设置，有的设置项会关闭一些高级特性，所以建议不采用兼容模式。
+
+`source $VIMRUNTIME/mswin.vim`
+`behave mswin`
+加载 mswin.vim 配置，使用更接近 Windows 的操作。
+比如默认 Ctrl-A 是全选，Ctrl-V 是粘贴。
+
+`if has("autocmd")`
+`  autocmd GUIEnter * simalt ~x`
+`endif`
+打开 Vim 后自动最大化窗口，相当于自动点 Windows 窗口右上角的最大化按钮。
+
+`set showcmd`
+在屏幕最后一行显示一些命令的操作信息。
+比如，选择多于一行时，在屏幕最下方显示选择的行数。
+
+`set shortmess=aoOtTI`
+缩写某些提示信息。比如 `I` 设置项表示启动 Vim 时不给出基本的介绍消息。
+
+`set showmatch`
+插入括号时，短暂地跳转到匹配的对应括号。
+
+`set number`
+在窗口左侧显示行号。
+
+`autocmd BufWinEnter * setlocal cursorline`
+`autocmd BufWinLeave * setlocal nocursorline`
+在当前缓冲区高亮光标所在行，如果窗口不是当前缓冲区，则不会高亮光标所在行。
+
+`set backspace=2`
+退格会删除缩进、换行符和插入的起始位置。
 
 ## 插件系统
 
