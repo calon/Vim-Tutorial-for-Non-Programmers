@@ -1,0 +1,4 @@
+site_name: 写给非程序员的 Vim 新手教程
+theme: readthedocs
+markdown_extensions:
+  - nl2br
