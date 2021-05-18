@@ -324,7 +324,7 @@ delete around paragraph.</p>
 <h2 id="_7">安装</h2>
 <h3 id="_8">下载</h3>
 <p>到 <a href="http://www.vim.org/download.php">Vim 官方网站下载页</a>下载，Windows 平台用户选择安装包文件即可。</p>
-<p><img alt="" src="images/download.png" /></p>
+<p><img alt="下载" src="images/download.png" /></p>
 <p>安装的过程就不做演示了，但请务必记住 Vim 的安装目录，其下有名为 <code>_vimrc</code> 的文件，是 Vim 的关键配置文件，后面会详细说明。</p>
 <p>如果今后报错说缺少 iconv.dll 文件，可以从 <a href="http://sourceforge.net/projects/gettext/">gettext for Win32</a> 下载的文件中提取，放在 gvim.exe 所在的目录中，如 <code>vim74</code> 目录。</p>
 <p>有其他人自己编译了支持 Perl、Ruby、Lua 等的 Vim 版本，这样可以用上更加强大的插件。<br />
@@ -333,7 +333,7 @@ delete around paragraph.</p>
 <p>Windows 下使用 Vim 打开文本文件会自动新建窗口，启动一个新的 gVim 实例。<br />
 你也可以更改启动命令的参数，使用 <code>gvim.exe --remote-silent</code>，在同一个窗口的新缓冲区中打开，或使用 <code>gvim.exe --remote-tab-silent</code> 在新的标签页中打开。</p>
 <p>我自己是使用 Totoal Commander + candy，在任何文件上按下 <code>F4</code>，会跳出 candy 的菜单：</p>
-<p><img alt="" src="images/candy.png" /></p>
+<p><img alt="candy" src="images/candy.png" /></p>
 <p>然后可以自由选择是在新的 gVim 进程实例还是新的缓冲区打开文件。</p>
 <p>关于缓冲区、标签页的说明，后面会提到。如果不熟悉，可以暂时不更改启动参数，保持原样。</p>
 <h3 id="_10">救命！</h3>
@@ -342,7 +342,7 @@ delete around paragraph.</p>
 1. 按键盘左上角的 <code>Esc</code> 键，返回刚进入 Vim 时的普通模式，然后再重新出发。<br />
 <code>Esc</code> 表示 Escape，记忆为“逃脱”就行。<br />
 2. 在普通模式下输入 <code>:help 关键字</code>，根据关键字查找 Vim 帮助文档中相应的主题。</p>
-<p><img alt="" src="images/help.png" /></p>
+<p><img alt="帮助" src="images/help.png" /></p>
 <p>学习到相关的知识后再尝试操作。<br />
 其后我会在知识点中加上对应的帮助主题关键字，以<em>斜体</em>表示。如有更多疑问，可在 Vim 中自己查找帮助文档。<br />
 更高级的用法是 <code>:helpgrep 关键字</code>，像 grep 命令一样查找帮助文档中包含关键字的所有行，但只会在新窗口中展示第一个匹配的结果，更多的用法可以自己输入 <code>:help helpgrep</code> 探索。</p>
@@ -359,9 +359,9 @@ delete around paragraph.</p>
 <p><img alt="自定义界面" src="images/custom_interface.png" /></p>
 <p>原来菜单栏和工具栏的位置被缓冲区标签页代替。<br />
 底部则是状态栏，显示当前的模式、文件名、文件修改时间、文件格式（dos、unix 或 mac 格式）、字符编码、文件类型和光标位置信息。</p>
-<p><img alt="" src="images/custom_interface_2.png" /></p>
+<p><img alt="自定义界面" src="images/custom_interface_2.png" /></p>
 <p>如果按 <code>:</code> 进入命令模式，则在状态栏下方输入命令：</p>
-<p><img alt="" src="images/command_input.png" /></p>
+<p><img alt="输入命令" src="images/command_input.png" /></p>
 <h3 id="_12">进入插入模式开始编辑</h3>
 <p>因为默认模式是普通模式，所以要输入文字需要进入插入模式。<br />
 进入插入模式最常用的指令是 <code>i</code>，是 <em>insert</em> 的缩写，含义是在当前字符之前插入，也就是移动光标至当前字符之前再进入插入模式。<br />
@@ -417,14 +417,14 @@ delete around paragraph.</p>
 如果你用鼠标拖动滚动栏上下翻页，光标不会待在原地不动，而会跟随屏幕移动。</p>
 <p>另外，Vim 中与行相关的移动也与众不同。<br />
 一般的文本编辑器，按 <code>End</code> 跳转到行尾时，如果该行在窗口内换行，那么光标还是会停在换行处：</p>
-<p><img alt="" src="images/end_of_line.png" /></p>
+<p><img alt="行尾" src="images/end_of_line.png" /></p>
 <p>而 Vim 中按 <code>End</code> 或 <code>$</code> 则是无视窗口换行，直接跳到真正的行尾：</p>
-<p><img alt="" src="images/end_of_line_2.png" /></p>
+<p><img alt="真正的行尾" src="images/end_of_line_2.png" /></p>
 <p>同样地，行间移动也比较有个性：</p>
 <p>普通的文本编辑器中，上下移动是这样的：</p>
-<p><img alt="" src="images/move_between_line.png" /></p>
+<p><img alt="上下移动" src="images/move_between_line.png" /></p>
 <p>而 Vim 中是这样的：</p>
-<p><img alt="" src="images/move_between_line_2.png" /></p>
+<p><img alt="上下移动" src="images/move_between_line_2.png" /></p>
 <p>如果你日常使用窗口内换行的设置，可能会因此而困扰。<br />
 不过好在在设置中这可以修改为符合普通编辑的方案。</p>
 <p>由于本教程面向非程序员，因此涉及代码常见的成对符号、标签间的跳转就略过了。<br />
@@ -440,14 +440,14 @@ E32: 没有文件名<br />
 你也可以在输入文件名之前，<code>save</code> 指令的空格之后，输入路径，并按 <code>Tab</code>/<code>Shift-Tab</code> 让 Vim 自动补全路径。<br />
 <code>saveas</code> 和 <code>write</code> 命令可以分别简写为 <code>sav</code> 和 <code>w</code>。</p>
 <p>如果希望看到熟悉的弹出窗口，通过 Windows 自带的资源浏览器选择保存的路径和文件名，那么可以使用 <code>:browse save</code> 命令：</p>
-<p><img alt="" src="images/browse_save.png" /></p>
+<p><img alt="保存" src="images/browse_save.png" /></p>
 <p>之后可以使用 <code>Ctrl-S</code> 快捷键或点击 <code>保存</code> 按钮，也可以再使用 <code>:w</code> 命令来保存文件。</p>
 <h3 id="_15">打开文件</h3>
 <p>如果习惯使用资源浏览器打开文件，可以输入 <code>:browse edit</code> 命令，然后读入指定的文件开始编辑。<br />
 如果不想调出资源浏览器窗口，新文件的位置又在附近，直接输入 <code>:edit</code> 然后使用 <code>Tab</code>/<code>Shift-Tab</code> 补全文件名更能更快。</p>
 <p>如果希望像一般的多标签编辑器那样，新打开的文件显示在新的标签页中。<br />
 可以使用 <code>:tabedit filename</code> 或 <code>:browse tabedit</code> 命令：</p>
-<p><img alt="" src="images/tabedit.png" /></p>
+<p><img alt="标签页打开" src="images/tabedit.png" /></p>
 <p>如果喜欢多缓冲区模式，换成用 <code>:enew</code> 命令即可，相当于 edit new。</p>
 <p>当然，最快的还是配合 Totoal Commander 和 candy 使用。</p>
 <p>同时处理多个文件时，Vim 的缓冲区（<em>buffers</em>）、标签页（<em>tab-page</em>）和窗口（<em>window</em>）的概念与一般的编辑器有些差异，入门者会犯糊涂很正常。<br />
@@ -481,16 +481,16 @@ Windows 下的 gVim 默认也是可以按 <code>Ctrl-A</code> 全选的，但 <c
 使用 <code>j</code>、<code>k</code> 或其他光标移动指令选择整列文字后，按 <code>I</code> 或 <code>A</code> 分别在选中列块之前或之后进入插入模式。<br />
 输入文字后按 <code>Esc</code> 回到普通模式，刚才输入的文字就会插入之前选择的各行。</p>
 <p>例如，光标在以下文档最前方，需要在每行第二列插入空格字符：</p>
-<p><img alt="" src="images/block_mode.png" /></p>
+<p><img alt="列块模式" src="images/block_mode.png" /></p>
 <p>按下 <code>Ctrl-Q</code>，可以看到左下角的模式已经转换为“可视 块”，表示不但已经切换到可视模式，而且是列块模式：</p>
-<p><img alt="" src="images/block_mode_2.png" /></p>
+<p><img alt="列块模式" src="images/block_mode_2.png" /></p>
 <p>按下 <code>G</code> 或者 <code>2j</code> 移动到最后一行，可以看到选择的范围也相应变成所有行第一列的字符：</p>
-<p><img alt="" src="images/block_mode_3.png" /></p>
+<p><img alt="列块模式" src="images/block_mode_3.png" /></p>
 <p>再按下 <code>A</code> ，光标即落在第一、二列之间，输入一个空格后效果如下：</p>
-<p><img alt="" src="images/block_mode_4.png" /></p>
+<p><img alt="列块模式" src="images/block_mode_4.png" /></p>
 <p>这时只看到第一行插入了空格，其他行却维持原样，这行事风格和其他编辑器的列块模式不一样啊。<br />
 不要恐慌，按下 <code>Esc</code> 退出可视模式之后，事情起了变化：</p>
-<p><img alt="" src="images/block_mode_5.png" /></p>
+<p><img alt="列块模式" src="images/block_mode_5.png" /></p>
 <p>Vim 中的选择一样可以使用鼠标，和一般的文本编辑器类似，左键按住然后拖动就行。<br />
 列块模式的选择则是按住 <code>Alt</code> 键，再用鼠标左键选择。<br />
 如果你忘记了键盘指令，临时用鼠标对付就是了。</p>
@@ -1192,6 +1192,41 @@ vimer.cn</p>
 <td>保存文件</td>
 <td>文件</td>
 </tr>
+<tr>
+<td>?</td>
+<td>疑问</td>
+<td>普通</td>
+<td>反向查找</td>
+<td>查找</td>
+</tr>
+<tr>
+<td>/</td>
+<td>与 ? 共用按键</td>
+<td>普通</td>
+<td>正向查找</td>
+<td>查找</td>
+</tr>
+<tr>
+<td>s</td>
+<td>substitute</td>
+<td>命令</td>
+<td>替换</td>
+<td>编辑</td>
+</tr>
+<tr>
+<td>u</td>
+<td>undo</td>
+<td>普通</td>
+<td>撤销</td>
+<td>编辑</td>
+</tr>
+<tr>
+<td>Ctrl-R</td>
+<td>redo</td>
+<td>普通</td>
+<td>重做</td>
+<td>编辑</td>
+</tr>
 </tbody>
 </table>
 <h1 id="_61">技巧</h1>
@@ -1256,5 +1291,5 @@ K keyword 查看关键字释义</p>
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2021-05-18 14:53:11
+Build Date UTC : 2021-05-18 15:09:23
 -->
