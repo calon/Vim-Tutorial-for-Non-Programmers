@@ -1368,6 +1368,7 @@ Gundo 多分支撤销
 K keyword 查看关键字释义
 
 :![cmd] 直接执行终端命令，选择后执行结果替换选择的部分
+普通模式下 `q:` 查看命令历史清单
 
 http://vim.wikia.com/wiki/Vim_Tips_Wiki
 
