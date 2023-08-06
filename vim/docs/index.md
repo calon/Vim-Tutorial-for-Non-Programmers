@@ -2,7 +2,7 @@
 
 想为非程序员写一篇 Vim 新手入门教程有很久了。
 很多人说 Vim 入门学习曲线陡峭，又只适合程序员、系统管理员使用，纷纷敬而远之。
-网络上各种入门教程要么千篇一律，要么极为简单。
+网络上各种入门教程要么千篇一律，要么极为简单，要么假设读者已经有编程基础。
 对新人确实不够友好，一定程度上也阻止了更多的人学习、喜爱上 Vim。
 
 而以我自学的经历来说，Vim 的上手远没想象的那么恐怖。
@@ -47,12 +47,19 @@
 也可相互参考，同步学习，不必拘泥于本教程的章节顺序设置。
 
 - 自带教程 Vim Tutor
-Vim 自带了详细的教程，进入方式就是打开 Vim 之后输入 `:help tutor`。
-如果你安装的 Vim 没有自带中文教程，可以下载[中文教程](http://sourceforge.net/projects/vimcdoc/)并安装，再输入以上的命令。
-自带教程其实已经非常完善，按顺序阅读下来就能入门。但不足之处是有时候比较啰嗦，有时候又一笔带过，而且并未详述 Vim 的设计理念。
+    Vim 自带了详细的教程，进入方式就是打开 Vim 之后输入 `:help tutor`。
+    如果你安装的 Vim 没有自带中文教程，可以下载[中文教程](http://sourceforge.net/projects/vimcdoc/)并安装，再输入以上的命令。
+    自带教程其实已经非常完善，按顺序阅读下来就能入门。但不足之处是有时候比较啰嗦，有时候又一笔带过，而且并未详述 Vim 的设计理念。
+    [中文教程的在线文档：VIM 中文帮助](https://yianwillis.github.io/vimcdoc/doc/help.html)
 
 - [大家來學VIM（一個歷久彌新的編輯器）](http://www.study-area.org/tips/vim/)
 我开始入门时就有的经典教程。
+
+- [Learn Vimscript the Hard Way](https://learnvimscriptthehardway.stevelosh.com/)
+
+- [Learn Vim (the Smart Way)](https://github.com/iggredible/Learn-Vim)
+
+[中文翻译](https://github.com/wsdjeg/Learn-Vim_zh_cn)
 
 - [Learn Vim Progressively](http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/)
 中文翻译：[简明 Vim 练级攻略](http://coolshell.cn/articles/5426.html)
@@ -63,7 +70,11 @@ Vim 自带了详细的教程，进入方式就是打开 Vim 之后输入 `:help 
 
 - [Vim Introduction and Tutorial](https://blog.interlinked.org/tutorials/vim_tutorial.html)
 
-- [Vim 学习笔记](http://yyq123.blogspot.com/search/label/Vim)
+- [Vim 学习笔记](https://github.com/yyq123/learn-vim)
+
+- [Vim 从入门到精通](https://github.com/wsdjeg/vim-galore-zh_cn)
+
+- [完全用 Vim 工作](https://harttle.land/vim-practice.html)
 
 ### 其他编辑器推荐
 
@@ -71,14 +82,10 @@ Vim 肯定不可能适合所有人，只要你找到最适合自己的工具，�
 如果最终还是没法适应 Vim，我推荐在 Windows 下其他几款文本编辑器：
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-微软出品的开源、跨平台编辑器，同样也是诞生不久，性能优化不错，发展迅速。
+微软出品的开源、跨平台编辑器，性能优化不错，发展迅速，已经成为最主流的编辑器之一。
 
 - [Notepad ++](https://notepad-plus-plus.org/)
 基于 [Scintilla](http://www.scintilla.org/) 的开源、免费文本编辑器，小巧迅捷，遵循 GPL 协议。
-
-- [EverEdit](http://cn.everedit.net/)
-国人开发的共享软件，支持多种新颖的功能，如文档地图、颜文字等，还有专为中文用户开发的功能，如纵向书写模式、中文括号自动匹配等。
-有30天试用期，详情可参考善用佳软的[介绍文章](http://xbeta.info/everedit.htm)。
 
 - [EmEditor](https://www.emeditor.com/)
 日本公司开发的共享软件，速度快，大文件支持好，有多种贴心功能。
@@ -93,8 +100,8 @@ Vim 肯定不可能适合所有人，只要你找到最适合自己的工具，�
 - [EditPlus](https://www.editplus.com/)
 另一款非常经典的编辑器，韩国人出品，同样也有大量用户，付费软件。
 
-- [Emacs](https://www.gnu.org/software/emacs/) 和 [Spacemacs](http://spacemacs.org/)
-Emacs 堪称功能比 Vim 更加强大的文本编辑器，后者则是在 Emacs 基础上融合 Vim 长处的尝试。
+- [Emacs](https://www.gnu.org/software/emacs/)、[Spacemacs](http://spacemacs.org/)、[Doom Emacs](https://github.com/doomemacs/)
+Emacs 堪称功能比 Vim 更加强大的文本编辑器，后两者则是在 Emacs 基础上融合插件和优化配置的尝试。
 
 ## Vi 的设计哲学和操作逻辑
 
@@ -110,12 +117,13 @@ Vim 特有的操作逻辑都基于这两个概念，理解了这两个概念以�
 
 ### 模式
 
-Vim 的模式有许多种，作为入门者最常接触的也有四种（近似的模式做了合并）：
+Vim 的模式有许多种，作为入门者最常接触的有四种（近似的模式做了合并）：
 
 1. 普通模式 normal mode
-    用于输入编辑文本的指令，和移动光标。
+    用于输入编辑文本的指令和移动光标。
     例如在普通模式下输入 `x`，会立即删除光标所在的字符（你可以将 `x` 理解为画一把叉表示删除，方便记忆）。
     输入 `h`/`j`/`k`/`l` 分别是向左/下/上/右横向一个字符或纵向移动一行。
+    普通模式是 Vim 的默认模式，也是切换到其他模式的入口。许多资深用户认为一旦停止输入，应该立即回到这个模式下。
 
 2. 插入模式 insert mode
     用于输入文本字符。与一般的文本编辑器并无二致。
@@ -198,6 +206,7 @@ delete around paragraph.
 借助[插件](https://github.com/kana/vim-textobj-user)能扩展 Vim 对文本对象的支持。
 
 ### 做好一件事
+
 Vim 只专注做一件事情——纯文本编辑器，不考虑编辑富文本，不插入图片，更没有成为“操作系统”的野心。
 
 ### 减少重复操作和复杂度
@@ -213,7 +222,7 @@ Vim 只专注做一件事情——纯文本编辑器，不考虑编辑富文本�
 
 - Vim 不是大而全的“操作系统”或包打天下的“万能工具”
 - Vim 无法内嵌显示图像或其他多媒体格式的内容
-  Vim 固然功能强大，但依然专注于纯文本编辑，坚持“each program do one thing well”的 UNIX 哲学。
+  Vim 固然功能强大，但依然专注于纯文本编辑，坚持“Make each program do one thing well”的 UNIX 哲学。
 - Vim 不支持非等宽字体
 - Vim 不支持在指定列软换行，要么在窗口处折行，要么使用硬换行，但有变通办法模拟软换行
 - Vim 处理超长行和大文件的语法高亮存在性能问题，未来可能有望解决
@@ -229,30 +238,22 @@ Vim 只专注做一件事情——纯文本编辑器，不考虑编辑富文本�
 
 ![下载](images/download.png)
 
-安装的过程就不做演示了，但请务必记住 Vim 的安装目录，其下有名为 `_vimrc` 的文件，是 Vim 的关键配置文件，后面会详细说明。
+安装的过程就不做演示了，但请务必记住 Vim 的安装目录，以及操作系统分配给当前用户的用户目录。
+根据版本和选项不同，这些目录下有名为 `_vimrc` 的文件，是 Vim 的关键配置文件，后面会详细说明。
 
 如果今后报错说缺少 iconv.dll 文件，可以从 [gettext for Win32](http://sourceforge.net/projects/gettext/) 下载的文件中提取，放在 gvim.exe 所在的目录中，如 `vim90` 目录。
 
 有其他人自己编译了支持 Perl、Ruby、Lua 等的 Vim 版本，这样可以用上更加强大的插件。
 你可以下载 Vim 源码自己编译，也可以下载其他人编译的版本，比如[这里](https://tuxproject.de/projects/vim/)和[这里](http://www.kaoriya.net/software/vim/)。
 
-### 启动参数
+### 启动
 
-Windows 下使用 Vim 打开文本文件会自动新建窗口，启动一个新的 gVim 实例。
-你也可以更改启动命令的参数，使用 `gvim.exe --remote-silent`，在同一个窗口的新缓冲区中打开，或使用 `gvim.exe --remote-tab-silent` 在新的标签页中打开。
-
-我自己是使用 Total Commander + candy，在任何文件上按下 `F4`，会跳出 candy 的菜单：
-
-![candy](images/candy.png)
-
-然后可以自由选择是在新的 gVim 进程实例还是新的缓冲区打开文件。
-
-关于缓冲区、标签页的说明，后面会提到。如果不熟悉，可以暂时不更改启动参数，保持原样。
+在安装目录中有 `vim.exe`、`gvim.exe`、`vimrun.exe` 等可执行文件，因为是面向非程序员，所以我们优先使用有图形界面（GUI）的 `gvim.exe` 作为启动命令。
 
 ### 救命！
 
 不要恐慌！
-如果你在使用 Vim 时晕头转向，手足无措，一般有两个救命锦囊（并不总是有效）：
+如果你在使用 Vim 时晕头转向，手足无措，一般有两个救命锦囊（并不保证总是有效 :P）：
 1. 按键盘左上角的 `Esc` 键，返回刚进入 Vim 时的普通模式，然后再重新出发。
 `Esc` 表示 Escape，记忆为“逃脱”就行。
 2. 在普通模式下输入 `:help 关键字`，根据关键字查找 Vim 帮助文档中相应的主题（可以简写为 `:h 关键字`）。
@@ -293,6 +294,26 @@ Windows 下使用 Vim 打开文本文件会自动新建窗口，启动一个新�
 
 ![输入命令](images/command_input.png)
 
+不妨输入以下命令
+`:echo $VIM`
+`:echo $VIMRUNTIME`
+`:echo $HOME`
+分别可以在最下方的状态栏看到 Vim 的应用程序所在目录、运行时目录、操作系统中的用户目录。
+后续有可能会用到。
+
+### 启动参数
+
+Windows 下使用 Vim 打开文本文件会自动新建窗口，启动一个新的 gVim 实例。
+你也可以更改启动命令的参数，使用 `gvim.exe --remote-silent`，在同一个窗口的新缓冲区中打开，或使用 `gvim.exe --remote-tab-silent` 在新的标签页中打开。
+
+我自己是使用 Total Commander + candy，在任何文件上按下 `F4`，会跳出 candy 的菜单：
+
+![candy](images/candy.png)
+
+然后可以自由选择是在新的 gVim 进程实例还是新的缓冲区打开文件。
+
+关于缓冲区、标签页的说明，后面会提到。如果不熟悉，可以暂时不更改启动参数，保持原样。
+
 ### 进入插入模式开始编辑
 
 因为默认模式是普通模式，所以要输入文字需要进入插入模式。
@@ -312,7 +333,7 @@ Windows 下使用 Vim 打开文本文件会自动新建窗口，启动一个新�
 如果觉得总是英文输入状态很麻烦，可以试试谷歌输入法、手心输入法等。
 
 如果要在当前字符之后插入呢？
-按下 `a` 就行，含义是追加，对应的英文为 append。
+按下 `a` 就行，含义是追加，对应的英文为 *append*。
 
 也许你会觉得，在字符前还是后进入插入模式还要弄两个命令，太小题大做。
 那插入新行的指令 `o` 和 `O` 就显得实用多了。
@@ -330,7 +351,7 @@ Windows 下使用 Vim 打开文本文件会自动新建窗口，启动一个新�
 如果你使用 Vim 写中文文章，那么有一个比较困扰的问题是每次切换模式时，都要注意切换输入法的中英文状态。
 例如，在普通模式下保持中文输入状态时，按 `a` 不会进入插入模式，因为系统认为你在输入拼音，等按键确认上屏后才会切换模式。
 
-在 Windows 环境下，暂时没有完美的解决方法，不过，谷歌输入法、卡饭输入法、Windows 10系统自带的必应输入法遇到的问题相对较少。
+在 Windows 环境下，暂时没有完美的解决方法，不过，谷歌输入法、手心输入法、卡饭输入法、Windows 10系统自带的微软输入法遇到的问题相对较少。
 
 ### 光标移动
 
@@ -340,7 +361,7 @@ Windows 下使用 Vim 打开文本文件会自动新建窗口，启动一个新�
 最简单的移动指令相信初学者也有所耳闻，就是标准键盘右手四指附近的 `h`、`j`、`k`、`l` 四键，分别对应**普通模式**下，左、下、上、右四方向移动光标的操作。
 因为小拇指操作比较别扭，所以分配给食指的是 `h` 和 `j` 两个键，如果你的键盘盲打手势很标准，熟悉这四个指令应该不是难事。
 
-除此之外，还有指令取代 `Home`、`End`、'PageUp` 和 `PageDown` 键。
+除此之外，还有指令取代 `Home`、`End`、`PageUp` 和 `PageDown` 键。
 `0` 和 `^` 都是移动到当前行的行首，区别在于 `^` 移动到的是第一个非空白字符。
 `$` 则是移动到当前行最后一个非空白字符。
 `Ctrl-F` 对应 `PageDown`，`F` 代表 Forwards，前进。
@@ -354,11 +375,12 @@ Windows 下使用 Vim 打开文本文件会自动新建窗口，启动一个新�
 每个指令都有相应的大写指令，不过是以字符串而不是单词为单位跳转。
 
 比如，跳转的位置如下所示：
-![](images/text_objects_motion.png)
+![跳转位置](images/text_objects_motion.png)
+
 因为存在英文标点符号，因此 `w` 和 `W` 跳转的位置会有差异。
 
-之前有说过，由于中文的文本对象识别不完善，因此相应的跳转功能也未尽如人意：
-![](images/text_objects_motion_chinese.png)
+注意：由于中文的文本对象识别不完善，因此相应的跳转功能也未尽如人意，未用空格等特殊字符分隔的一串中文字符，在跳转时会被当作单词。
+![中文跳转](images/text_objects_motion_chinese.png)
 
 这些指令同样可以和数字结合起来使用。
 比如，`10j` 表示光标向下移动10行；
@@ -433,9 +455,9 @@ E32: 没有文件名
 
 ![标签页打开](images/tabedit.png)
 
-如果喜欢多缓冲区模式，换成用 `:enew` 命令即可，相当于 edit new。
+如果喜欢多缓冲区模式，换成用 `:enew filename` 命令即可，相当于 edit new。
 
-当然，最快的还是配合 Totoal Commander 和 candy 使用。
+当然，最快的还是配合 Total Commander 和 candy 使用。
 
 同时处理多个文件时，Vim 的缓冲区（*buffers*）、标签页（*tab-page*）和窗口（*window*）的概念与一般的编辑器有些差异，入门者会犯糊涂很正常。
 后续会有详细章节介绍这些概念。
@@ -557,6 +579,8 @@ Windows 系统中，复制、粘贴的快捷键是 `Ctrl-C` 和 `Ctrl-V`。
 熟悉了之后，这倒不是什么大问题，何况也可以指定用于删除、复制、粘贴操作的寄存器，这就属于进阶的学习内容了。
 
 ### 关闭退出
+
+Vim 专属的经典笑话是“新手如何退出 Vim？”，实际上可没有那么可怕。
 
 Vim 当然还是支持 Windows 系统中标准的快捷键 `Alt-F4`，或者直接用鼠标左键点右上角的关闭按钮。
 
@@ -767,6 +791,8 @@ Windows 10 之前的字体渲染效果非常糟糕，建议安装 MacType。
 
 一目了然，如何选择不用多说了吧。
 
+Windows 10 之后基本上不需要操心或者操心了也没有很大用处。
+
 ### 配置文件简介
 
 以下的美化工作涉及修改 Vim 配置，所以先介绍 Vim 的配置文件。
@@ -834,7 +860,7 @@ Vim 会按照顺序在以上目录中寻找对应的配置文件。
 ### 字体
 
 官方版本的 gVim 目前只支持等宽字体，如果你经常处理中文，那么可选择面就比较窄了。
-目前使用比较多的有雅黑等宽字体、字体印象（Impression of Font）的多个系列（如 XHei）、文泉驿系列、Inziu Iosevka、等距更纱黑体系列。
+目前使用比较多的有雅黑等宽字体、字体印象（Impression of Font）的多个系列（如 XHei）、文泉驿系列、Inziu Iosevka、等距更纱黑体、霞鹜文楷系列。
 
 使用 `:set guifont=*` 命令可以调出字体选择菜单，但选择的结果仅对当次打开的窗口生效。关闭窗口再打开新进程，字体又会恢复到默认设置。
 需要在配置文件中配置固定的字体，如以默认的黑体为例，vimrc 文件中的配置如下：
@@ -846,11 +872,12 @@ Vim 会按照顺序在以上目录中寻找对应的配置文件。
 如系统自带的黑体是 SimHei，雅黑等宽是 Yahei_Mono，空格用下划线表示了。
 字体名称与字号之间用冒号 `:` 分隔。
 
-其中 *guifont* 用于指定图形界面版本使用的字体列表，*guifontwide* 用于指定双宽字符的字体列表，使用 guifont 指定的两倍宽度和相同的高度。
+其中 *guifont* 用于指定图形界面版本使用的字体列表，*guifontwide* 用于指定双宽字符的字体列表。
 
 如果今后隐藏了菜单栏，使用 `:set guifont=*` 命令可以调出字体选择界面预览字体效果。
 有的时候，可能不知道如何指定字体名称，如字体名称显示为“等距更纱黑体 T SC”，在配置中实际应该写为`等距更纱黑体_T_SC`。
-可以先用 `:set guifont=*` 命令选择字体，再用 `:set guifont` 查看当前所用的字体配置名称。
+
+小技巧：可以先用 `:set guifont=*` 命令选择字体，再用 `:set guifont` 查看当前所用的字体配置名称。
 
 
 ### 配色
@@ -861,7 +888,6 @@ Vim 继承自终端界面时代默认的配色方案大多扎眼，如果你更�
 下载下来的配色文件可以放入 `vimfiles/colors` 目录，然后使用 `:colorscheme [配色方案名称]` 的方式临时启用，或者输入 `:colorscheme` 命令后按空格和 `Tab` 选择已有的配色方案。
 
 如果要更改默认配色方案，需要在 vimrc 配置文件中写入 `colorscheme [配色方案名称]` 的配置内容，再重启 Vim。
-
 
 ### 语法高亮
 
@@ -897,9 +923,9 @@ Vim 根据文件后缀名自动识别文件类型（filetype）并再根据文�
 
 ### 多标签/多缓冲区
 
-一般的文本编辑器界面通常有窗口（Window）和标签页（Tab）的概念。
-窗口，在 Windows 操作系统中对应的是一个编辑器进程的可视界面，顶部有标题栏，底部一般有状态栏，侧边可能有滚动条，右上角有最小化、最大化、关闭窗口等 Windows 窗口的标准按钮。
-标签页，是在一个窗口内同时打开多个文件时，通过文件名等标识标记、区分和方便用户来回切换的界面元素，其灵感来自于现实中文件夹的标签页概念。已经打开的某个文件，可以看作是标签页这个容器中的内容，而窗口中又容纳了多个标签页。
+一般的文本编辑器界面通常有应用程序窗口（Program Window）和标签页（Tab）的概念。
+应用程序窗口，在 Windows 操作系统中对应的是一个编辑器应用程序进程的可视界面，顶部有标题栏，底部一般有状态栏，侧边可能有滚动条，右上角有最小化、最大化、关闭窗口等 Windows 窗口的标准按钮。
+标签页，是在一个应用程序窗口内同时打开多个文件时，通过文件名等标识标记、区分和方便用户来回切换的界面元素，其灵感来自于现实中文件夹的标签页概念。已经打开的某个文件，可以看作是标签页这个容器中的内容，而窗口中又容纳了多个标签页。
 选中一个标签页，则编辑器展现的内容会切换到标签页容纳的文件。
 
 在 Vim 中，增加了缓冲区（Buffer）的概念，窗口和标签页（Tab-page）的含义也有微妙的不同。
@@ -923,7 +949,7 @@ Vim 根据文件后缀名自动识别文件类型（filetype）并再根据文�
 
 #### 窗口
 
-缓冲区内容在窗口中展示，这里的窗口并非作为 Windows 应用的 Vim 的主窗口，而是 Vim 主窗口内部的分割窗口概念，当同时展示多个 Vim 分割窗口时，类似于 Microsoft Word 中多窗口平铺的样式。
+缓冲区内容在窗口中展示，这里的窗口并非作为 Windows 应用程序的 Vim 的主窗口，而是 Vim 主窗口内部的分割窗口概念，当同时展示多个 Vim 分割窗口时，类似于 Microsoft Word 中多窗口平铺的样式。
 当修改某一个窗口中的文件时，实际是修改的这个文件对应的内存缓冲区，其他窗口中展示同一缓冲区的内容也会同步更新。
 只要没有退出 Vim 进程，或删除缓冲区，否则你关闭窗口，只是关闭缓冲区内容展示的通道，看不到刚才编辑的文件了，但它依然保存在内存的缓冲区中，可以随时再次打开。
 
@@ -944,6 +970,7 @@ Vim 根据文件后缀名自动识别文件类型（filetype）并再根据文�
 `:only` 命令可以只保留当前窗口，关闭其他所有窗口。
 
 以 `Ctrl-W` 开头表示这个组合快捷键与 Window 窗口有关。
+比如 `Ctrl-W q` 可以关闭当前的窗口。
 光标在多窗口之间跳转可以在普通模式下使用 `Ctrl-W` `h/j/k/l` 指令。
 移动窗口的相对位置，左下上右的指令改为大写：`Ctrl-W` `H/J/K/L`
 交换对调上下、左右窗口的位置，使用 `Ctrl-W` `r` 指令。
@@ -953,7 +980,7 @@ Vim 根据文件后缀名自动识别文件类型（filetype）并再根据文�
 
 #### 标签页
 
-标签页可以看作介于 Vim 应用主窗口和分割窗口之间的容器，可容纳展示一个或一组分割窗口，可以通过 `:tabedit filename` 命令在另一个标签页中打开指定的文件，在这个标签页中又可以打开多个窗口。
+标签页可以看作介于 Vim 应用程序主窗口和分割窗口之间的容器，可容纳展示一个或一组分割窗口，可以通过 `:tabedit filename` 命令在另一个标签页中打开指定的文件，在这个标签页中又可以打开多个窗口。
 
 一般情况下 Vim 的标签页长相普通：
 
@@ -961,9 +988,9 @@ Vim 根据文件后缀名自动识别文件类型（filetype）并再根据文�
 
 但 Vim 的标签页与普通的多标签文本编辑器还不太一样。
 其他编辑器的标签页以文件为单位，一个文件对应一个标签页。
-而 Vim 的标签页是窗口的容器，一个标签页中可以有多个窗口，窗口中可以是不同的缓冲区，也可以是同一个缓冲区。
+而 Vim 的标签页是分割窗口的容器，一个标签页中可以有多个窗口，窗口中可以是不同的缓冲区，也可以是同一个缓冲区。
 因此，一个缓冲区既可能出现在多个窗口中，也可能出现在同一个或者不同的标签页下的多个窗口中。
-如果你不太习惯这个特性，还是采用缓冲区的管理方式比较好。
+如果你不太习惯标签页这个特性，还是采用缓冲区的管理方式比较好。
 
 新建标签页的命令是 `:tabedit` 或者 `:tabnew`，关闭当前标签页使用 `:tabclose`，关闭所有其他标签页使用 `:tabonly`。
 普通模式下，前后切换标签页使用 `gt` 和 `gT` 指令。
@@ -972,13 +999,15 @@ Vim 根据文件后缀名自动识别文件类型（filetype）并再根据文�
 
 ### 窗口分屏
 
-分屏用于在一个窗口中同时展现两个文档，对照或比较内容时很常用。
-分屏的基础命令 `:split` 和 `:vsplit` 之前已经有提及。其中 `v` 是垂直（vertical）的缩写。
+分屏用于在一个界面中同时展现两个文档，对照或比较内容时很常用。
+分屏的基础命令 `:split filename` 和 `:vsplit filename` 之前已经有提及。其中 `v` 是垂直（vertical）的缩写。
+如果不指定文件名，默认是对照当前文本本身。
+
 两个命令可以分别简写为 `:sp` 和 `:vs`，也可以分别使用快捷键实现：
 水平分屏：`Ctrl-W` `s` 或者 `Ctrl-W` `Ctrl-S`
 垂直分屏：`Ctrl-W` `v` 或者 `Ctrl-W` `Ctrl-V`
 
-使用 `:q` 命令退出当前窗口来结束分屏。
+使用 `Ctrl-W q` 或 `:close` 命令退出当前窗口来结束分屏。
 
 ### 折叠
 
@@ -1053,20 +1082,19 @@ Vim 支持多种折叠方法，但基于语法和表达式等方式的折叠，�
 
 倘若经常使用关键字补全功能，`Ctrl-P` 和 `Ctrl-N` 快捷键并不方便，可以用 SuperTab、VimCompletesMe 等插件改为按 `Tab` 和 `Shift-Tab` 选择补全选项。
 
-结合 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)、[Neocomplete](https://github.com/Shougo/neocomplete.vim)等插件， 以及 LSP（Language Server Protocol）功能，能体验更高级的补全功能和自定义配置，如：模糊匹配、跨文档补全、语法补全、路径补全、触发条件设置、补全关键字来源设置等等。
+结合 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)、[Neocomplete](https://github.com/Shougo/neocomplete.vim) 等插件， 以及 LSP（Language Server Protocol）功能，能体验更高级的补全功能和自定义配置，如：模糊匹配、跨文档补全、语法补全、路径补全、触发条件设置、补全关键字来源设置等等。
 对非程序员来说，系统自带的补全已经基本够用了。
-
 
 ### 差异比对
 
 有时候一份文档多处编写，保留了多个版本，如果没有使用专门的版本管理工具，如何比较它们的差异并快速调整呢？
 Vim 自带了差异比对的功能，使用 `gvim.exe -d file1 file2` / `vim.exe -d -g file1 file2` / `gvimdiff.exe file1 file2` 等多种方式启动 gVim，就进入差异比对模式：
 
-[](./images/diff.png)
+[差异比对](./images/diff.png)
 
 小屏幕窗口垂直分隔不方便看，启动时加 `-o` 参数可以使用水平分隔：
 
-[](./images/diff_2.png)
+[差异比对水平分隔](./images/diff_2.png)
 
 有差异的部分以不同颜色标记。
 
@@ -1081,9 +1109,9 @@ Vim 自带了差异比对的功能，使用 `gvim.exe -d file1 file2` / `vim.exe
 
 ### 版本控制
 
-Vim 本身不提供版本控制功能，需要借助 Git 等版本控制工具，各种相关的插件可以实现在 Vim 中完成基本的版本控制操作，以及直接查看版本状态。
+Vim 本身不提供版本控制功能，需要借助 git 等版本控制工具，各种相关的插件可以实现在 Vim 中完成基本的版本控制操作，以及直接查看版本状态。
 
-插件 [fugitive](https://github.com/tpope/vim-fugitive) 和 [vim-gitgutter](https://github.com/airblade/vim-gitgutter) 专精于 Git，[vim-signify](https://github.com/mhinz/vim-signify) 则可以配合所有常见的版本控制工具使用。
+插件 [fugitive](https://github.com/tpope/vim-fugitive) 和 [vim-gitgutter](https://github.com/airblade/vim-gitgutter) 专精于 git，[vim-signify](https://github.com/mhinz/vim-signify) 则可以配合所有常见的版本控制工具使用。
 
 ## 配置文件详解
 
@@ -1094,7 +1122,6 @@ Vim 本身不提供版本控制功能，需要借助 Git 等版本控制工具�
 切记不要一把全部复制到自己的配置中，一定要先弄明白再取用。
 
 另外，强烈建议入门者不要在配置上花费太多时间，你会发现这是个时间的无底洞，严重影响你的生产力——除非你知道自己在干什么，而且现有的配置实在难用。
-
 
 #### 使用鼠标
 
@@ -1199,10 +1226,13 @@ Vim 默认使用内置的剪贴板（寄存器）存放复制粘贴的内容，�
 `set backspace=2`
 设置为2表示退格会删除缩进、换行符和进入插入模式时的起始位置，与通常的习惯保持一致。
 
-`autocmd BufReadPost *`
-`     \ if line("'\"") > 0 && line("'\"") <= line("$") |`
-`     \ exe "normal! g`\"" |`
-`     \ endif`
+```
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \ exe "normal! g`\"" |
+     \ endif
+```
+
 打开文件时回到上次光标所在的位置。
 
 ```
@@ -1259,7 +1289,7 @@ Pathogen 插件本身（pathogen.vim）放置在 `vimfiles\autoload` 目录中�
 [Vim-Plug 插件](https://github.com/junegunn/vim-plug) 能够通过修改配置文件来自动下载、安装、更新和移除在 Github 上有仓库的插件（官网的插件在 Github 都有[镜像仓库](https://github.com/vim-scripts)，所以基本不用愁没有仓库来源），适合更懒的用户。
 详细用法请阅读插件自己的帮助文档。
 
-类似的插件还有 Vundle、Neo Bundle、Vim Addon Manager 等等，用户可以根据使用习惯和插件兼容情况挑选一款最适合自己的。
+类似的插件还有 Vundle、Neo Bundle、Vim Addon Manager、Packer、Lazy（只能用于 Neovim） 等等，用户可以根据使用习惯和插件兼容情况挑选一款最适合自己的。
 
 ## 其他技巧和常见问题
 
@@ -1275,7 +1305,7 @@ Pathogen 插件本身（pathogen.vim）放置在 `vimfiles\autoload` 目录中�
 Vim 有个神奇的功能：重新选择上一次选择的文字。
 比如说，选中过一段文字，因为种种原因做了其他非选择类的操作，清除了选择范围，之后如果在普通模式下输入 `gv` 指令，就会重新选择最后一次选择的文字。
 
-![](images/reselect.gif)
+![重新选择](images/reselect.gif)
 
 ### 文件编码转换
 
@@ -1298,21 +1328,38 @@ Vim 没有提供现成的编码转换菜单，可以用命令搞定：
     vnoremap < <gv
     vnoremap > >gv
 
-### 寄存器和宏
+### 寄存器
 
-如果想要对可视化选中文本执行宏的话，可以执行 `:normal @a`(或者其他你所定义的宏的名字)，这条命令会临时将你切换到普通模式，针对选中的每一行执行宏命令。
+Vim 使用寄存器（*registers*）来保存一些特殊的内容，比如复制、剪切、删除的文本，曾经输入过的命令和查找过的内容，等等。使用 `"`+`寄存器名`+`指令动作` 来操作寄存器。
 
-只要你知道某个操作对应的指令是什么，就能自己编写包含该指令的宏，简单的宏命令非常容易搞定。
+比如 `+` 寄存器是与系统剪贴板相通的，`"+y` 和 `"+p` 指令就是分别将内容复制到系统剪贴板和粘贴过来。`":p` 可以粘贴上一次执行的命令，`"/p` 可以粘贴上一次搜索内容。
+`0` 寄存器保留了最近一次复制的内容，不会被删除的内容覆盖掉。
+输入 `:registers` 命令可以查看各个寄存器中的内容。
 
-## 其他资源
+`a-z` 26个寄存器分配给用户自己使用，比如 `"ay` 和 `"ap` 就是用寄存器 `a` 代替了默认的剪贴板寄存器，自然也可以用来记录宏命令。
 
-[官方网站](https://www.vim.org/)
-[Vimawesome](https://vimawesome.com/)
-[Telegram 群组](https://t.me/vimzh_real)
-[Reddit Vim 版块](https://www.reddit.com/r/vim/)
-[Neovim](https://neovim.io/)
+### 宏
+
+宏（*macro*）在文本编辑器中是一连串操作的记录，用于将重复的人工操作变为可以重复执行的自动操作。
+
+使用 `q`+`寄存器名字` 指令来开始录制宏，比如 `qa` 表示接下来的操作指令都会记录到寄存器 `a` 中。
+再按一次 `q` 来结束录制，真正写入寄存器中。
+
+使用 `@`+`寄存器名字` 来执行保存的宏，比如 `@a`。
+
+只要你知道某个操作对应的指令是什么和如何写入指定的寄存器，就能自己编写包含该指令的宏，简单的宏命令非常容易搞定。
+
+比如输入 `ggVGd`，其指令含义是全选并删除——`gg` 跳到首行，`V` 选中整行，`G` 跳到尾行，`d` 删除。
+选中这些内容后，执行 `"ay` 指令，表示复制到 `a` 寄存器中。
+再使用 `@a` 执行 `a` 寄存器的内容，于是就删除了整个文件的内容。
+
+也可以使用 `:let @a=ggVGd` 直接写入寄存器 `a`。
+
+宏还有多种高级用法，比如多次执行、对选中的行全部执行等等，在用的到的时候再去查找教程
 
 # 常用指令、命令总结
+
+以下是最常用的指令和命令的清单，方便记忆：
 
 | 命令   | 助记方法      | 应用场景模式 | 含义                                 | 操作类型 |
 | ----   | --------      | ------------ | ----                                 | ----     |
@@ -1353,7 +1400,6 @@ Vim 没有提供现成的编码转换菜单，可以用命令搞定：
 Ctrl-A / Ctrl-X
 对齐 Tabularize
 自动缩进和重排版
-缩进调整 <> Ctrl-T Ctrl-D
 删除光标前文字 Ctrl-U
 大小写切换 ~
 前后跳转 Ctrl-I/O
@@ -1366,10 +1412,20 @@ Gundo 多分支撤销
 拼接两行 J
 重复上一行 Ctrl-Y Ctrl-X Ctrl-L
 K keyword 查看关键字释义
-
 :![cmd] 直接执行终端命令，选择后执行结果替换选择的部分
 普通模式下 `q:` 查看命令历史清单
+如果想要对可视化选中文本执行宏的话，可以执行 `:normal @a`（或者其他你所定义的宏的名字），这条命令会临时将你切换到普通模式，针对选中的每一行执行宏命令。
 
-http://vim.wikia.com/wiki/Vim_Tips_Wiki
+# Vim 社区和其他资源
 
+[Vim 官方网站](https://www.vim.org/)
+[Vim Awesome](https://vimawesome.com/)
+[Telegram 群组](https://t.me/vimzh_real)
+[Neovim 官方网站](https://neovim.io/)
+[Vi and Vim Stack Exchange](https://vi.stackexchange.com/)
+[用户邮件讨论组](http://groups.google.com/group/vim_use/about)
+[Vim](https://www.reddit.com/r/vim/) 与 [Neovim](https://www.reddit.com/r/neovim/) 的 Reddit 论坛
+[Telegram Vim 中文用户群](https://t.me/vimzh_real)
+[Vim Tips Wiki ](http://vim.wikia.com/wiki/Vim_Tips_Wiki)
+[Best of Vim Tips](http://www.rayninfo.co.uk/vimtips.html)
 
