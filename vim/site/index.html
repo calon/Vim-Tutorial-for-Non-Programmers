@@ -8,7 +8,7 @@
     <title>写给非程序员的 Vim 新手教程</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
@@ -17,12 +17,11 @@
         var mkdocs_page_url = null;
       </script>
     
-    <script src="js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -34,7 +33,7 @@
           <a href="." class="icon icon-home"> 写给非程序员的 Vim 新手教程
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -71,7 +70,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#_8">下载</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_9">启动参数</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">启动</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#_10">救命！</a>
     </li>
@@ -81,101 +80,105 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#_11">初次进入的界面</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_12">进入插入模式开始编辑</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_12">启动参数</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_13">输入法</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_13">进入插入模式开始编辑</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_14">光标移动</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_14">输入法</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_15">保存</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_15">光标移动</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_16">打开文件</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_16">保存</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_17">选择</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_17">打开文件</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_18">复制和粘贴</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_18">选择</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_19">删除/剪切</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_19">复制和粘贴</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_20">关闭退出</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_20">删除/剪切</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_21">查找</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_21">关闭退出</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_22">替换</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_22">查找</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_23">正则表达式简介</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_23">替换</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_24">覆写</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_24">正则表达式简介</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_25">最近打开的文件</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_25">覆写</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_26">撤销</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_26">最近打开的文件</a>
     </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_27">美化</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#_28">屏幕字体渲染</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_29">配置文件简介</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_30">自动换行、行号</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_31">编码</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_32">字体</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_33">配色</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_34">语法高亮</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_27">撤销</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_35">较现代的文本编辑功能</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_28">美化</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#_36">多标签/多缓冲区</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#_37">缓冲区</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_29">屏幕字体渲染</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#_38">窗口</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_30">配置文件简介</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#_39">标签页</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_31">自动换行、行号</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_32">编码</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_33">字体</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_34">配色</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_35">语法高亮</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_40">窗口分屏</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_36">较现代的文本编辑功能</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_37">多标签/多缓冲区</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_38">缓冲区</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_41">折叠</a>
+    <li class="toctree-l4"><a class="reference internal" href="#_39">窗口</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_42">关键字补全</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_43">差异比对</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_44">版本控制</a>
+    <li class="toctree-l4"><a class="reference internal" href="#_40">标签页</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_45">配置文件详解</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_41">窗口分屏</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_42">折叠</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_43">关键字补全</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_44">差异比对</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_45">版本控制</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_46">配置文件详解</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_47">使用鼠标</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#_46">使用鼠标</a>
+    <li class="toctree-l4"><a class="reference internal" href="#_48">补全</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_47">补全</a>
+    <li class="toctree-l4"><a class="reference internal" href="#_49">编码</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_48">编码</a>
+    <li class="toctree-l4"><a class="reference internal" href="#_50">搜索</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_49">搜索</a>
+    <li class="toctree-l4"><a class="reference internal" href="#_51">剪贴板</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_50">剪贴板</a>
+    <li class="toctree-l4"><a class="reference internal" href="#_52">缓冲区</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_51">缓冲区</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_52">其他配置</a>
+    <li class="toctree-l4"><a class="reference internal" href="#_53">其他配置</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_53">插件系统</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_54">寄存器与宏</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_55">插件系统</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#_54">安装插件</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_56">安装插件</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#pathogen">手动插件管理 Pathogen</a>
     </li>
@@ -183,21 +186,25 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_55">其他技巧和常见问题</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_57">技巧和常见问题</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#html">转换为 HTML</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_56">重新选择</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_58">重新选择</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_57">文件编码转换</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_59">文件编码转换</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_58">缩进控制</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_59">寄存器和宏</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_60">缩进控制</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_60">其他资源</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_61">常用指令、命令总结</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_62">其他技巧</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vim_5">Vim 社区和其他资源</a>
     </li>
     </ul>
                 </li>
@@ -215,8 +222,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>写给非程序员的 Vim 新手教程</li>
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">写给非程序员的 Vim 新手教程</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -228,7 +235,7 @@
                 <h1 id="vim">写给非程序员的 Vim 新手教程</h1>
 <p>想为非程序员写一篇 Vim 新手入门教程有很久了。<br />
 很多人说 Vim 入门学习曲线陡峭，又只适合程序员、系统管理员使用，纷纷敬而远之。<br />
-网络上各种入门教程要么千篇一律，要么极为简单。<br />
+网络上各种入门教程要么千篇一律，要么极为简单，要么假设读者已经有编程基础。<br />
 对新人确实不够友好，一定程度上也阻止了更多的人学习、喜爱上 Vim。</p>
 <p>而以我自学的经历来说，Vim 的上手远没想象的那么恐怖。<br />
 非程序员写写中文文章、脚本、配置文件等也能从 Vim 中获益良多。<br />
@@ -262,14 +269,24 @@
 <ul>
 <li>
 <p>自带教程 Vim Tutor<br />
-Vim 自带了详细的教程，进入方式就是打开 Vim 之后输入 <code>:help tutor</code>。<br />
-如果你安装的 Vim 没有自带中文教程，可以下载<a href="http://sourceforge.net/projects/vimcdoc/">中文教程</a>并安装，再输入以上的命令。<br />
-自带教程其实已经非常完善，按顺序阅读下来就能入门。但不足之处是有时候比较啰嗦，有时候又一笔带过，而且并未详述 Vim 的设计理念。</p>
+    Vim 自带了详细的教程，进入方式就是打开 Vim 之后输入 <code>:help tutor</code>。<br />
+    如果你安装的 Vim 没有自带中文教程，可以下载<a href="http://sourceforge.net/projects/vimcdoc/">中文教程</a>并安装，再输入以上的命令。<br />
+    自带教程其实已经非常完善，按顺序阅读下来就能入门。但不足之处是有时候比较啰嗦，有时候又一笔带过，而且并未详述 Vim 的设计理念。<br />
+<a href="https://yianwillis.github.io/vimcdoc/doc/help.html">中文教程的在线文档：VIM 中文帮助</a></p>
 </li>
 <li>
 <p><a href="http://www.study-area.org/tips/vim/">大家來學VIM（一個歷久彌新的編輯器）</a><br />
 我开始入门时就有的经典教程。</p>
 </li>
+<li>
+<p><a href="https://learnvimscriptthehardway.stevelosh.com/">Learn Vimscript the Hard Way</a></p>
+</li>
+<li>
+<p><a href="https://github.com/iggredible/Learn-Vim">Learn Vim (the Smart Way)</a></p>
+</li>
+</ul>
+<p><a href="https://github.com/wsdjeg/Learn-Vim_zh_cn">中文翻译</a></p>
+<ul>
 <li>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/">Learn Vim Progressively</a><br />
 中文翻译：<a href="http://coolshell.cn/articles/5426.html">简明 Vim 练级攻略</a></p>
@@ -284,7 +301,13 @@ Vim 自带了详细的教程，进入方式就是打开 Vim 之后输入 <code>:
 <p><a href="https://blog.interlinked.org/tutorials/vim_tutorial.html">Vim Introduction and Tutorial</a></p>
 </li>
 <li>
-<p><a href="http://yyq123.blogspot.com/search/label/Vim">Vim 学习笔记</a></p>
+<p><a href="https://github.com/yyq123/learn-vim">Vim 学习笔记</a></p>
+</li>
+<li>
+<p><a href="https://github.com/wsdjeg/vim-galore-zh_cn">Vim 从入门到精通</a></p>
+</li>
+<li>
+<p><a href="https://harttle.land/vim-practice.html">完全用 Vim 工作</a></p>
 </li>
 </ul>
 <h3 id="_2">其他编辑器推荐</h3>
@@ -293,16 +316,11 @@ Vim 自带了详细的教程，进入方式就是打开 Vim 之后输入 <code>:
 <ul>
 <li>
 <p><a href="https://code.visualstudio.com/">Visual Studio Code</a><br />
-微软出品的开源、跨平台编辑器，同样也是诞生不久，性能优化不错，发展迅速。</p>
+微软出品的开源、跨平台编辑器，性能优化不错，发展迅速，已经成为最主流的编辑器之一。</p>
 </li>
 <li>
 <p><a href="https://notepad-plus-plus.org/">Notepad ++</a><br />
 基于 <a href="http://www.scintilla.org/">Scintilla</a> 的开源、免费文本编辑器，小巧迅捷，遵循 GPL 协议。</p>
-</li>
-<li>
-<p><a href="http://cn.everedit.net/">EverEdit</a><br />
-国人开发的共享软件，支持多种新颖的功能，如文档地图、颜文字等，还有专为中文用户开发的功能，如纵向书写模式、中文括号自动匹配等。<br />
-有30天试用期，详情可参考善用佳软的<a href="http://xbeta.info/everedit.htm">介绍文章</a>。</p>
 </li>
 <li>
 <p><a href="https://www.emeditor.com/">EmEditor</a><br />
@@ -322,8 +340,8 @@ Vim 自带了详细的教程，进入方式就是打开 Vim 之后输入 <code>:
 另一款非常经典的编辑器，韩国人出品，同样也有大量用户，付费软件。</p>
 </li>
 <li>
-<p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 和 <a href="http://spacemacs.org/">Spacemacs</a><br />
-Emacs 堪称功能比 Vim 更加强大的文本编辑器，后者则是在 Emacs 基础上融合 Vim 长处的尝试。</p>
+<p><a href="https://www.gnu.org/software/emacs/">Emacs</a>、<a href="http://spacemacs.org/">Spacemacs</a>、<a href="https://github.com/doomemacs/">Doom Emacs</a><br />
+Emacs 堪称功能比 Vim 更加强大的文本编辑器，后两者则是在 Emacs 基础上融合插件和优化配置的尝试。</p>
 </li>
 </ul>
 <h2 id="vi">Vi 的设计哲学和操作逻辑</h2>
@@ -334,13 +352,14 @@ Emacs 堪称功能比 Vim 更加强大的文本编辑器，后者则是在 Emacs
 <p>Vim 特有的操作逻辑都基于这两个概念，理解了这两个概念以及为何 Vim 如此设计，你会发现，<a href="https://pascalprecht.github.io/2014/03/18/why-i-use-vim/#figure-1">Vim 的学习曲线</a>更像翻墙而过，而不是一直爬陡坡。</p>
 <p>以下的概念介绍很重要，但不必记住具体的操作，后面的基础操作讲解中都会提到，到那个时候再动手练习也不迟。</p>
 <h3 id="_3">模式</h3>
-<p>Vim 的模式有许多种，作为入门者最常接触的也有四种（近似的模式做了合并）：</p>
+<p>Vim 的模式有许多种，作为入门者最常接触的有四种（近似的模式做了合并）：</p>
 <ol>
 <li>
 <p>普通模式 normal mode<br />
-    用于输入编辑文本的指令，和移动光标。<br />
+    用于输入编辑文本的指令和移动光标。<br />
     例如在普通模式下输入 <code>x</code>，会立即删除光标所在的字符（你可以将 <code>x</code> 理解为画一把叉表示删除，方便记忆）。<br />
-    输入 <code>h</code>/<code>j</code>/<code>k</code>/<code>l</code> 分别是向左/下/上/右横向一个字符或纵向移动一行。</p>
+    输入 <code>h</code>/<code>j</code>/<code>k</code>/<code>l</code> 分别是向左/下/上/右横向一个字符或纵向移动一行。<br />
+    普通模式是 Vim 的默认模式，也是切换到其他模式的入口。许多资深用户认为一旦停止输入，应该立即回到这个模式下。</p>
 </li>
 <li>
 <p>插入模式 insert mode<br />
@@ -428,7 +447,7 @@ delete around paragraph.</p>
 <ul>
 <li>Vim 不是大而全的“操作系统”或包打天下的“万能工具”</li>
 <li>Vim 无法内嵌显示图像或其他多媒体格式的内容<br />
-  Vim 固然功能强大，但依然专注于纯文本编辑，坚持“each program do one thing well”的 UNIX 哲学。</li>
+  Vim 固然功能强大，但依然专注于纯文本编辑，坚持“Make each program do one thing well”的 UNIX 哲学。</li>
 <li>Vim 不支持非等宽字体</li>
 <li>Vim 不支持在指定列软换行，要么在窗口处折行，要么使用硬换行，但有变通办法模拟软换行</li>
 <li>Vim 处理超长行和大文件的语法高亮存在性能问题，未来可能有望解决</li>
@@ -440,20 +459,16 @@ delete around paragraph.</p>
 <h3 id="_8">下载</h3>
 <p>到 <a href="http://www.vim.org/download.php">Vim 官方网站下载页</a>下载，Windows 平台用户选择安装包文件即可。</p>
 <p><img alt="下载" src="images/download.png" /></p>
-<p>安装的过程就不做演示了，但请务必记住 Vim 的安装目录，其下有名为 <code>_vimrc</code> 的文件，是 Vim 的关键配置文件，后面会详细说明。</p>
+<p>安装的过程就不做演示了，但请务必记住 Vim 的安装目录，以及操作系统分配给当前用户的用户目录。<br />
+根据版本和选项不同，这些目录下有名为 <code>_vimrc</code> 的文件，是 Vim 的关键配置文件，后面会详细说明。</p>
 <p>如果今后报错说缺少 iconv.dll 文件，可以从 <a href="http://sourceforge.net/projects/gettext/">gettext for Win32</a> 下载的文件中提取，放在 gvim.exe 所在的目录中，如 <code>vim90</code> 目录。</p>
 <p>有其他人自己编译了支持 Perl、Ruby、Lua 等的 Vim 版本，这样可以用上更加强大的插件。<br />
 你可以下载 Vim 源码自己编译，也可以下载其他人编译的版本，比如<a href="https://tuxproject.de/projects/vim/">这里</a>和<a href="http://www.kaoriya.net/software/vim/">这里</a>。</p>
-<h3 id="_9">启动参数</h3>
-<p>Windows 下使用 Vim 打开文本文件会自动新建窗口，启动一个新的 gVim 实例。<br />
-你也可以更改启动命令的参数，使用 <code>gvim.exe --remote-silent</code>，在同一个窗口的新缓冲区中打开，或使用 <code>gvim.exe --remote-tab-silent</code> 在新的标签页中打开。</p>
-<p>我自己是使用 Total Commander + candy，在任何文件上按下 <code>F4</code>，会跳出 candy 的菜单：</p>
-<p><img alt="candy" src="images/candy.png" /></p>
-<p>然后可以自由选择是在新的 gVim 进程实例还是新的缓冲区打开文件。</p>
-<p>关于缓冲区、标签页的说明，后面会提到。如果不熟悉，可以暂时不更改启动参数，保持原样。</p>
+<h3 id="_9">启动</h3>
+<p>在安装目录中有 <code>vim.exe</code>、<code>gvim.exe</code>、<code>vimrun.exe</code> 等可执行文件，因为是面向非程序员，所以我们优先使用有图形界面（GUI）的 <code>gvim.exe</code> 作为启动命令。</p>
 <h3 id="_10">救命！</h3>
 <p>不要恐慌！<br />
-如果你在使用 Vim 时晕头转向，手足无措，一般有两个救命锦囊（并不总是有效）：<br />
+如果你在使用 Vim 时晕头转向，手足无措，一般有两个救命锦囊（并不保证总是有效 :P）：<br />
 1. 按键盘左上角的 <code>Esc</code> 键，返回刚进入 Vim 时的普通模式，然后再重新出发。<br />
 <code>Esc</code> 表示 Escape，记忆为“逃脱”就行。<br />
 2. 在普通模式下输入 <code>:help 关键字</code>，根据关键字查找 Vim 帮助文档中相应的主题（可以简写为 <code>:h 关键字</code>）。</p>
@@ -477,7 +492,20 @@ delete around paragraph.</p>
 <p><img alt="自定义界面" src="images/custom_interface_2.png" /></p>
 <p>如果按 <code>:</code> 进入命令模式，则在状态栏下方输入命令：</p>
 <p><img alt="输入命令" src="images/command_input.png" /></p>
-<h3 id="_12">进入插入模式开始编辑</h3>
+<p>不妨输入以下命令<br />
+<code>:echo $VIM</code><br />
+<code>:echo $VIMRUNTIME</code><br />
+<code>:echo $HOME</code><br />
+分别可以在最下方的状态栏看到 Vim 的应用程序所在目录、运行时目录、操作系统中的用户目录。<br />
+后续有可能会用到。</p>
+<h3 id="_12">启动参数</h3>
+<p>Windows 下使用 Vim 打开文本文件会自动新建窗口，启动一个新的 gVim 实例。<br />
+你也可以更改启动命令的参数，使用 <code>gvim.exe --remote-silent</code>，在同一个窗口的新缓冲区中打开，或使用 <code>gvim.exe --remote-tab-silent</code> 在新的标签页中打开。</p>
+<p>我自己是使用 Total Commander + candy，在任何文件上按下 <code>F4</code>，会跳出 candy 的菜单：</p>
+<p><img alt="candy" src="images/candy.png" /></p>
+<p>然后可以自由选择是在新的 gVim 进程实例还是新的缓冲区打开文件。</p>
+<p>关于缓冲区、标签页的说明，后面会提到。如果不熟悉，可以暂时不更改启动参数，保持原样。</p>
+<h3 id="_13">进入插入模式开始编辑</h3>
 <p>因为默认模式是普通模式，所以要输入文字需要进入插入模式。<br />
 进入插入模式最常用的指令是 <code>i</code>，是 <em>insert</em> 的缩写，含义是在当前字符之前插入，也就是移动光标至当前字符之前再进入插入模式。<br />
 例如，现在要在光标所在位置之前开始编辑文字：</p>
@@ -489,7 +517,7 @@ delete around paragraph.</p>
 可以切换到英文输入状态，然后在普通模式下输入指令。<br />
 如果觉得总是英文输入状态很麻烦，可以试试谷歌输入法、手心输入法等。</p>
 <p>如果要在当前字符之后插入呢？<br />
-按下 <code>a</code> 就行，含义是追加，对应的英文为 append。</p>
+按下 <code>a</code> 就行，含义是追加，对应的英文为 <em>append</em>。</p>
 <p>也许你会觉得，在字符前还是后进入插入模式还要弄两个命令，太小题大做。<br />
 那插入新行的指令 <code>o</code> 和 <code>O</code> 就显得实用多了。<br />
 在普通模式中输入 <code>o</code>，表示在当前行下插入新行，并停留在插入模式。<br />
@@ -499,16 +527,20 @@ delete around paragraph.</p>
 <p>更加厉害的是，上述指令可以与数字配合。<br />
 遵循 [count]command 的格式，如 <code>12O</code>，进入插入模式输入文字后再按 <code>Esc</code> 退回普通模式，刚才输入的文字就会变成12行。<br />
 如果你想快速插入分隔线，这个也很有用。</p>
-<h3 id="_13">输入法</h3>
+<h3 id="_14">输入法</h3>
 <p>如果你使用 Vim 写中文文章，那么有一个比较困扰的问题是每次切换模式时，都要注意切换输入法的中英文状态。<br />
 例如，在普通模式下保持中文输入状态时，按 <code>a</code> 不会进入插入模式，因为系统认为你在输入拼音，等按键确认上屏后才会切换模式。</p>
-<p>在 Windows 环境下，暂时没有完美的解决方法，不过，谷歌输入法、卡饭输入法、Windows 10系统自带的必应输入法遇到的问题相对较少。</p>
-<h3 id="_14">光标移动</h3>
+<p>在 Windows 环境下，暂时没有完美的解决方法，不过，谷歌输入法、手心输入法、卡饭输入法、Windows 10系统自带的微软输入法遇到的问题相对较少。</p>
+<h3 id="_15">光标移动</h3>
 <p>在插入模式下，光标的移动与一般的文本编辑器基本没有区别，除了涉及折行的上下移动，具体见后文解释说明。<br />
 但这样的移动方式效率太低，如果要熟练掌握 Vim，必定要学习其别具特色的光标移动指令。</p>
 <p>最简单的移动指令相信初学者也有所耳闻，就是标准键盘右手四指附近的 <code>h</code>、<code>j</code>、<code>k</code>、<code>l</code> 四键，分别对应<strong>普通模式</strong>下，左、下、上、右四方向移动光标的操作。<br />
 因为小拇指操作比较别扭，所以分配给食指的是 <code>h</code> 和 <code>j</code> 两个键，如果你的键盘盲打手势很标准，熟悉这四个指令应该不是难事。</p>
-<p>除此之外，还有指令取代 <code>Home</code>、<code>End</code>、'PageUp<code>和</code>PageDown<code>键。</code>0<code>和</code>^<code>都是移动到当前行的行首，区别在于</code>^<code>移动到的是第一个非空白字符。</code>$<code>则是移动到当前行最后一个非空白字符。</code>Ctrl-F<code>对应</code>PageDown<code>，</code>F<code>代表 Forwards，前进。</code>Ctrl-B<code>对应</code>PageUp<code>，</code>B` 代表 Backwards，后退。</p>
+<p>除此之外，还有指令取代 <code>Home</code>、<code>End</code>、<code>PageUp</code> 和 <code>PageDown</code> 键。<br />
+<code>0</code> 和 <code>^</code> 都是移动到当前行的行首，区别在于 <code>^</code> 移动到的是第一个非空白字符。<br />
+<code>$</code> 则是移动到当前行最后一个非空白字符。<br />
+<code>Ctrl-F</code> 对应 <code>PageDown</code>，<code>F</code> 代表 Forwards，前进。<br />
+<code>Ctrl-B</code> 对应 <code>PageUp</code>，<code>B</code> 代表 Backwards，后退。</p>
 <p>还记得之前提到的文本对象概念吗？<br />
 以文本对象为单位跳转的功能自然少不了。<br />
 <code>w</code> 指令用于跳转到下一个单词的头部，助记的单词是 word。<br />
@@ -516,10 +548,10 @@ delete around paragraph.</p>
 <code>b</code> 指令跳转到上一个单词的头部，助记的单词是 backwards。<br />
 每个指令都有相应的大写指令，不过是以字符串而不是单词为单位跳转。</p>
 <p>比如，跳转的位置如下所示：<br />
-<img alt="" src="images/text_objects_motion.png" /><br />
-因为存在英文标点符号，因此 <code>w</code> 和 <code>W</code> 跳转的位置会有差异。</p>
-<p>之前有说过，由于中文的文本对象识别不完善，因此相应的跳转功能也未尽如人意：<br />
-<img alt="" src="images/text_objects_motion_chinese.png" /></p>
+<img alt="跳转位置" src="images/text_objects_motion.png" /></p>
+<p>因为存在英文标点符号，因此 <code>w</code> 和 <code>W</code> 跳转的位置会有差异。</p>
+<p>注意：由于中文的文本对象识别不完善，因此相应的跳转功能也未尽如人意，未用空格等特殊字符分隔的一串中文字符，在跳转时会被当作单词。<br />
+<img alt="中文跳转" src="images/text_objects_motion_chinese.png" /></p>
 <p>这些指令同样可以和数字结合起来使用。<br />
 比如，<code>10j</code> 表示光标向下移动10行；<br />
 <code>2&lt;Ctrl-F&gt;</code> 表示光标向下移动2个屏幕；<br />
@@ -548,7 +580,7 @@ delete around paragraph.</p>
 不过好在在设置中这可以修改为符合普通编辑的方案。</p>
 <p>由于本教程面向非程序员，因此涉及代码常见的成对符号、标签间的跳转就略过了。<br />
 更多的指令可自己查看 <em>scrolling</em> 和 <em>cursor-motions</em> 的帮助文档。</p>
-<h3 id="_15">保存</h3>
+<h3 id="_16">保存</h3>
 <p>输入一些文字之后，如果点击工具栏上的 <code>保存</code> 按钮，Vim 会提示说：<br />
 E32: 没有文件名<br />
 入门者可能被吓住，一般的编辑器不是在保存未命名文件时会弹出系统浏览器，让你选择保存的路径和文件名吗？<br />
@@ -561,19 +593,19 @@ E32: 没有文件名<br />
 <p>如果希望看到熟悉的弹出窗口，通过 Windows 自带的资源浏览器选择保存的路径和文件名，那么可以使用 <code>:browse save</code> 命令：</p>
 <p><img alt="保存" src="images/browse_save.png" /></p>
 <p>之后可以使用 <code>Ctrl-S</code> 快捷键或点击 <code>保存</code> 按钮，也可以再使用 <code>:w</code> 命令来保存文件。</p>
-<h3 id="_16">打开文件</h3>
+<h3 id="_17">打开文件</h3>
 <p>如果习惯使用资源浏览器打开文件，可以输入 <code>:browse edit</code> 命令，然后读入指定的文件开始编辑。<br />
 如果不想调出资源浏览器窗口，新文件的位置又在附近，直接输入 <code>:edit</code> 然后使用 <code>Tab</code>/<code>Shift-Tab</code> 补全文件名更能更快。</p>
 <p>如果希望像一般的多标签编辑器那样，新打开的文件显示在新的标签页中。<br />
 可以使用 <code>:tabedit filename</code> 或 <code>:browse tabedit</code> 命令：</p>
 <p><img alt="标签页打开" src="images/tabedit.png" /></p>
-<p>如果喜欢多缓冲区模式，换成用 <code>:enew</code> 命令即可，相当于 edit new。</p>
-<p>当然，最快的还是配合 Totoal Commander 和 candy 使用。</p>
+<p>如果喜欢多缓冲区模式，换成用 <code>:enew filename</code> 命令即可，相当于 edit new。</p>
+<p>当然，最快的还是配合 Total Commander 和 candy 使用。</p>
 <p>同时处理多个文件时，Vim 的缓冲区（<em>buffers</em>）、标签页（<em>tab-page</em>）和窗口（<em>window</em>）的概念与一般的编辑器有些差异，入门者会犯糊涂很正常。<br />
 后续会有详细章节介绍这些概念。<br />
 我建议尽量在一个窗口中使用多个缓冲区，为了方便可以开多个窗口，而尽量不要使用多标签页。<br />
 等到你熟悉了这些概念后，可以自由选择适合自己的多文件管理方式。</p>
-<h3 id="_17">选择</h3>
+<h3 id="_18">选择</h3>
 <p>既然 Vim 号称可以无鼠标使用，那么要用什么方法代替鼠标点选文字呢？<br />
 答案就是可视模式（<em>visual-mode</em>）和选择模式（<em>select-mode</em>）。</p>
 <p>在普通模式下，按键 <code>v</code> 用于进入可视模式，进入后即会选择光标当前所在的字符。<br />
@@ -618,7 +650,7 @@ Vim 提供了一个神奇的指令：<code>gv</code>，助记方法是 get/gain 
 在普通模式下，只要没有再次选择，输入该指令就能重新选择上一次选择过的文字。</p>
 <p>至于选择模式，对入门用户来说更像一般的文本编辑器中的操作方式，选择文字之后继续输入，就会替换被选择的文字。<br />
 进入选择模式的方法是，在可视模式下选择文字之后，按 <code>Ctrl-G</code>。</p>
-<h3 id="_18">复制和粘贴</h3>
+<h3 id="_19">复制和粘贴</h3>
 <p>Vim 另一个违背新手习惯的地方是，<em>默认设置下，它的“默认剪贴板”与系统剪贴板不通用</em>。<br />
 也就是说，虽然它有粘贴命令，但在其他程序中复制的内容，无法简单地通过粘贴命令贴到 Vim 中。<br />
 在 Vim 中通过复制命令复制的文本内容，也不会传递给系统剪贴板，而是存放在其内部的寄存器中。</p>
@@ -644,7 +676,7 @@ Vim 提供了一个神奇的指令：<code>gv</code>，助记方法是 get/gain 
 <p>复制之后，移动光标到要粘贴的位置，如果按下 <code>p</code> 表示粘贴到光标位置之后，按下大写的 <code>P</code> 表示粘贴在光标之前。<br />
 如果复制的内容是整行，那么 <code>p</code> 会将整行粘贴到当前行之下，<code>P</code> 正好相反。<br />
 粘贴指令之前也可以加数字来多次重复粘贴。</p>
-<h3 id="_19">删除/剪切</h3>
+<h3 id="_20">删除/剪切</h3>
 <p>普通模式下的删除有两个指令：<br />
 <code>x</code>：助记词组是 cross out，用于以字符为单位删除，如 <code>3x</code> 表示连续删除3个字符。<br />
 <code>d</code>：助记单词是 delete，用于与光标移动结合删除，如 <code>d3l</code> 同样也可以连续删除3个字符。<br />
@@ -654,7 +686,8 @@ Vim 提供了一个神奇的指令：<code>gv</code>，助记方法是 get/gain 
 实际上 Vim 中的删除是将文本送到了某个特殊的寄存器中，这个寄存器也用于复制和粘贴，所以才会有删除=剪切的功效。<br />
 这也是让新手迷惑的地方，因为复制之后，如果又做了删除操作，刚才复制的内容就消失了……<br />
 熟悉了之后，这倒不是什么大问题，何况也可以指定用于删除、复制、粘贴操作的寄存器，这就属于进阶的学习内容了。</p>
-<h3 id="_20">关闭退出</h3>
+<h3 id="_21">关闭退出</h3>
+<p>Vim 专属的经典笑话是“新手如何退出 Vim？”，实际上可没有那么可怕。</p>
 <p>Vim 当然还是支持 Windows 系统中标准的快捷键 <code>Alt-F4</code>，或者直接用鼠标左键点右上角的关闭按钮。</p>
 <p>但更加常用的方法，是在命令模式下操作，输入 <code>:q</code> 退出当前的窗口。助记单词为 quit。<br />
 如果当前窗口是最后一个，则整个 Vim 程序都会关闭、退出。</p>
@@ -663,7 +696,7 @@ Vim 提供了一个神奇的指令：<code>gv</code>，助记方法是 get/gain 
 如果不想存档就退出，就需要加惊叹号用于确认：<code>q!</code>。</p>
 <p>如果觉得输入 <code>:</code> 很麻烦，也可以在普通模式下，用 <code>ZZ</code> 指令代替 <code>:x</code> 命令，用 <code>ZQ</code> 指令代替 <code>:q!</code> 命令。</p>
 <p>如果你和我一样习惯使用多缓冲区，则可以用 <code>:bd</code> 命令退出当前缓冲区，它是 buffer delete 的简写。</p>
-<h3 id="_21">查找</h3>
+<h3 id="_22">查找</h3>
 <p>Vim 的前身 Vi 最初是纯字符命令行界面的编辑器，因此不可能像我们日常接触的编辑器一样，弹出查找窗口用于输入要查找的字符串。<br />
 相应的查找方法也就是像输入命令一样，只不过输入命令是使用 <code>:</code> 指令，而向文档下方查找的指令是斜杠 <code>/</code>。</p>
 <p>例如要查找“无涯”，在普通模式下直接输入 <code>/无涯</code> 然后回车，光标会跳转到第一个搜索结果上：</p>
@@ -687,7 +720,7 @@ Vim 提供了一个神奇的指令：<code>gv</code>，助记方法是 get/gain 
 如查找12.34时，输入 <code>/12.34</code> 是查不到的，要输入 <code>/12\.34</code> 才行。</p>
 <p>如果用到正则表达式的机会不多，可以在搜索的关键词后加 <code>\v</code> 或 <code>\m</code> 参数，这样大部分需要转义的特殊字符就不需要手动转义了，具体的规则参考 <em>/magic</em> 部分的帮助文档。<br />
 也有 Vim 插件让用户完全不用考虑转义的烦恼，后续会有介绍。</p>
-<h3 id="_22">替换</h3>
+<h3 id="_23">替换</h3>
 <p>最简单的替换功能就是将字符串 A 替换成 B，命令写法是 <code>:s/A/B</code>，意思是将本行内第一个 A 字符串替换成 B 字符串。</p>
 <p>一般的用法是全文全部替换：<br />
 <code>:%s/A/B/g</code><br />
@@ -736,7 +769,7 @@ Vim 提供了一个神奇的指令：<code>gv</code>，助记方法是 get/gain 
 </tr>
 </tbody>
 </table>
-<h3 id="_23">正则表达式简介</h3>
+<h3 id="_24">正则表达式简介</h3>
 <p>正则表达式（regular-expression）虽然有些难以上手，但非程序员用户只要理解其思路，掌握了诀窍后，也不是那么恐怖，而且在其他编辑器或工作环境中能用上（一些细节可能有差别），可以受益无穷。<br />
 况且，不涉及编程工作和复杂的文本处理的话，需要用到的正则表达式语法来来回回也就那么多，记住几个最常用的就好。</p>
 <p>还是从实际的应用场景入手吧。</p>
@@ -793,20 +826,20 @@ Vim 提供了一个神奇的指令：<code>gv</code>，助记方法是 get/gain 
 <code>:%s/\n\n\n/\n\n/g</code></p>
 <p>正则表达式还有各种高级用法，作为非程序员的入门新手不必一下子学太多，等要用到再临时抱佛脚还来得及。<br />
 如果要深入钻研，推荐余晟老师的著作《正则指引》。</p>
-<h3 id="_24">覆写</h3>
+<h3 id="_25">覆写</h3>
 <p>覆写模式使用频率不高，简单地记住三类指令就行：<br />
 普通模式下，<code>r</code> 是覆写当前的一个字符，输入后立即退回到普通模式，用于临时修改；<br />
 普通模式下，<code>R</code> 是进入覆写模式，输入后按 <code>Esc</code> 才退回普通模式，用于大段覆写修改；<br />
 插入模式下，<code>Insert</code> 的功能和一般的文本编辑器相同，相当于普通模式下的 <code>R</code> 指令。<br />
 <code>r</code> 代表的是 <code>replace</code>。</p>
-<h3 id="_25">最近打开的文件</h3>
+<h3 id="_26">最近打开的文件</h3>
 <p>当编辑过多个文件后，下次打开时希望找到之前编辑过的文件，该如何调出历史文件呢？<br />
 最基础的办法是使用如下命令：<br />
 <code>:browse oldfiles</code> 或简写为 <code>bro ol</code><br />
 调出历史文件清单，每个历史文件有对应的编号。<br />
 输入 <code>q</code> 之后，再输入对应编号回车，就能打开指定历史文件。</p>
 <p>结合插件有更加方便好用的办法，后续会补充介绍。</p>
-<h3 id="_26">撤销</h3>
+<h3 id="_27">撤销</h3>
 <p>初级、低频率使用文本编辑器的用户可能不觉得撤销功能有多重要，但对每天大量使用的用户来说，撤销功能是否方便、完备，和使用体验息息相关。<br />
 而 Vim 的撤销功能既方便又强大。</p>
 <p>方便之处在于，只要一个表示 undo 的 <code>u</code> 指令，就能在普通模式下撤销上一次的操作。<br />
@@ -848,11 +881,11 @@ gVim 默认也支持 <code>Ctrl-Y</code> 通用快捷键，不过建议不要占
 </tr>
 </tbody>
 </table>
-<h2 id="_27">美化</h2>
+<h2 id="_28">美化</h2>
 <p>颜值要求高的用户可能看不上 Windows 环境下的 gVim 界面，丑陋的默认 fixedsys 字体，糟糕的渲染，古老年代风格的图标和配色……<br />
 怎么看都像是要被抛弃到垃圾堆的历史文物。</p>
 <p>但其实还是可以抢救一下的。</p>
-<h3 id="_28">屏幕字体渲染</h3>
+<h3 id="_29">屏幕字体渲染</h3>
 <p>Windows 10 之前的字体渲染效果非常糟糕，建议安装 MacType。<br />
 对比效果如下：</p>
 <p>开启 MacType 之前：</p>
@@ -860,7 +893,8 @@ gVim 默认也支持 <code>Ctrl-Y</code> 通用快捷键，不过建议不要占
 <p>开启 MacType 之后：</p>
 <p><img alt="开启字体渲染后" src="images/mactype_after.png" /></p>
 <p>一目了然，如何选择不用多说了吧。</p>
-<h3 id="_29">配置文件简介</h3>
+<p>Windows 10 之后基本上不需要操心或者操心了也没有很大用处。</p>
+<h3 id="_30">配置文件简介</h3>
 <p>以下的美化工作涉及修改 Vim 配置，所以先介绍 Vim 的配置文件。</p>
 <p>Vim 是可以高度自定义的文本编辑器，它的各种自定义配置绝大多数都写在配置文件中，在启动时读取生效。</p>
 <p>与只能通过图形界面自定义有限配置项的编辑器不同，自己写配置文件能够掌控的选项多多了，而且方便迁移和备份个性化的配置。<br />
@@ -887,13 +921,13 @@ gVim 默认也支持 <code>Ctrl-Y</code> 通用快捷键，不过建议不要占
 <p>更多关于 Vimscripts 的知识请自己查阅帮助文档，<code>:h vimscripts</code>。</p>
 <p>写入并保存配置文件不会立即生效，默认需要用 <code>:source $HOME/vimfiles/vimrc</code> 命令强制重新读取，或者重新启动 Vim。</p>
 <p>重要的事情再说一遍，刚上手建议先不要随便修改配置文件，等到发现问题或觉得使用上不方便时，再有目的地复制其他用户的配置文件片段，并尽量找有详细注释的配置文件，以免修改后出现预料之外的状况。</p>
-<h3 id="_30">自动换行、行号</h3>
+<h3 id="_31">自动换行、行号</h3>
 <p>因为 Vim 主要面向编写代码的程序员，默认是不换行的，也就是说，一行的文字超出窗口宽度，不会自动折回，在下一行显示，需要左右移动光标才能看到窗口之外的部分。</p>
 <p><code>:set wrap</code> 和 <code>:set nowrap</code> 命令可以切换是否自动换行。<br />
 非程序员建议在配置文件中加上 <code>set wrap</code>，默认自动换行。</p>
 <p><code>:set number</code> 和 <code>:set nonumber</code> 命令可以切换可以是否现实行号。<br />
 建议在配置文件中为此类常用命令配置快捷键映射，不用总是手工敲命令。</p>
-<h3 id="_31">编码</h3>
+<h3 id="_32">编码</h3>
 <p>由于历史原因，Windows 环境下的编码问题相对而言比较多。<br />
 在这里为了简单，就不详细介绍各种编码问题和设置的具体内容了，按照以下的方式配置 Vim 与语言编码相关的设置，应该可以应对大部分的编码问题：</p>
 <p><code>set encoding=utf-8</code>，内部使用的字符默认编码为 UTF-8<br />
@@ -902,9 +936,9 @@ gVim 默认也支持 <code>Ctrl-Y</code> 通用快捷键，不过建议不要占
 <code>set langmenu=zh_CN.utf-8</code>，设置菜单语言选项为中文，编码为 UTF-8<br />
 <code>language messages zh_CN.utf-8</code>，设置弹出信息语言选项为中文，编码为 UTF-8<br />
 <code>set ambiwidth=double</code>，所有在 Unicode 字符集中在东西方语言中共用的字符，如省略号、破折号、书名号和全角引号，设置为与中文字符一致的双倍西文字符宽度</p>
-<h3 id="_32">字体</h3>
+<h3 id="_33">字体</h3>
 <p>官方版本的 gVim 目前只支持等宽字体，如果你经常处理中文，那么可选择面就比较窄了。<br />
-目前使用比较多的有雅黑等宽字体、字体印象（Impression of Font）的多个系列（如 XHei）、文泉驿系列、Inziu Iosevka、等距更纱黑体系列。</p>
+目前使用比较多的有雅黑等宽字体、字体印象（Impression of Font）的多个系列（如 XHei）、文泉驿系列、Inziu Iosevka、等距更纱黑体、霞鹜文楷系列。</p>
 <p>使用 <code>:set guifont=*</code> 命令可以调出字体选择菜单，但选择的结果仅对当次打开的窗口生效。关闭窗口再打开新进程，字体又会恢复到默认设置。<br />
 需要在配置文件中配置固定的字体，如以默认的黑体为例，vimrc 文件中的配置如下：</p>
 <pre><code>set guifont=SimHei:h11
@@ -913,16 +947,16 @@ set guifontwide=SimHei:h11
 <p>配置默认字体需要首先知道用于配置的字体名称，如果 vimrc 文件是 GBK 编码，可以使用中文名，如果像我一样习惯使用 UTF-8 编码，要使用对应的英文名称。<br />
 如系统自带的黑体是 SimHei，雅黑等宽是 Yahei_Mono，空格用下划线表示了。<br />
 字体名称与字号之间用冒号 <code>:</code> 分隔。</p>
-<p>其中 <em>guifont</em> 用于指定图形界面版本使用的字体列表，<em>guifontwide</em> 用于指定双宽字符的字体列表，使用 guifont 指定的两倍宽度和相同的高度。</p>
+<p>其中 <em>guifont</em> 用于指定图形界面版本使用的字体列表，<em>guifontwide</em> 用于指定双宽字符的字体列表。</p>
 <p>如果今后隐藏了菜单栏，使用 <code>:set guifont=*</code> 命令可以调出字体选择界面预览字体效果。<br />
-有的时候，可能不知道如何指定字体名称，如字体名称显示为“等距更纱黑体 T SC”，在配置中实际应该写为<code>等距更纱黑体_T_SC</code>。<br />
-可以先用 <code>:set guifont=*</code> 命令选择字体，再用 <code>:set guifont</code> 查看当前所用的字体配置名称。</p>
-<h3 id="_33">配色</h3>
+有的时候，可能不知道如何指定字体名称，如字体名称显示为“等距更纱黑体 T SC”，在配置中实际应该写为<code>等距更纱黑体_T_SC</code>。</p>
+<p>小技巧：可以先用 <code>:set guifont=*</code> 命令选择字体，再用 <code>:set guifont</code> 查看当前所用的字体配置名称。</p>
+<h3 id="_34">配色</h3>
 <p>Vim 继承自终端界面时代默认的配色方案大多扎眼，如果你更喜欢现代编辑器更加养眼、优雅的配色，可以到网上找配色方案装上，如<a href="https://www.vim.org/scripts/script_search_results.php?keywords=&amp;script_type=color+scheme&amp;order_by=rating&amp;direction=descending&amp;search=search">官方网站</a>，或 <a href="https://vimcolors.com/">Vim Colors</a>。</p>
 <p>配色方案其实就是一个后缀名为 vim 的配置文件，其中都是配置、变更配色信息的命令。<br />
 下载下来的配色文件可以放入 <code>vimfiles/colors</code> 目录，然后使用 <code>:colorscheme [配色方案名称]</code> 的方式临时启用，或者输入 <code>:colorscheme</code> 命令后按空格和 <code>Tab</code> 选择已有的配色方案。</p>
 <p>如果要更改默认配色方案，需要在 vimrc 配置文件中写入 <code>colorscheme [配色方案名称]</code> 的配置内容，再重启 Vim。</p>
-<h3 id="_34">语法高亮</h3>
+<h3 id="_35">语法高亮</h3>
 <p>非程序员虽然不用编写程序，但日常还是可能处理文本文档、配置、脚本和日志文件，有时也会临时改改 HTML，依然需要借助语法高亮（syntax highlight）提升阅读体验。</p>
 <p>语法高亮也是和配色方案类似的配置文件，不过需要放在 <code>vimfiles/syntax</code> 目录下。</p>
 <p>Vim 根据文件后缀名自动识别文件类型（filetype）并再根据文件类型自动匹配相应的语法高亮方案，例如文件类型为 Markdown 时，自动应用 Markdown 的语法高亮：</p>
@@ -937,18 +971,18 @@ set guifontwide=SimHei:h11
 <code>:set syntax=markdown</code></p>
 <p>有时候应用语法规则会影响 Vim 效率，有的 Vim 并不会默认打开语法高亮功能，这就需要用户自己来操作。<br />
 关闭和打开语法高亮的命令分别是： <code>:syntax off</code> 和 <code>:syntax on</code></p>
-<h2 id="_35">较现代的文本编辑功能</h2>
+<h2 id="_36">较现代的文本编辑功能</h2>
 <p>好了，现在最基本的编辑命令已经介绍完毕，至此，入门者已经可以用 Vim 像最简单的记事本一样写文档。（画外音：你在逗我吗？讲到现在才赶上记事本？！）<br />
 但我们当然不可能停留在最基础的功能。<br />
 以下的内容已经脱离入门的层次，如果你略过不看，并不会影响你使用 Vim 的基本功能，完成基础的文本编辑。<br />
 但如果想更深入地了解 Vim，不妨读一读。</p>
-<h3 id="_36">多标签/多缓冲区</h3>
-<p>一般的文本编辑器界面通常有窗口（Window）和标签页（Tab）的概念。<br />
-窗口，在 Windows 操作系统中对应的是一个编辑器进程的可视界面，顶部有标题栏，底部一般有状态栏，侧边可能有滚动条，右上角有最小化、最大化、关闭窗口等 Windows 窗口的标准按钮。<br />
-标签页，是在一个窗口内同时打开多个文件时，通过文件名等标识标记、区分和方便用户来回切换的界面元素，其灵感来自于现实中文件夹的标签页概念。已经打开的某个文件，可以看作是标签页这个容器中的内容，而窗口中又容纳了多个标签页。<br />
+<h3 id="_37">多标签/多缓冲区</h3>
+<p>一般的文本编辑器界面通常有应用程序窗口（Program Window）和标签页（Tab）的概念。<br />
+应用程序窗口，在 Windows 操作系统中对应的是一个编辑器应用程序进程的可视界面，顶部有标题栏，底部一般有状态栏，侧边可能有滚动条，右上角有最小化、最大化、关闭窗口等 Windows 窗口的标准按钮。<br />
+标签页，是在一个应用程序窗口内同时打开多个文件时，通过文件名等标识标记、区分和方便用户来回切换的界面元素，其灵感来自于现实中文件夹的标签页概念。已经打开的某个文件，可以看作是标签页这个容器中的内容，而窗口中又容纳了多个标签页。<br />
 选中一个标签页，则编辑器展现的内容会切换到标签页容纳的文件。</p>
 <p>在 Vim 中，增加了缓冲区（Buffer）的概念，窗口和标签页（Tab-page）的含义也有微妙的不同。</p>
-<h4 id="_37">缓冲区</h4>
+<h4 id="_38">缓冲区</h4>
 <p>用 Vim 打开的文件都会加载到内存中，使用缓冲区来描述正在编辑的文件，一个缓冲区对应一个内存中的文件副本，不仅包含了文件内容，还有文件的编辑状态等配置信息，比如激活、隐藏、上次编辑所在行数等。</p>
 <p>使用 <code>:ls</code> 或 <code>:buffers</code> 命令可以看到当前存在的所有缓冲区，同时打开了 file1、file2 和 file3 三个文件：</p>
 <p><img alt="缓冲区列表" src="images/list_buffers.png" /></p>
@@ -957,8 +991,8 @@ set guifontwide=SimHei:h11
 <p><img alt="缓冲区" src="images/buffers.png" /></p>
 <p>新建缓冲区的命令 <code>:enew</code> 之前已经介绍过。<br />
 删除当前缓冲区的命令是 <code>:bdelete</code>，可以简写为 <code>:bd</code>，是 buffer delete 的缩写。</p>
-<h4 id="_38">窗口</h4>
-<p>缓冲区内容在窗口中展示，这里的窗口并非作为 Windows 应用的 Vim 的主窗口，而是 Vim 主窗口内部的分割窗口概念，当同时展示多个 Vim 分割窗口时，类似于 Microsoft Word 中多窗口平铺的样式。<br />
+<h4 id="_39">窗口</h4>
+<p>缓冲区内容在窗口中展示，这里的窗口并非作为 Windows 应用程序的 Vim 的主窗口，而是 Vim 主窗口内部的分割窗口概念，当同时展示多个 Vim 分割窗口时，类似于 Microsoft Word 中多窗口平铺的样式。<br />
 当修改某一个窗口中的文件时，实际是修改的这个文件对应的内存缓冲区，其他窗口中展示同一缓冲区的内容也会同步更新。<br />
 只要没有退出 Vim 进程，或删除缓冲区，否则你关闭窗口，只是关闭缓冲区内容展示的通道，看不到刚才编辑的文件了，但它依然保存在内存的缓冲区中，可以随时再次打开。</p>
 <p>使用 <code>:split</code> 和 <code>:vsplit</code> 命令可以开辟水平和垂直分屏的窗口。<br />
@@ -972,31 +1006,33 @@ set guifontwide=SimHei:h11
 也就是说，如果退出 file1 的展示窗口，file1 的缓冲区仍在缓冲区列表中。</p>
 <p><code>:only</code> 命令可以只保留当前窗口，关闭其他所有窗口。</p>
 <p>以 <code>Ctrl-W</code> 开头表示这个组合快捷键与 Window 窗口有关。<br />
+比如 <code>Ctrl-W q</code> 可以关闭当前的窗口。<br />
 光标在多窗口之间跳转可以在普通模式下使用 <code>Ctrl-W</code> <code>h/j/k/l</code> 指令。<br />
 移动窗口的相对位置，左下上右的指令改为大写：<code>Ctrl-W</code> <code>H/J/K/L</code><br />
 交换对调上下、左右窗口的位置，使用 <code>Ctrl-W</code> <code>r</code> 指令。<br />
 换成 <code>Ctrl-W</code> <code>+/-/</code> 则可以调整当前窗口的高度和宽度。</p>
 <p>如果更习惯使用鼠标操作，你也可以直接用鼠标点击窗口移动光标，或者将鼠标移动到窗口边缘拖动来改变窗口大小。</p>
-<h4 id="_39">标签页</h4>
-<p>标签页可以看作介于 Vim 应用主窗口和分割窗口之间的容器，可容纳展示一个或一组分割窗口，可以通过 <code>:tabedit filename</code> 命令在另一个标签页中打开指定的文件，在这个标签页中又可以打开多个窗口。</p>
+<h4 id="_40">标签页</h4>
+<p>标签页可以看作介于 Vim 应用程序主窗口和分割窗口之间的容器，可容纳展示一个或一组分割窗口，可以通过 <code>:tabedit filename</code> 命令在另一个标签页中打开指定的文件，在这个标签页中又可以打开多个窗口。</p>
 <p>一般情况下 Vim 的标签页长相普通：</p>
 <p><img alt="标签页" src="images/tabs.png" /></p>
 <p>但 Vim 的标签页与普通的多标签文本编辑器还不太一样。<br />
 其他编辑器的标签页以文件为单位，一个文件对应一个标签页。<br />
-而 Vim 的标签页是窗口的容器，一个标签页中可以有多个窗口，窗口中可以是不同的缓冲区，也可以是同一个缓冲区。<br />
+而 Vim 的标签页是分割窗口的容器，一个标签页中可以有多个窗口，窗口中可以是不同的缓冲区，也可以是同一个缓冲区。<br />
 因此，一个缓冲区既可能出现在多个窗口中，也可能出现在同一个或者不同的标签页下的多个窗口中。<br />
-如果你不太习惯这个特性，还是采用缓冲区的管理方式比较好。</p>
+如果你不太习惯标签页这个特性，还是采用缓冲区的管理方式比较好。</p>
 <p>新建标签页的命令是 <code>:tabedit</code> 或者 <code>:tabnew</code>，关闭当前标签页使用 <code>:tabclose</code>，关闭所有其他标签页使用 <code>:tabonly</code>。<br />
 普通模式下，前后切换标签页使用 <code>gt</code> 和 <code>gT</code> 指令。</p>
 <p>更多的标签页命令见 <em>tab-page-commands</em> 帮助文档。</p>
-<h3 id="_40">窗口分屏</h3>
-<p>分屏用于在一个窗口中同时展现两个文档，对照或比较内容时很常用。<br />
-分屏的基础命令 <code>:split</code> 和 <code>:vsplit</code> 之前已经有提及。其中 <code>v</code> 是垂直（vertical）的缩写。<br />
-两个命令可以分别简写为 <code>:sp</code> 和 <code>:vs</code>，也可以分别使用快捷键实现：<br />
+<h3 id="_41">窗口分屏</h3>
+<p>分屏用于在一个界面中同时展现两个文档，对照或比较内容时很常用。<br />
+分屏的基础命令 <code>:split filename</code> 和 <code>:vsplit filename</code> 之前已经有提及。其中 <code>v</code> 是垂直（vertical）的缩写。<br />
+如果不指定文件名，默认是对照当前文本本身。</p>
+<p>两个命令可以分别简写为 <code>:sp</code> 和 <code>:vs</code>，也可以分别使用快捷键实现：<br />
 水平分屏：<code>Ctrl-W</code> <code>s</code> 或者 <code>Ctrl-W</code> <code>Ctrl-S</code><br />
 垂直分屏：<code>Ctrl-W</code> <code>v</code> 或者 <code>Ctrl-W</code> <code>Ctrl-V</code></p>
-<p>使用 <code>:q</code> 命令退出当前窗口来结束分屏。</p>
-<h3 id="_41">折叠</h3>
+<p>使用 <code>Ctrl-W q</code> 或 <code>:close</code> 命令退出当前窗口来结束分屏。</p>
+<h3 id="_42">折叠</h3>
 <p>折叠功能（fold）可以将一大块暂时不必关注的文本折叠为一行，从而让你专注于目标文本。<br />
 即使你不是程序员，不编写编程代码，也可能需要借助折叠特性更好地阅读、管理大段有结构的文本。</p>
 <p>Vim 支持多种折叠方法，但基于语法和表达式等方式的折叠，非程序员一般用不上。<br />
@@ -1029,7 +1065,7 @@ set guifontwide=SimHei:h11
 <p>相应的删除折叠命令是 <code>zd</code>，光标所在位置所属的折叠，或者选中部分涵盖的折叠，都会清除掉。</p>
 <p>基于折叠还有一些高级功能，例如在折叠间移动，关闭或打开某一级别以上的折叠，针对打开或关闭的折叠执行命令等等。具体可参考 <em>folding</em> 部分的帮助文档。</p>
 <p>如果你习惯使用 Markdown 等轻量标记语言，也可以使用诸如 <a href="https://github.com/masukomi/vim-markdown-folding">Vim Markdown Folding</a> 这样的插件，根据层级标记自动实现折叠功能。</p>
-<h3 id="_42">关键字补全</h3>
+<h3 id="_43">关键字补全</h3>
 <p>最简单的补全功能，是基于当前文件中已经输入的词语，对当前字符串进行补全（<em>compl-generic</em>）。<br />
 在插入模式下输入 <code>Ctrl-P</code> 或 <code>Ctrl-N</code> 会向前或向后搜寻起始字符串匹配的关键字。</p>
 <p>例如，之前已经输入过“相呴以湿”、“相濡以沫”，再次输入“相”字时，按下 <code>Ctrl-P</code> 就会出现关键字补全的可选项。<br />
@@ -1037,39 +1073,39 @@ set guifontwide=SimHei:h11
 <p><img alt="关键字自动补全" src="images/auto_complete.png" /></p>
 <p>如果默认选中的结果不正确，再多按几次 <code>Ctrl-P</code> 可以循环选择。</p>
 <p>倘若经常使用关键字补全功能，<code>Ctrl-P</code> 和 <code>Ctrl-N</code> 快捷键并不方便，可以用 SuperTab、VimCompletesMe 等插件改为按 <code>Tab</code> 和 <code>Shift-Tab</code> 选择补全选项。</p>
-<p>结合 <a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a>、<a href="https://github.com/Shougo/neocomplete.vim">Neocomplete</a>等插件， 以及 LSP（Language Server Protocol）功能，能体验更高级的补全功能和自定义配置，如：模糊匹配、跨文档补全、语法补全、路径补全、触发条件设置、补全关键字来源设置等等。<br />
+<p>结合 <a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a>、<a href="https://github.com/Shougo/neocomplete.vim">Neocomplete</a> 等插件， 以及 LSP（Language Server Protocol）功能，能体验更高级的补全功能和自定义配置，如：模糊匹配、跨文档补全、语法补全、路径补全、触发条件设置、补全关键字来源设置等等。<br />
 对非程序员来说，系统自带的补全已经基本够用了。</p>
-<h3 id="_43">差异比对</h3>
+<h3 id="_44">差异比对</h3>
 <p>有时候一份文档多处编写，保留了多个版本，如果没有使用专门的版本管理工具，如何比较它们的差异并快速调整呢？<br />
 Vim 自带了差异比对的功能，使用 <code>gvim.exe -d file1 file2</code> / <code>vim.exe -d -g file1 file2</code> / <code>gvimdiff.exe file1 file2</code> 等多种方式启动 gVim，就进入差异比对模式：</p>
-<p><a href="images/diff.png"></a></p>
+<p><a href="images/diff.png">差异比对</a></p>
 <p>小屏幕窗口垂直分隔不方便看，启动时加 <code>-o</code> 参数可以使用水平分隔：</p>
-<p><a href="images/diff_2.png"></a></p>
+<p><a href="images/diff_2.png">差异比对水平分隔</a></p>
 <p>有差异的部分以不同颜色标记。</p>
 <p>如果要比对已经打开的文件，可以使用 <code>:vertical diffsplit</code> 或者 <code>:vertical diffthis</code> 命令，并在分隔窗口中切换不同的文件。其中 <code>vertical</code> 表示垂直分隔窗口。</p>
 <p>比对模式下，Vim 默认开启同步滚动（<em>scrollbind</em>），这样在一个窗口中移动光标，另一个窗口中也会同步移动，省去了来回跳转的操作。</p>
 <p>使用 <code>[c</code> 和 <code>]c</code> 指令可以向前和向后跳到最近的差异点。</p>
 <p>如果确认同步修改有差异的地方，使用 <code>:diffget</code> 命令修改当前文件，使用 <code>:diffput</code> 以当前文件为准修改比对的文件。<br />
 要是更改后自动刷新不对劲，用 <code>:diffupdate</code> 强制重新刷新试试。</p>
-<h3 id="_44">版本控制</h3>
-<p>Vim 本身不提供版本控制功能，需要借助 Git 等版本控制工具，各种相关的插件可以实现在 Vim 中完成基本的版本控制操作，以及直接查看版本状态。</p>
-<p>插件 <a href="https://github.com/tpope/vim-fugitive">fugitive</a> 和 <a href="https://github.com/airblade/vim-gitgutter">vim-gitgutter</a> 专精于 Git，<a href="https://github.com/mhinz/vim-signify">vim-signify</a> 则可以配合所有常见的版本控制工具使用。</p>
-<h2 id="_45">配置文件详解</h2>
+<h3 id="_45">版本控制</h3>
+<p>Vim 本身不提供版本控制功能，需要借助 git 等版本控制工具，各种相关的插件可以实现在 Vim 中完成基本的版本控制操作，以及直接查看版本状态。</p>
+<p>插件 <a href="https://github.com/tpope/vim-fugitive">fugitive</a> 和 <a href="https://github.com/airblade/vim-gitgutter">vim-gitgutter</a> 专精于 git，<a href="https://github.com/mhinz/vim-signify">vim-signify</a> 则可以配合所有常见的版本控制工具使用。</p>
+<h3 id="_46">配置文件详解</h3>
 <p>之前我们有介绍过 Vim 配置文件的基本用法，为了更加顺手地使用 Vim，还需要更进一步的优化配置文件。<br />
 以下配置的条目可以直接复制到 vimrc 文件中保存。</p>
 <p>更加个性的配置则可以在网上寻找其他人共享的配置文件、配置项目，也可以参考我的<a href="https://github.com/calon/vim/blob/master/_vimrc">配置文件</a>。<br />
 切记不要一把全部复制到自己的配置中，一定要先弄明白再取用。</p>
 <p>另外，强烈建议入门者不要在配置上花费太多时间，你会发现这是个时间的无底洞，严重影响你的生产力——除非你知道自己在干什么，而且现有的配置实在难用。</p>
-<h4 id="_46">使用鼠标</h4>
+<h3 id="_47">使用鼠标</h3>
 <p>如果一时无法适应纯键盘操作，可以允许所有模式下使用鼠标：</p>
 <pre><code>if has('mouse')
   set mouse=a
 endif
 </code></pre>
-<h4 id="_47">补全</h4>
+<h4 id="_48">补全</h4>
 <p>命令行补全功能挺重要，建议打开：<br />
 <code>set wildmenu</code></p>
-<h4 id="_48">编码</h4>
+<h4 id="_49">编码</h4>
 <p>处理中文总是不免要和编码问题打交道，以下的配置经过长期验证，另外再加上 <a href="http://www.vim.org/scripts/script.php?script_id=1708">fencview 插件</a>，日常使用甚少出现乱码情况（除非使用的中文字体有缺失）。</p>
 <p>首先作为活跃在21世纪的文本编辑器，文件编码请尽量默认统一使用 UTF-8：<br />
 <code>set encoding=utf-8</code></p>
@@ -1084,7 +1120,7 @@ language messages zh_CN.utf-8
 <p>在 encoding 设为某种 Unicode 编码时，Unicode 字符集中某些同时在东西方语言中使用的字符，如省略号、破折号、书名号和全角引号，可以设置为与中文字符宽度一致，即 ASCII 字符的两倍宽度：<br />
 <code>set ambiwidth=double</code></p>
 <p>如果转换文件编码遇到问题，请输入 <code>:version</code> 命令，查看当前的 Vim 是否带 +iconv/dyn 特性编译，并寻找、下载 iconv.dll 文件放到 vim.exe 所在的目录。</p>
-<h4 id="_49">搜索</h4>
+<h4 id="_50">搜索</h4>
 <p>判断在 gVim 下自动开启语法高亮和搜索结果高亮：</p>
 <pre><code>if &amp;t_Co &gt; 2 || has("gui_running")
    syntax on
@@ -1098,17 +1134,17 @@ endif
 set smartcase
 </code></pre>
 <p>比如输入 <code>/vim</code> 搜索会匹配到 vim/Vim/VIM 等等，而搜索 <code>Vim</code> 就只会匹配 Vim。</p>
-<h4 id="_50">剪贴板</h4>
+<h4 id="_51">剪贴板</h4>
 <p>Vim 默认使用内置的剪贴板（寄存器）存放复制粘贴的内容，一开始上手会很不习惯操作系统中复制的内容为什么无法粘贴到编辑器中。<br />
 如果要与 Windows 系统共用剪贴板，需要在配置文件中加上以下内容：<br />
 <code>set clipboard=unnamed</code></p>
-<h4 id="_51">缓冲区</h4>
+<h4 id="_52">缓冲区</h4>
 <p>退出缓冲区时，建议选择隐藏而不是将其从内存中卸载。否则来回编辑多个缓冲区，又不想马上保存，会比较烦人。<br />
 而且一定要选择弹出对话框进行提示，避免在没有提示时一不小心执行了影响文件的重要操作。</p>
 <pre><code>set hidden
 set confirm
 </code></pre>
-<h4 id="_52">其他配置</h4>
+<h4 id="_53">其他配置</h4>
 <p><code>set nocompatible</code><br />
 不使用兼容模式。兼容模式会启用一些与 Vi 兼容的设置，有的设置项会关闭一些高级特性，所以建议不采用兼容模式。</p>
 <p><code>source $VIMRUNTIME/mswin.vim</code><br />
@@ -1133,10 +1169,12 @@ set confirm
 在当前缓冲区高亮光标所在行，如果窗口不是当前缓冲区，则不会高亮光标所在行。</p>
 <p><code>set backspace=2</code><br />
 设置为2表示退格会删除缩进、换行符和进入插入模式时的起始位置，与通常的习惯保持一致。</p>
-<p><code>autocmd BufReadPost *</code><br />
-<code>\ if line("'\"") &gt; 0 &amp;&amp; line("'\"") &lt;= line("$") |</code><br />
-<code>\ exe "normal! g</code>\"" |<code></code>     \ endif`<br />
-打开文件时回到上次光标所在的位置。</p>
+<pre><code>autocmd BufReadPost *
+     \ if line(&quot;'\&quot;&quot;) &gt; 0 &amp;&amp; line(&quot;'\&quot;&quot;) &lt;= line(&quot;$&quot;) |
+     \ exe &quot;normal! g`\&quot;&quot; |
+     \ endif
+</code></pre>
+<p>打开文件时回到上次光标所在的位置。</p>
 <pre><code>if has(&quot;autocmd&quot;)
   &quot;autocmd bufwritepost .vimrc source $MYVIMRC
   autocmd GUIEnter * simalt ~x
@@ -1156,8 +1194,24 @@ endif
 退出时隐藏而不是卸载缓冲区。<br />
 也就是说，切换到其他缓冲区时，并不会将当前缓冲区中的内容从内存中移除，而是相当于在后台保留，还可以在缓冲区列表中看到，并且切换过去继续编辑。<br />
 但要注意，如果当前缓冲区修改后再隐藏，可能会因此忘记保存。虽然退出 Vim 时会提示保存。</p>
-<h2 id="_53">插件系统</h2>
-<h3 id="_54">安装插件</h3>
+<h3 id="_54">寄存器与宏</h3>
+<p>Vim 使用寄存器（<em>registers</em>）来保存一些特殊的内容，比如复制、剪切、删除的文本，曾经输入过的命令和查找过的内容，等等。使用 <code>"</code>+<code>寄存器名</code>+<code>指令动作</code> 来操作寄存器。</p>
+<p>比如 <code>+</code> 寄存器是与系统剪贴板相通的，<code>"+y</code> 和 <code>"+p</code> 指令就是分别将内容复制到系统剪贴板和粘贴过来。<code>":p</code> 可以粘贴上一次执行的命令，<code>"/p</code> 可以粘贴上一次搜索内容。<br />
+<code>0</code> 寄存器保留了最近一次复制的内容，不会被删除的内容覆盖掉。<br />
+输入 <code>:registers</code> 命令可以查看各个寄存器中的内容。</p>
+<p><code>a-z</code> 26个寄存器分配给用户自己使用，比如 <code>"ay</code> 和 <code>"ap</code> 就是用寄存器 <code>a</code> 代替了默认的剪贴板寄存器，自然也可以用来记录宏命令。</p>
+<p>宏（<em>macro</em>）在文本编辑器中是一连串操作的记录，用于将重复的人工操作变为可以重复执行的自动操作。</p>
+<p>使用 <code>q</code>+<code>寄存器名字</code> 指令来开始录制宏，比如 <code>qa</code> 表示接下来的操作指令都会记录到寄存器 <code>a</code> 中。<br />
+再按一次 <code>q</code> 来结束录制，真正写入寄存器中。</p>
+<p>使用 <code>@</code>+<code>寄存器名字</code> 来执行保存的宏，比如 <code>@a</code>。</p>
+<p>只要你知道某个操作对应的指令是什么和如何写入指定的寄存器，就能自己编写包含该指令的宏，简单的宏命令非常容易搞定。</p>
+<p>比如输入 <code>ggVGd</code>，其指令含义是全选并删除——<code>gg</code> 跳到首行，<code>V</code> 选中整行，<code>G</code> 跳到尾行，<code>d</code> 删除。<br />
+选中这些内容后，执行 <code>"ay</code> 指令，表示复制到 <code>a</code> 寄存器中。<br />
+再使用 <code>@a</code> 执行 <code>a</code> 寄存器的内容，于是就删除了整个文件的内容。</p>
+<p>也可以使用 <code>:let @a=ggVGd</code> 直接写入寄存器 <code>a</code>。</p>
+<p>宏还有多种高级用法，比如多次执行、对选中的行全部执行等等，在用的到的时候再去查找教程</p>
+<h2 id="_55">插件系统</h2>
+<h3 id="_56">安装插件</h3>
 <p>尽管 Vim 本身已经非常强大，有的人甚至不装任何插件也能如鱼得水，但有个好插件确实能事半功倍。</p>
 <h3 id="pathogen">手动插件管理 Pathogen</h3>
 <p>Vim 的插件最开始都是没有管理功能的，下载下来的插件压缩包中，通常会有 plugin、doc、syntax、autoload 等目录，需要用户自己复制到 Vim 安装目录下对应的同名目录中。</p>
@@ -1174,18 +1228,18 @@ Pathogen 插件本身（pathogen.vim）放置在 <code>vimfiles\autoload</code> 
 <h3 id="vim-plug">高级插件管理 Vim-plug</h3>
 <p><a href="https://github.com/junegunn/vim-plug">Vim-Plug 插件</a> 能够通过修改配置文件来自动下载、安装、更新和移除在 Github 上有仓库的插件（官网的插件在 Github 都有<a href="https://github.com/vim-scripts">镜像仓库</a>，所以基本不用愁没有仓库来源），适合更懒的用户。<br />
 详细用法请阅读插件自己的帮助文档。</p>
-<p>类似的插件还有 Vundle、Neo Bundle、Vim Addon Manager 等等，用户可以根据使用习惯和插件兼容情况挑选一款最适合自己的。</p>
-<h2 id="_55">其他技巧和常见问题</h2>
+<p>类似的插件还有 Vundle、Neo Bundle、Vim Addon Manager、Packer、Lazy（只能用于 Neovim） 等等，用户可以根据使用习惯和插件兼容情况挑选一款最适合自己的。</p>
+<h2 id="_57">技巧和常见问题</h2>
 <h3 id="html">转换为 HTML</h3>
 <p>输入 <code>:TOhtml</code> 命令（注意大小写！）可以将当前编辑的纯文本文档转换为 HTML 文档，并尽量保持在 Vim 看到的样式。<br />
 也就是说，Vim 中的主题配色、语法高亮、折叠效果等都可以在输出的 HTML 文档中保留下来。<br />
 其中保留折叠效果需要在配置文件中加上这么一句：<br />
 <code>let g:html_dynamic_folds = 1</code></p>
-<h3 id="_56">重新选择</h3>
+<h3 id="_58">重新选择</h3>
 <p>Vim 有个神奇的功能：重新选择上一次选择的文字。<br />
 比如说，选中过一段文字，因为种种原因做了其他非选择类的操作，清除了选择范围，之后如果在普通模式下输入 <code>gv</code> 指令，就会重新选择最后一次选择的文字。</p>
-<p><img alt="" src="images/reselect.gif" /></p>
-<h3 id="_57">文件编码转换</h3>
+<p><img alt="重新选择" src="images/reselect.gif" /></p>
+<h3 id="_59">文件编码转换</h3>
 <p>尽管现在许多文档都默认使用 UTF-8 编码，但中文文档仍有许多是 GB2312 的编码，有时候我们也会需要在多种编码（<em>fileencoding</em>）之间转换。<br />
 Vim 没有提供现成的编码转换菜单，可以用命令搞定：</p>
 <p>转换为 GB2312 编码：<br />
@@ -1193,22 +1247,14 @@ Vim 没有提供现成的编码转换菜单，可以用命令搞定：</p>
 <p>转换为 UTF-8 编码：<br />
 <code>set fileencoding=utf-8</code></p>
 <p>该命令改变的是文件写入磁盘时的编码。</p>
-<h3 id="_58">缩进控制</h3>
+<h3 id="_60">缩进控制</h3>
 <p>如果你开启了文件类型判断（<em>filetype</em>），而当前文件类型有自动缩进规则，例如 XML、HTML 等，那么可以用 <code>=</code> 命令叫 Vim 自动应用缩进规则。<br />
 手动控制缩进也有快捷方法，在配置文件中写入以下两行内容：</p>
 <pre><code>vnoremap &lt; &lt;gv
 vnoremap &gt; &gt;gv
 </code></pre>
-<h3 id="_59">寄存器和宏</h3>
-<p>如果想要对可视化选中文本执行宏的话，可以执行 <code>:normal @a</code>(或者其他你所定义的宏的名字)，这条命令会临时将你切换到普通模式，针对选中的每一行执行宏命令。</p>
-<p>只要你知道某个操作对应的指令是什么，就能自己编写包含该指令的宏，简单的宏命令非常容易搞定。</p>
-<h2 id="_60">其他资源</h2>
-<p><a href="https://www.vim.org/">官方网站</a><br />
-<a href="https://vimawesome.com/">Vimawesome</a><br />
-<a href="https://t.me/vimzh_real">Telegram 群组</a><br />
-<a href="https://www.reddit.com/r/vim/">Reddit Vim 版块</a><br />
-<a href="https://neovim.io/">Neovim</a></p>
-<h1 id="_61">常用指令、命令总结</h1>
+<h2 id="_61">常用指令、命令总结</h2>
+<p>以下是最常用的指令和命令的清单，方便记忆：</p>
 <table>
 <thead>
 <tr>
@@ -1404,7 +1450,7 @@ vnoremap &gt; &gt;gv
 </tr>
 </tbody>
 </table>
-<h1 id="_62">技巧</h1>
+<h3 id="_62">其他技巧</h3>
 <p>重复上一个命令 .<br />
 % 在对应括号跳转<br />
 排序和剔重 sort u<br />
@@ -1412,7 +1458,6 @@ vnoremap &gt; &gt;gv
 Ctrl-A / Ctrl-X<br />
 对齐 Tabularize<br />
 自动缩进和重排版<br />
-缩进调整 &lt;&gt; Ctrl-T Ctrl-D<br />
 删除光标前文字 Ctrl-U<br />
 大小写切换 ~<br />
 前后跳转 Ctrl-I/O<br />
@@ -1424,9 +1469,21 @@ Ctrl-A / Ctrl-X<br />
 Gundo 多分支撤销<br />
 拼接两行 J<br />
 重复上一行 Ctrl-Y Ctrl-X Ctrl-L<br />
-K keyword 查看关键字释义</p>
-<p>:![cmd] 直接执行终端命令，选择后执行结果替换选择的部分</p>
-<p>http://vim.wikia.com/wiki/Vim_Tips_Wiki</p>
+K keyword 查看关键字释义<br />
+:![cmd] 直接执行终端命令，选择后执行结果替换选择的部分<br />
+普通模式下 <code>q:</code> 查看命令历史清单<br />
+如果想要对可视化选中文本执行宏的话，可以执行 <code>:normal @a</code>（或者其他你所定义的宏的名字），这条命令会临时将你切换到普通模式，针对选中的每一行执行宏命令。</p>
+<h2 id="vim_5">Vim 社区和其他资源</h2>
+<p><a href="https://www.vim.org/">Vim 官方网站</a><br />
+<a href="https://vimawesome.com/">Vim Awesome</a><br />
+<a href="https://t.me/vimzh_real">Telegram 群组</a><br />
+<a href="https://neovim.io/">Neovim 官方网站</a><br />
+<a href="https://vi.stackexchange.com/">Vi and Vim Stack Exchange</a><br />
+<a href="http://groups.google.com/group/vim_use/about">用户邮件讨论组</a><br />
+<a href="https://www.reddit.com/r/vim/">Vim</a> 与 <a href="https://www.reddit.com/r/neovim/">Neovim</a> 的 Reddit 论坛<br />
+<a href="https://t.me/vimzh_real">Telegram Vim 中文用户群</a><br />
+<a href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">Vim Tips Wiki </a><br />
+<a href="http://www.rayninfo.co.uk/vimtips.html">Best of Vim Tips</a></p>
               
             </div>
           </div><footer>
@@ -1454,20 +1511,21 @@ K keyword 查看关键字释义</p>
     
   </span>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme_extra.js" defer></script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>
 </html>
 
 <!--
-MkDocs version : 1.4.0
-Build Date UTC : 2022-10-08 15:37:40.321977+00:00
+MkDocs version : 1.5.2
+Build Date UTC : 2023-08-06 15:46:49.809759+00:00
 -->
